@@ -12,6 +12,7 @@ Plug 'dense-analysis/ale'
 
 Plug 'mbbill/undotree'
 Plug 'preservim/nerdcommenter'
+Plug 'jiangmiao/auto-pairs'
 Plug 'editorconfig/editorconfig-vim'
 
 Plug 'easymotion/vim-easymotion'
