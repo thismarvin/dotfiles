@@ -2,16 +2,22 @@ syntax on
 
 set number
 set nowrap
-set encoding=utf-8
+set undofile
+set confirm
+set smartindent
+set ignorecase
+set smartcase
 set clipboard=unnamedplus 
+set mouse=a
+
 set tabstop=2
 set shiftwidth=2
-set noswapfile
-set smartindent
-set undodir=~/AppData/Local/nvim/undodir
-set undofile
-set incsearch
-set list lcs=tab:\|\ 
+
+if has("win32")
+	set isfname-=:
+	" Unfortunately, the following line messes up a bunch of plugins. :(
+	""set shell=powershell
+endif
 
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
