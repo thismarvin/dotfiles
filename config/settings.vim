@@ -10,6 +10,9 @@ set smartcase
 set clipboard=unnamedplus 
 set mouse=a
 
+set splitright
+set splitbelow
+
 set tabstop=2
 set shiftwidth=2
 

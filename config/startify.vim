@@ -7,6 +7,3 @@ let g:startify_lists = [
 	\ { 'type': 'bookmarks', 'header': ['   Bookmarks'] },
 	\ ]
 
-autocmd VimEnter * :Startify
-autocmd VimEnter * :Vexplore
-

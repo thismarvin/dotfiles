@@ -154,5 +154,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " COC Explorer
 nnoremap <silent><leader>e :CocCommand explorer<CR>
+
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 

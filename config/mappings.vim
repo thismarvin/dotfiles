@@ -8,6 +8,9 @@ nnoremap <C-a> ggVG
 inoremap <C-s> <Esc>:w<CR>
 vnoremap <C-s> <Esc>:w<CR>
 
+" Faster way to create a new terminal.
+nnoremap <leader>: :vs<CR>:terminal<CR>i
+
 " Faster way to exit terminal mode.
 tnoremap <C-s> <C-\><C-N>
 
