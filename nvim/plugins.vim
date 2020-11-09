@@ -6,11 +6,12 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-dispatch'
-Plug 'preservim/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
 
 " QOL.
 Plug 'easymotion/vim-easymotion'
+Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
@@ -28,6 +29,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-startify'
 Plug 'wfxr/minimap.vim'
 Plug 'preservim/tagbar'
+Plug 'ryanoasis/vim-devicons'
 
 " Color Themes.
 Plug 'sainnhe/gruvbox-material'
