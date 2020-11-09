@@ -70,3 +70,9 @@ nnoremap Y y$
 " Change the working directory to that of the current open file.
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
+" Toggle the built in spell checker.
+nnoremap <silent><F12> :setlocal spell!<CR>
+
+" Cycle through splits.
+nnoremap <silent><S-Tab> :wincmd w<CR>
+
