@@ -9,6 +9,7 @@ set ignorecase
 set smartcase
 set clipboard=unnamedplus 
 set mouse=a
+set spelllang=en_us
 
 set splitright
 set splitbelow
@@ -22,6 +23,10 @@ if has("win32")
 	""set shell=powershell
 endif
 
-autocmd InsertEnter * set cul
-autocmd InsertLeave * set nocul
+augroup my_commands
+  autocmd!
+	" Only show the cursor line when in insert mode.
+	autocmd InsertEnter * set cursorline
+	autocmd InsertLeave * set nocursorline
+augroup end
 
