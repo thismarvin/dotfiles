@@ -1,2 +1,2 @@
-nnoremap <silent><C-u> :UndotreeShow<Enter>
+nnoremap <silent><C-u> :UndotreeShow<CR>
 
