@@ -1,3 +1,6 @@
+" Change default keys to reflect Workman.
+let g:EasyMotion_keys = 'ashtgyneoiqdrwbjfupzxmcvkl'
+
 " Disable default mappings.
 let g:EasyMotion_do_mapping = 0 
 
@@ -7,7 +10,7 @@ let g:EasyMotion_startofline = 0
 " Turn on case-insensitive feature.
 let g:EasyMotion_smartcase = 1
 
-nnoremap s <Plug>(easymotion-overwin-f2)
+nmap s <Plug>(easymotion-overwin-f2)
 
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
