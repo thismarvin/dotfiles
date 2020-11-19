@@ -3,6 +3,7 @@ syntax on
 set number
 set nowrap
 set undofile
+set autoread
 set confirm
 set smartindent
 set ignorecase
@@ -10,17 +11,13 @@ set smartcase
 set clipboard=unnamedplus 
 set mouse=a
 set spelllang=en_us
-
 set splitright
 set splitbelow
-
 set tabstop=2
 set shiftwidth=2
 
 if has("win32")
 	set isfname-=:
-	" Unfortunately, the following line messes up a bunch of plugins. :(
-	""set shell=powershell
 endif
 
 augroup my_commands
@@ -28,5 +25,7 @@ augroup my_commands
 	" Only show the cursor line when in insert mode.
 	autocmd InsertEnter * set cursorline
 	autocmd InsertLeave * set nocursorline
+	" After yanking a selection, highlight the selection for a bit.
+	autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup='Visual', timeout=200 }
 augroup end
 
