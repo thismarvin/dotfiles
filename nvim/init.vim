@@ -9,14 +9,17 @@ source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/netrw.vim
 source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/coc.vim
+source $HOME/.config/nvim/treesitter.vim
 source $HOME/.config/nvim/omnisharp.vim
 source $HOME/.config/nvim/undotree.vim
-source $HOME/.config/nvim/startify.vim
 source $HOME/.config/nvim/easymotion.vim
-
-" Commands
-source $HOME/.config/nvim/commands.vim
+source $HOME/.config/nvim/startify.vim
+source $HOME/.config/nvim/lightline.vim
 
 " Styling
 source $HOME/.config/nvim/styling.vim
+
+" Misc. 
+source $HOME/.config/nvim/functions.vim
+source $HOME/.config/nvim/commands.vim
 
