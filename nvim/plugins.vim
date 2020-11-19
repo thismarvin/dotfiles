@@ -2,6 +2,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
 " Essentials.
 Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
@@ -10,9 +11,9 @@ Plug 'editorconfig/editorconfig-vim'
 
 " QOL.
 Plug 'easymotion/vim-easymotion'
-Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
-Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " COC.
@@ -21,7 +22,6 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " C# Support.
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-"Plug 'tpope/vim-dispatch'
 Plug 'dense-analysis/ale'
 
 " Interface. 
