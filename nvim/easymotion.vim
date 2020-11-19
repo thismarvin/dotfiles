@@ -10,7 +10,7 @@ let g:EasyMotion_startofline = 0
 " Turn on case-insensitive feature.
 let g:EasyMotion_smartcase = 1
 
-nmap s <Plug>(easymotion-overwin-f2)
+nmap s <Plug>(easymotion-overwin-f)
 
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
