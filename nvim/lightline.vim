@@ -1,18 +1,52 @@
 set noshowmode
 
 let g:lightline = {
-    \ 'colorscheme' : 'gruvbox_material',
     \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'modified' ] , [ 'longfilename' ] ],
-    \   'right': [ [], [ 'lineinfo' ] ]
+    \   'left': [ [ 'mode', 'paste' ], [ 'gitbranch' ] , [ 'readonly', 'filename' ] ],
+    \   'right': [ [], [ 'fileicon' ] ] 
     \ },
-    \ 'component': {
-    \   'longfilename': '%{FiletypeIcon()} %F',
-    \   'gitbranch': ' %{FugitiveHead()}'
+    \ 'inactive': {
+    \   'left': [ [ 'filename' ] ],
+    \   'right': [ [] ] 
+    \ },
+    \ 'component_function': {
+    \   'filename' : 'LightlineFileName',
+    \   'fileicon' : 'LightlineFiletypeIcon',
+    \   'gitbranch' : 'LightlineGitBranch'
+    \ },
+    \ 'mode_map': {
+    \   'n' : 'N',
+    \   'i' : 'I',
+    \   'R' : 'R',
+    \   'v' : 'V',
+    \   'V' : 'VL',
+    \   "\<C-v>": 'VB',
+    \   'c' : 'C',
+    \   's' : 'S',
+    \   'S' : 'SL',
+    \   "\<C-s>": 'SB',
+    \   't': 'T',
     \ }
     \ }
 
-function! FiletypeIcon()
-  return strlen(&filetype) ? WebDevIconsGetFileTypeSymbol() : ''
+function! LightlineFileName()
+    if winwidth(0) < 70
+        return ''
+    endif
+    let filename = expand('%:t')
+    let modified = &modifiable && &modified ? ' +' : ''
+    return filename . modified 
+endfunction
+
+function! LightlineFiletypeIcon()
+    return strlen(&filetype) ? WebDevIconsGetFileTypeSymbol() : ''
+endfunction
+
+function! LightlineGitBranch()
+    if winwidth(0) < 70
+        return ''
+    endif
+    let branch = FugitiveHead()
+    return branch == '' ? '' : ' ' . branch
 endfunction
 
