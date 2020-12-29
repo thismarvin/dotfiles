@@ -1,19 +1,19 @@
 " Change default keys to reflect Workman.
-let g:EasyMotion_keys = 'ashtgyneoiqdrwbjfupzxmcvkl'
+let g:EasyMotion_keys = 'ashgyeoqdrwbfup;zxmcvkltni'
 
 " Disable default mappings.
-let g:EasyMotion_do_mapping = 0 
+let g:EasyMotion_do_mapping = 0
 
 " Keep cursor column when using a JK motion.
-let g:EasyMotion_startofline = 0 
+let g:EasyMotion_startofline = 0
 
 " Turn on case-insensitive feature.
 let g:EasyMotion_smartcase = 1
 
 nmap s <Plug>(easymotion-overwin-f)
 
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
+map <Leader><Right> <Plug>(easymotion-lineforward)
+map <Leader><Down> <Plug>(easymotion-j)
+map <Leader><Up> <Plug>(easymotion-k)
+map <Leader><Left> <Plug>(easymotion-linebackward)
 
