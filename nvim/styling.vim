@@ -1,5 +1,5 @@
 if has('termguicolors')
-	set termguicolors
+  set termguicolors
 endif
 
 " Makes the background transparent.
@@ -11,7 +11,7 @@ endfunction
 
 function! ThemeGruvboxMaterial()
   let g:gruvbox_material_background = 'medium'
-  let g:gruvbox_material_enable_bold = 1   
+  let g:gruvbox_material_enable_bold = 1
   let g:gruvbox_material_diagnostic_line_highlight = 1
   colorscheme gruvbox-material
 
