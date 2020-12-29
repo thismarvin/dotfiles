@@ -17,12 +17,8 @@ nnoremap U <C-r>
 " Alternative means of closing a window.
 nnoremap <C-q> :q<CR>
 
-" Slightly easier way to enter window navigation.
+" Easier way to enter window navigation.
 nnoremap <leader>w <C-w>
-
-" Alternative means of creating a new split window.
-nnoremap <silent><C-w>e :wincmd v<CR>
-nnoremap <silent><leader>we :wincmd v<CR>
 
 " Emulates vscode's line moving functionality.
 nnoremap <silent><S-Down> :m .+1<CR>==
@@ -58,7 +54,7 @@ nnoremap <leader>O O<Esc>
 nnoremap n nzz
 nnoremap N Nzz
 
-" Make Y move like D and C
+" Make Y act like D and C.
 nnoremap Y y$
 
 " Change the working directory to that of the current open file.
