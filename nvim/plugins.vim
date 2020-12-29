@@ -14,17 +14,23 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 
 " COC.
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " C# Support.
 Plug 'OmniSharp/omnisharp-vim'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
 Plug 'dense-analysis/ale'
 
-" Interface. 
+" JavaScript Support.
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
+  \ }
+
+" Interface.
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-startify'
 Plug 'wfxr/minimap.vim'
