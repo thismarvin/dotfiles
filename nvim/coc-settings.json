@@ -1,9 +1,0 @@
-{
-	"diagnostic.displayByAle": true,
-
-	"explorer.width": 35,
-	"explorer.previewAction.onHover" : false,
-	"explorer.file.showHiddenFiles": true,
-	"explorer.icon.enableNerdfont": true
-}
-
