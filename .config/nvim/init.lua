@@ -13,6 +13,7 @@ require "nvim-autopairs.settings"
 require "sneak.settings"
 require "startify.settings"
 require "nvim-tree.settings"
+require "rooter.settings"
 
 require "lsp.mappings"
 require "fzf.mappings"
