@@ -44,6 +44,7 @@ return require("packer").startup(function()
   use { "AndrewRadev/splitjoin.vim" }
   use { "norcalli/nvim-colorizer.lua" }
   use { "windwp/nvim-autopairs" }
+  use { "ii14/exrc.vim" }
 
   -- Interface
   use {
