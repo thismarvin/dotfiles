@@ -1,4 +1,4 @@
-local map = vim.api.nvim_set_keymap
+local map = require("utils").map
 local options = { noremap = true, silent = true }
 
 map("n", "<leader>p", ":Files<CR>", options)

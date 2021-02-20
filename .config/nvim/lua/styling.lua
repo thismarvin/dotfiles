@@ -1,16 +1,6 @@
-local command = vim.api.nvim_command
-
-local function execute(expression)
-    vim.api.nvim_exec(expression, true)
-end
-
-local function has(key)
-    return vim.fn.has(key) == 1
-end
-
-local function set(expression)
-    command(string.format("set " .. expression))
-end
+local execute = require("utils").execute
+local has = require("utils").has
+local set = require("utils").set
 
 if has("termguicolors") then
     set("termguicolors")

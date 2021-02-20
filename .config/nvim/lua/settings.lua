@@ -1,12 +1,5 @@
-local command = vim.api.nvim_command
-
-local function execute(expression)
-    vim.api.nvim_exec(expression, true)
-end
-
-local function set(expression)
-    command(string.format("set " .. expression))
-end
+local execute = require("utils").execute
+local set = require("utils").set
 
 set("number")
 set("nowrap")

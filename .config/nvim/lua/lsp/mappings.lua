@@ -1,4 +1,4 @@
-local map = vim.api.nvim_set_keymap
+local map = require("utils").map
 local options = { noremap = true, silent = true }
 
 map("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>zz", options)
@@ -24,6 +24,3 @@ end
 
 -- Use <Tab> and <S-Tab> to navigate through popup menu
 map('i', '<Tab>', 'v:lua.smart_tab()', { noremap = true, silent = true, expr = true })
-
-map("i", "<CR>", [[compe#confirm("<CR>")]], { noremap = true, silent = true, expr = true })
--- map("i", "<leader>c", "compe#complete()", { noremap = true, silent = true, expr = true })

@@ -1,3 +1,3 @@
-local map = vim.api.nvim_set_keymap
+local map = require("utils").map
 
 map("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })

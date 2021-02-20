@@ -1,6 +1,4 @@
-local function execute(expression)
-    vim.api.nvim_exec(expression, true)
-end
+local execute = require("utils").execute
 
 math.randomseed(os.time())
 local function ten()
@@ -20,7 +18,6 @@ local header = {
 }
 
 vim.g.startify_enable_special = 0
-vim.g.startify_change_to_dir = 0
 vim.g.startify_custom_header = header
 vim.g.startify_lists = {
   { type = 'dir',       header = { '   MRU ' .. vim.fn.getcwd() }},
@@ -33,7 +30,7 @@ vim.g.startify_bookmarks = {
   { p = '~/Projects' }
 }
 
--- I broke something and FileType Icons won't show up unless this is enabled?
+-- I broke something and startify's FileType Icons won't show up unless this is enabled?
 execute([[
 function! StartifyEntryFormat()
     return 'WebDevIconsGetFileTypeSymbol(absolute_path) .  " " .  entry_path'
