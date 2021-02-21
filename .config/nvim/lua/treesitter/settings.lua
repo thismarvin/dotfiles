@@ -1,4 +1,4 @@
-local treesitter = require 'nvim-treesitter.configs'
+local treesitter = require "nvim-treesitter.configs"
 
 treesitter.setup {
   ensure_installed = { "css", "html", "javascript", "json", "lua", "python", "rust", "toml" },
