@@ -45,6 +45,7 @@ return require("packer").startup(function()
   use { "norcalli/nvim-colorizer.lua" }
   use { "windwp/nvim-autopairs" }
   use { "ii14/exrc.vim" }
+  use { "rafcamlet/nvim-luapad" }
 
   -- Interface
   use {

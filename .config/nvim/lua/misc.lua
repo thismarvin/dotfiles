@@ -12,3 +12,5 @@ augroup end
 -- Mappings for my jank plugin!
 map("n", "<C-t>", [[:lua require("nvim-term").toggle()<CR>]], { noremap=true, silent=true })
 map("t", "<C-t>", [[<C-\><C-n>:lua require("nvim-term").toggle()<CR>]], { noremap=true, silent=true })
+
+-- TODO: Deal with compe + autopairs <CR> mapping...
