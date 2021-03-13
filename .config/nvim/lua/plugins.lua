@@ -1,6 +1,5 @@
 return require("packer").startup(function()
-  -- Packer can manage itself as an optional plugin.
-  use { "wbthomason/packer.nvim", opt = true }
+  use { "wbthomason/packer.nvim" }
 
   -- Better syntax highlighting.
   use { "nvim-treesitter/nvim-treesitter" }
