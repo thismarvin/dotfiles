@@ -1,4 +1,4 @@
-return require("packer").startup(function()
+require("packer").startup(function()
   use { "wbthomason/packer.nvim" }
 
   -- Better syntax highlighting.
@@ -36,15 +36,20 @@ return require("packer").startup(function()
   use { "tpope/vim-surround" }
   use { "tpope/vim-fugitive" }
   use { "tpope/vim-abolish" }
-  use { "psliwka/vim-smoothie" }
   use { "airblade/vim-rooter" }
   use { "editorconfig/editorconfig-vim" }
   use { "terryma/vim-expand-region" }
   use { "AndrewRadev/splitjoin.vim" }
   use { "norcalli/nvim-colorizer.lua" }
-  use { "windwp/nvim-autopairs" }
   use { "ii14/exrc.vim" }
   use { "rafcamlet/nvim-luapad" }
+
+  -- Tryout
+  use { "phaazon/hop.nvim" }
+  use { "karb94/neoscroll.nvim" }
+  use { "kevinhwang91/nvim-bqf" }
+  use { "windwp/nvim-spectre" }
+  use { "tversteeg/registers.nvim" }
 
   -- Interface
   use {
@@ -64,3 +69,25 @@ return require("packer").startup(function()
   -- Color Schemes
   use { "sainnhe/gruvbox-material" }
 end)
+
+require "plugins.netrw.settings"
+require "plugins.treesitter.settings"
+require "plugins.lsp.settings"
+require "plugins.lsp.servers.ccls"
+require "plugins.lsp.servers.rust_analyzer"
+require "plugins.nvim-compe.settings"
+require "plugins.fzf.settings"
+require "plugins.nvim-lspfuzzy.settings"
+require "plugins.kommentary.settings"
+require "plugins.neoscroll.settings"
+require "plugins.rooter.settings"
+require "plugins.sneak.settings"
+require "plugins.startify.settings"
+require "plugins.nvim-tree.settings"
+require "plugins.hop.settings"
+
+require "plugins.lsp.mappings"
+require "plugins.nvim-compe.mappings"
+require "plugins.fzf.mappings"
+require "plugins.nvim-tree.mappings"
+require "plugins.hop.mappings"

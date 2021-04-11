@@ -1,3 +1,7 @@
+local set = require("utils").set
+
+set("completeopt=menu,menuone,noselect")
+
 require("compe").setup {
   enabled = true;
   autocomplete = true;

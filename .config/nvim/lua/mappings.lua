@@ -3,6 +3,7 @@ local map = require("utils").map
 vim.g.mapleader = " "
 
 map("n", ";", ":", { noremap = true })
+map("v", ";", ":", { noremap = true })
 map("n", "<C-s>", ":up<CR>", { noremap = true, silent = true })
 map("i", "<C-s>", "<Esc>:up<CR>", { noremap = true, silent = true })
 map("v", "<C-s>", "<Esc>:up<CR>", { noremap = true, silent = true })
@@ -19,3 +20,5 @@ map("n", "Y", "y$", { noremap = true })
 map("n", "<F12>", ":setlocal spell!<CR>", { noremap = true, silent = true })
 map("n", "<PageDown>", "<C-d>", {})
 map("n", "<PageUp>", "<C-u>", {})
+map("v", "<PageDown>", "<C-d>", {})
+map("v", "<PageUp>", "<C-u>", {})

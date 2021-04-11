@@ -1,5 +1,6 @@
 local gl = require("galaxyline")
 local gls = gl.section
+local vcs = require("galaxyline.provider_vcs")
 
 local colors = {
   bg = "#32302f",
@@ -56,21 +57,29 @@ local get_vim_mode = function()
 
 end
 
+local get_git_branch = function()
+  local branch = vcs.get_git_branch()
+  if branch == nil then
+    return ""
+  end
+  return string.format("   %s ", branch)
+end
+
 local get_filename = function()
   local filename = vim.fn.expand("%:t")
   local modified = ""
   if vim.bo.modifiable and vim.bo.modified then
-    modified = " +" 
+    modified = " +"
   end
-  return filename .. modified
+  return string.format("  %s%s", filename, modified)
 end
 
 local get_file_icon = function()
-  if string.len(vim.bo.filetype) > 0 then 
+  if string.len(vim.bo.filetype) > 0 then
     local icon = vim.call("WebDevIconsGetFileTypeSymbol")
     return string.format("  %s ", icon)
-  else 
-    return "" 
+  else
+    return ""
   end
 end
 
@@ -100,11 +109,9 @@ gls.left[2] = {
 
 gls.left[3] = {
   GitBranch = {
-    provider = { "GitBranch" },
+    provider = get_git_branch,
     condition = valid_buffer,
-    highlight = {colors.fg, "#504945" },
-    icon = "   ",
-    separator = " "
+    highlight = { colors.fg, "#504945" },
   }
 }
 
@@ -112,7 +119,7 @@ gls.left[4] = {
   FileName = {
     provider = get_filename,
     condition = valid_buffer,
-    highlight = {colors.fg, colors.bg }
+    highlight = { colors.fg, colors.bg }
   }
 }
 

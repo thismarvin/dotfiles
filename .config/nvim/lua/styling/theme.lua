@@ -15,8 +15,7 @@ function! TransparentMode()
 endfunction
 
 function! ThemeGruvboxMaterial()
-  let g:gruvbox_material_background = 'hard'
-  let g:gruvbox_material_diagnostic_line_highlight = 1
+  let g:gruvbox_material_background = "hard"
 
   colorscheme gruvbox-material
 
@@ -24,6 +23,11 @@ function! ThemeGruvboxMaterial()
   hi LspDiagnosticsVirtualTextWarning guifg=#d8a657
   hi LspDiagnosticsVirtualTextInformation guifg=#89b482
   hi LspDiagnosticsVirtualTextHint guifg=#89b482
+
+  hi HopNextKey guifg=#ea6962
+  hi HopNextKey1 guifg=#7daea3
+  hi HopNextKey2 guifg=#e78a4e
+  hi HopUnmatched guifg=#928374
 endfunction
 
 augroup styling
