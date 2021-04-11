@@ -1,0 +1,9 @@
+#!/bin/sh
+
+SCREENSHOT_FILENAME=$(date +"%s_screenshot.png")
+CORRUPT_FILENAME=$(date +"%s_corrupt.png")
+
+grim /tmp/$SCREENSHOT_FILENAME
+corrupter /tmp/$SCREENSHOT_FILENAME /tmp/$CORRUPT_FILENAME
+swaylock -f -i /tmp/$CORRUPT_FILENAME
+rm /tmp/$CORRUPT_FILENAME

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+SCREENSHOT_FILENAME=$(date +"%s_screenshot.png")
+
+grim -g "$(slurp)" /tmp/$SCREENSHOT_FILENAME
+wl-copy < /tmp/$SCREENSHOT_FILENAME
+rm /tmp/$SCREENSHOT_FILENAME
