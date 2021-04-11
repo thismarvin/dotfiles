@@ -12,5 +12,8 @@ a repository for all my configuration files.
 - [fd](https://github.com/sharkdp/fd)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [bat](https://github.com/sharkdp/bat)
+- [delta](https://github.com/dandavison/delta)
 - [bottom](https://github.com/clementtsang/bottom)
 - [sd](https://github.com/chmln/sd)
+- [nnn](https://github.com/jarun/nnn)
+
