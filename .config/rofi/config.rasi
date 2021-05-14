@@ -1,5 +1,8 @@
 configuration {
 	theme: "gruvbox";
+	width: 500;
+	lines: 18;
+	font: "Fira Code Medium 12";
 
 	kb-select-1: "";
 	kb-select-2: "";

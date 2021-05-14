@@ -11,14 +11,17 @@ format="""\
 [time]
 disabled = false
 format = "\\[[$time]($style)\\]"
+style = "yellow"
 time_format = "%T"
 
 [directory]
 format = "\\[[$path]($style)\\]"
-style = "cyan"
+style = "green"
 
 [git_branch]
 format = " [$symbol$branch]($style)"
+# style = "#ecf0c1"
+style = "bright-white"
 
 [git_status]
 format = "( [\\[$all_status$ahead_behind\\]]($style))"
@@ -28,3 +31,6 @@ diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 
 [character]
 format = " $symbol "
+success_symbol = "[=>](green)"
+error_symbol = "[=>](red)"
+vicmd_symbol = "[<-](yellow)"
