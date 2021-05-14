@@ -1,1 +1,3 @@
-require("neoscroll").setup()
+require("neoscroll").setup({
+	easing = true,
+})

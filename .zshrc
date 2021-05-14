@@ -55,7 +55,9 @@ function n ()
 }
 
 # Aliases
-alias edit="nvim ~/.zshrc"
+alias edit_zshrc="nvim ~/.zshrc"
+alias edit_zshenv="nvim ~/.zshenv"
+alias edit_vimrc="nvim ~/.config/nvim/init.lua"
 alias reload="source ~/.zshrc"
 alias ..="cd .."
 alias v="nvim"
@@ -63,6 +65,7 @@ alias l="exa --icons"
 alias ll="exa -l --icons"
 alias lla="exa -la --icons"
 alias n="n -eo"
+alias ssh="kitty +kitten ssh"
 
 # Misc.
 eval "$(starship init zsh)"

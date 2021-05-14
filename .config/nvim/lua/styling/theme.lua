@@ -3,8 +3,10 @@ local has = require("utils").has
 local set = require("utils").set
 
 if has("termguicolors") then
-    set("termguicolors")
+	set("termguicolors")
 end
+
+execute([[colorscheme groovemat]])
 
 execute([[
 " Makes the background transparent.
@@ -24,14 +26,11 @@ function! ThemeGruvboxMaterial()
   hi LspDiagnosticsVirtualTextInformation guifg=#89b482
   hi LspDiagnosticsVirtualTextHint guifg=#89b482
 
-  hi HopNextKey guifg=#ea6962
-  hi HopNextKey1 guifg=#7daea3
-  hi HopNextKey2 guifg=#e78a4e
-  hi HopUnmatched guifg=#928374
+  hi HopNextKey guifg=#ea6962 gui=NONE
+  hi HopNextKey1 guifg=#7daea3 gui=NONE
+  hi HopNextKey2 guifg=#e78a4e gui=NONE
+  hi HopUnmatched guifg=#928374 gui=NONE
+	
+	hi IndentBlanklineContextChar guifg=#928374
 endfunction
-
-augroup styling
-  autocmd!
-  autocmd VimEnter * silent call ThemeGruvboxMaterial()
-augroup end
 ]])

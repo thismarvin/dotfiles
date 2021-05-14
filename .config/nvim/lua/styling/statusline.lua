@@ -3,7 +3,7 @@ local gls = gl.section
 local vcs = require("galaxyline.provider_vcs")
 
 local colors = {
-  bg = "#32302f",
+  bg = "#282828",
   fg = "#d4be98",
 }
 
@@ -14,7 +14,6 @@ local mode_map = {
   v = "V",
   V = "VL",
   [""] = "VB",
-  c = "C",
   ["r?"] = ":CONFIRM",
   rm = "--MORE",
   R  = "R",
@@ -28,13 +27,13 @@ local mode_map = {
 }
 
 local mode_color = {
-  n = "#9D8F7C",
-  i = "#7DAEA3",
-  v = "#E78A4E",
-  V = "#E78A4E",
-  [""] = "#E78A4E",
-  c = "#A9B665",
-  t = "#D3869B",
+  n = "#9d8f7c",
+  i = "#7daea3",
+  v = "#e78a4e",
+  V = "#e78a4e",
+  [""] = "#e78a4e",
+  c = "#a9b665",
+  t = "#d3869b",
 }
 
 local valid_buffer = function()
@@ -49,7 +48,7 @@ local get_vim_mode = function()
   end
 
   local color = mode_color[vim.fn.mode()]
-  if color == nil then 
+  if color == nil then
     color = mode_color[1]
   end
   vim.api.nvim_command(string.format("hi GalaxyMode guibg=%s", color))
@@ -76,8 +75,8 @@ end
 
 local get_file_icon = function()
   if string.len(vim.bo.filetype) > 0 then
-    local icon = vim.call("WebDevIconsGetFileTypeSymbol")
-    return string.format("  %s ", icon)
+    -- local icon = vim.call("WebDevIconsGetFileTypeSymbol")
+    return string.format("  %s ", vim.bo.filetype)
   else
     return ""
   end
@@ -87,7 +86,7 @@ local get_diagnostics = function()
   local errors = vim.lsp.diagnostic.get_count(0, "Error")
   local warnings = vim.lsp.diagnostic.get_count(0, "Warning")
   if errors + warnings == 0 then
-    return " "
+    return "  "
   end
   return string.format(" %s  %s ", errors, warnings)
 end
@@ -96,6 +95,7 @@ end
 gls.left[1] = {
   Mode = {
     provider = get_vim_mode,
+    condition = valid_buffer,
     highlight = { colors.bg },
   }
 }
@@ -103,6 +103,7 @@ gls.left[1] = {
 gls.left[2] = {
   Filler = {
     provider = function() return "" end,
+    condition = valid_buffer,
     highlight = { "#9D8F7C", colors.bg },
   }
 }
@@ -127,6 +128,7 @@ gls.left[4] = {
 gls.right[1] = {
   Diagnostics = {
     provider = get_diagnostics,
+    condition = valid_buffer,
     highlight = { colors.fg, colors.bg },
   }
 }
@@ -134,6 +136,7 @@ gls.right[1] = {
 gls.right[2] = {
   FileIcon = {
     provider = get_file_icon,
+    condition = valid_buffer,
     highlight = { colors.fg, "#504945" },
   }
 }

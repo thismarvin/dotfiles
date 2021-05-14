@@ -1,6 +1,5 @@
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.npm-global/bin:$PATH"
 export LC_ALL="en_US.UTF-8"
-
 export TERMINAL="kitty"
 export EDITOR="nvim"
 export VISUAL="nvim"

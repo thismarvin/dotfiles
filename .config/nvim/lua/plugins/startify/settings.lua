@@ -17,6 +17,7 @@ local header = {
   ten(),
 }
 
+vim.g.startify_change_to_dir = 0
 vim.g.startify_enable_special = 0
 vim.g.startify_custom_header = header
 vim.g.startify_lists = {
