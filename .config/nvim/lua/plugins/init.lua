@@ -24,6 +24,13 @@ require("packer").startup(function()
 			require "plugins.lsp.servers.tsserver"
 		end
 	}
+  use {
+		"folke/lsp-trouble.nvim",
+		config = function()
+			require("plugins.lsp-trouble.settings")
+			require("plugins.lsp-trouble.mappings")
+		end
+	}
 
 	-- Support for autocompletion and snippets.
   use {
@@ -127,13 +134,6 @@ require("packer").startup(function()
   -- use { "kevinhwang91/nvim-bqf" }
 	-- use { "blackCauldron7/surround.nvim" }
   use { "windwp/nvim-spectre" }
-  use {
-		"folke/lsp-trouble.nvim",
-		config = function()
-			require("plugins.lsp-trouble.settings")
-			require("plugins.lsp-trouble.mappings")
-		end
-	}
 	use { "simrat39/symbols-outline.nvim" }
   use {
 		"notomo/gesture.nvim",
@@ -147,6 +147,14 @@ require("packer").startup(function()
 		branch = "lua",
 		config = function()
 			require("plugins.indent-blankline.settings")
+		end
+	}
+
+	use {
+		"mattn/emmet-vim",
+		ft = { "html" },
+		config = function ()
+			
 		end
 	}
 
