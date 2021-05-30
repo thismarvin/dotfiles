@@ -12,7 +12,7 @@ end
 
 function M.colorscheme()
   vim.cmd("highlight clear")
-  if vim.fn.exists("syntax_on") then
+	 if vim.fn.exists("syntax_on") then
 		vim.cmd("syntax reset")
 	end
 
@@ -180,12 +180,12 @@ function M.colorscheme()
 		TSFloat = { fg = palette.purple, bg = palette.none }, -- For floats.
 		TSFunction = { fg = palette.green, bg = palette.none }, -- For function (calls and definitions).
 		TSFuncBuiltin = { fg = palette.yellow, bg = palette.none }, -- For builtin functions: `table.insert` in Lua.
-		TSFuncMacro = { fg = palette.yellow, bg = palette.none }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
+		TSFuncMacro = { fg = palette.cyan, bg = palette.none }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
 		TSInclude = { fg = palette.purple, bg = palette.none }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
 		TSKeyword = { fg = palette.red, bg = palette.none }, -- For keywords that don't fall in previous categories.
 		TSKeywordFunction = { fg = palette.red, bg = palette.none }, -- For keywords used to define a fuction.
 		TSKeywordOperator = { fg = palette.red, bg = palette.none }, -- for operators that are English words, e.g. `and`, `as`, `or`.
-		TSLabel = { fg = palette.white, bg = palette.none }, -- For labels: `label:` in C and `:label:` in Lua.
+		TSLabel = { fg = palette.green, bg = palette.none }, -- For labels: `label:` in C and `:label:` in Lua.
 		TSMethod = { fg = palette.green, bg = palette.none }, -- For method calls and definitions.
 		TSNamespace = { fg = palette.blue, bg = palette.none }, -- For identifiers referring to modules and namespaces.
 		TSNone = { fg = palette.none, bg = palette.none }, -- For no highlighting.
@@ -338,4 +338,3 @@ function M.colorscheme()
 end
 
 return M
-
