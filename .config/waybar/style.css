@@ -1,5 +1,5 @@
 * {
-    font-family: "CaskaydiaCove Nerd Font", sans-serif;
+    font-family: "Fira Code Medium", sans-serif;
     font-size: 13px;
 }
 
@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     color: #ffffff;
 }
 
@@ -39,4 +39,8 @@ window#waybar {
 {
     background-color: transparent;
     color: #ffffff;
+}
+
+#battery {
+		padding: 0 8px 0 0;
 }

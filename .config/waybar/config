@@ -2,7 +2,7 @@
     "layer": "top",
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": [],
+    "modules-right": ["battery"],
     "sway/window": {
         "max-length": 100
     },
@@ -18,4 +18,7 @@
     "clock": {
         "format": "{:%R}"
     },
+		"battery": {
+			"format": "{capacity}%"
+		}
 }
