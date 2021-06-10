@@ -133,9 +133,13 @@ require("packer").startup(function()
 		end
 	}
   use { "tversteeg/registers.nvim" }
+	use {
+		"mattn/emmet-vim",
+		ft = { "html" },
+		config = function() end
+	}
 
   -- Tryout
-  -- use { "kevinhwang91/nvim-bqf" }
 	-- use { "blackCauldron7/surround.nvim" }
   use { "windwp/nvim-spectre" }
 	use { "simrat39/symbols-outline.nvim" }
@@ -154,11 +158,12 @@ require("packer").startup(function()
 		end
 	}
 
+
 	use {
-		"mattn/emmet-vim",
-		ft = { "html" },
+		"michaelb/sniprun",
+		run = "bash ./install.sh",
 		config = function ()
-			
+			require("plugins.sniprun.mappings")
 		end
 	}
 
