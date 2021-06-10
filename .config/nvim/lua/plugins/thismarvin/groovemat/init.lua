@@ -46,9 +46,9 @@ function M.colorscheme()
 		CursorIM = {}, -- like Cursor, but used when in IME mode |CursorIM|
 		CursorLine = { fg = palette.none, bg = palette.light_gray }, -- Screen-line at the cursor, when 'cursorline' is set.
 		CursorLineNr = { fg = palette.gray, bg = palette.none }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-		DiffAdd = { fg = palette.none, bg = palette.green }, -- diff mode: Added line |diff.txt|
-		DiffChange = { fg = palette.none, bg = palette.blue }, -- diff mode: Changed line |diff.txt|
-		DiffDelete = { fg = palette.none, bg = palette.red }, -- diff mode: Deleted line |diff.txt|
+		DiffAdd = { fg = palette.black, bg = palette.green }, -- diff mode: Added line |diff.txt|
+		DiffChange = { fg = palette.black, bg = palette.blue }, -- diff mode: Changed line |diff.txt|
+		DiffDelete = { fg = palette.black, bg = palette.red }, -- diff mode: Deleted line |diff.txt|
 		DiffText = {}, -- diff mode: Changed text within a changed line |diff.txt|
 		Directory = { fg = palette.purple, bg = palette.none }, -- directory names (and other special names in listings)
 		EndOfBuffer = { fg = palette.light_black, bg = palette.none }, -- filler lines (~) after the end of the buffer.
