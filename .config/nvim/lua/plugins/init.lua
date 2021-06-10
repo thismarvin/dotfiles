@@ -4,6 +4,10 @@ require("packer").startup(function()
   -- Better syntax highlighting.
   use {
 		"nvim-treesitter/nvim-treesitter",
+		requires = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			"RRethy/nvim-treesitter-textsubjects"
+		},
 		config = function()
 			require("plugins.treesitter.settings")
 		end
