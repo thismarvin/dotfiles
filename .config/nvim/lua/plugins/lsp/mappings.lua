@@ -11,15 +11,13 @@ map("n", "<leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>", options)
 map("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", options)
 map("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", options)
 map("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", options)
--- map("n", "<leader>sr", "<CMD>lua vim.lsp.buf.references()<CR>", options)
--- map("n", "<leader>ss", "<CMD>lua vim.lsp.buf.document_symbol()<CR>", options)
 
 local function t(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
+	return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
 function _G.smart_tab()
-    return vim.fn.pumvisible() == 1 and t"<C-n>" or t"<Tab>"
+	return vim.fn.pumvisible() == 1 and t"<C-n>" or t"<Tab>"
 end
 
 -- Use <Tab> and <S-Tab> to navigate through popup menu
