@@ -84,9 +84,9 @@ function M.colorscheme()
 		StatusLine = { fg = palette.light_gray, bg = palette.white }, -- status line of current window
 		StatusLineNC = { fg = palette.light_gray, bg = palette.gray }, -- status lines of not-current windows
 		Substitute = {}, -- |:substitute| replacement text highlighting
-		TabLine = {}, -- tab pages line, not active tab page label
-		TabLineFill = {}, -- tab pages line, where there are no labels
-		TabLineSel = {}, -- tab pages line, active tab page label
+		TabLine = { fg = palette.gray, bg = palette.yeet }, -- tab pages line, not active tab page label
+		TabLineFill = { fg = palette.light_gray, bg = palette.none }, -- tab pages line, where there are no labels
+		TabLineSel = { fg = palette.white, bg = palette.dark_gray }, -- tab pages line, active tab page label
 		TermCursor = {}, -- cursor in a focused terminal
 		TermCursorNC = {}, -- cursor in an unfocused terminal
 		Title = {}, -- titles for output from ":set all", ":autocmd" etc.
@@ -284,9 +284,9 @@ function M.colorscheme()
 		IndentBlanklineContextChar = { fg = palette.gray, bg = palette.none }, -- Highlight of indent character when base of current context.
 
 		-- -- GitSigns
-		GitSignsAdd = { fg = palette.black, bg = palette.green }, -- diff mode: Added line |diff.txt|
-		GitSignsChange = { fg = palette.black, bg = palette.blue }, -- diff mode: Added line |diff.txt|
-		GitSignsDelete = { fg = palette.black, bg = palette.red }, -- diff mode: Added line |diff.txt|
+		GitSignsAdd = { fg = palette.green, bg = palette.black }, -- diff mode: Added line |diff.txt|
+		GitSignsChange = { fg = palette.blue, bg = palette.black }, -- diff mode: Added line |diff.txt|
+		GitSignsDelete = { fg = palette.red, bg = palette.black }, -- diff mode: Added line |diff.txt|
 
 		-- -- Hop
 		HopNextKey = { fg = palette.red, bg = palette.none },
@@ -305,36 +305,37 @@ function M.colorscheme()
 		highlight(group, colors)
 	end
 
-	vim.defer_fn(function()
-		for group, colors in pairs(lsp_highlight_groups) do
-			highlight(group, colors)
-		end
+	-- vim.defer_fn(function()
+	-- end, 0)
 
-		for group, colors in pairs(treesitter_highlight_groups) do
-			highlight(group, colors)
-		end
+	for group, colors in pairs(lsp_highlight_groups) do
+		highlight(group, colors)
+	end
 
-		for group, colors in pairs(plugin_highlight_groups) do
-			highlight(group, colors)
-		end
+	for group, colors in pairs(treesitter_highlight_groups) do
+		highlight(group, colors)
+	end
 
-		vim.g.terminal_color_0 = palette.black
-		vim.g.terminal_color_1 = palette.red
-		vim.g.terminal_color_2 = palette.green
-		vim.g.terminal_color_3 = palette.yellow
-		vim.g.terminal_color_4 = palette.blue
-		vim.g.terminal_color_5 = palette.purple
-		vim.g.terminal_color_6 = palette.cyan
-		vim.g.terminal_color_7 = palette.white
-		vim.g.terminal_color_8 = palette.gray
-		vim.g.terminal_color_9 = palette.red
-		vim.g.terminal_color_10 = palette.green
-		vim.g.terminal_color_11 = palette.yellow
-		vim.g.terminal_color_12 = palette.blue
-		vim.g.terminal_color_13 = palette.purple
-		vim.g.terminal_color_14 = palette.cyan
-		vim.g.terminal_color_15 = palette.white
-	end, 0)
+	for group, colors in pairs(plugin_highlight_groups) do
+		highlight(group, colors)
+	end
+
+	vim.g.terminal_color_0 = palette.black
+	vim.g.terminal_color_1 = palette.red
+	vim.g.terminal_color_2 = palette.green
+	vim.g.terminal_color_3 = palette.yellow
+	vim.g.terminal_color_4 = palette.blue
+	vim.g.terminal_color_5 = palette.purple
+	vim.g.terminal_color_6 = palette.cyan
+	vim.g.terminal_color_7 = palette.white
+	vim.g.terminal_color_8 = palette.gray
+	vim.g.terminal_color_9 = palette.red
+	vim.g.terminal_color_10 = palette.green
+	vim.g.terminal_color_11 = palette.yellow
+	vim.g.terminal_color_12 = palette.blue
+	vim.g.terminal_color_13 = palette.purple
+	vim.g.terminal_color_14 = palette.cyan
+	vim.g.terminal_color_15 = palette.white
 end
 
 return M
