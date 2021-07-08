@@ -26,6 +26,7 @@ require("packer").startup(function()
 			require "plugins.lsp.servers.rust_analyzer"
 			require "plugins.lsp.servers.sumneko_lua"
 			require "plugins.lsp.servers.tsserver"
+			require "plugins.lsp.servers.omnisharp"
 		end
 	}
   use {
