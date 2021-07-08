@@ -1,6 +1,7 @@
 local map = require("utils").map
 
 vim.g.mapleader = " "
+map("n", "<Leader>", "<Nop>", { noremap = true })
 
 map("n", ";", ":", { noremap = true })
 map("v", ";", ":", { noremap = true })
