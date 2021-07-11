@@ -21,14 +21,12 @@ function M.colorscheme()
 	local palette = {
 		none = "NONE",
 		white = "#d4be99",
-		-- black = "#0f111b",
 		black = "#1a1b26",
 		light_black = "#1d2021",
-		light_gray = "#282828",
+		dark_gray = "#282828",
 		yeet = "#373336",
-		-- temp = "#423d39",
-		dark_gray = "#504945",
-		gray = "#928374",
+		gray = "#504945",
+		light_gray = "#928374",
 		red = "#ea6962",
 		green = "#a9b665",
 		yellow = "#d8a657",
@@ -39,13 +37,13 @@ function M.colorscheme()
 	}
 
 	local builtin_highlight_groups = {
-		ColorColumn = { fg = palette.none, bg = palette.light_gray }, -- used for the columns set with 'colorcolumn'
+		ColorColumn = { fg = palette.none, bg = palette.dark_gray }, -- used for the columns set with 'colorcolumn'
 		Conceal = {}, -- placeholder characters substituted for concealed
-		CursorColumn = { fg = palette.white, bg = palette.light_gray }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-		Cursor = {}, -- character under the cursor
+		CursorColumn = { fg = palette.white, bg = palette.dark_gray }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+		Cursor = { fg = palette.black, bg = palette.white }, -- character under the cursor
 		CursorIM = {}, -- like Cursor, but used when in IME mode |CursorIM|
-		CursorLine = { fg = palette.none, bg = palette.light_gray }, -- Screen-line at the cursor, when 'cursorline' is set.
-		CursorLineNr = { fg = palette.gray, bg = palette.none }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+		CursorLine = { fg = palette.none, bg = palette.dark_gray }, -- Screen-line at the cursor, when 'cursorline' is set.
+		CursorLineNr = { fg = palette.light_gray, bg = palette.none }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		DiffAdd = { fg = palette.black, bg = palette.green }, -- diff mode: Added line |diff.txt|
 		DiffChange = { fg = palette.black, bg = palette.blue }, -- diff mode: Changed line |diff.txt|
 		DiffDelete = { fg = palette.black, bg = palette.red }, -- diff mode: Deleted line |diff.txt|
@@ -53,56 +51,56 @@ function M.colorscheme()
 		Directory = { fg = palette.purple, bg = palette.none }, -- directory names (and other special names in listings)
 		EndOfBuffer = { fg = palette.light_black, bg = palette.none }, -- filler lines (~) after the end of the buffer.
 		ErrorMsg = { fg = palette.red, bg = palette.none }, -- error messages on the command line
-		FoldColumn = { fg = palette.dark_gray, bg = palette.none }, -- 'foldcolumn'
-		Folded = { fg = palette.dark_gray, bg = palette.light_gray }, -- line used for closed folds
+		FoldColumn = { fg = palette.gray, bg = palette.none }, -- 'foldcolumn'
+		Folded = { fg = palette.gray, bg = palette.dark_gray }, -- line used for closed folds
 		IncSearch = {}, -- 'incsearch' highlighting; also used for the text replaced with "s///c"
 		lCursor = {}, -- the character under the cursor when |language-mapping| is used.
-		LineNr = { fg = palette.dark_gray, bg = palette.none }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+		LineNr = { fg = palette.gray, bg = palette.none }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 		MatchParen = { fg = palette.blue, bg = palette.none }, -- The character under the cursor or just before it, if it is a paired bracket, and its match.
 		ModeMsg = {}, -- 'showmode' message (e.g., "-- INSERT --")
 		MoreMsg = { fg = palette.yellow, bg = palette.none }, -- |more-prompt|
 		MsgArea = {}, -- Area for messages and cmdline
 		MsgSeparator = {}, -- Separator for scrolled messages, `msgsep` flag of 'display'
-		NonText = { fg = palette.dark_gray, bg = palette.none }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text.
+		NonText = { fg = palette.gray, bg = palette.none }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text.
 		Normal = { fg = palette.white, bg = palette.none }, -- normal text
 		NormalFloat = { fg = palette.white, bg = palette.yeet }, -- Normal text in floating windows.
 		NormalNC = { fg = palette.white, bg = palette.none }, -- normal text in non-current windows.
-		Pmenu = { fg = palette.white, bg = palette.dark_gray }, -- Popup menu: normal item.
-		PmenuSbar = { fg = palette.white, bg = palette.dark_gray }, -- Popup menu: scrollbar.
-		PmenuSel = { fg = palette.dark_gray, bg = palette.white }, -- Popup menu: selected item.
+		Pmenu = { fg = palette.white, bg = palette.gray }, -- Popup menu: normal item.
+		PmenuSbar = { fg = palette.white, bg = palette.gray }, -- Popup menu: scrollbar.
+		PmenuSel = { fg = palette.gray, bg = palette.white }, -- Popup menu: selected item.
 		PmenuThumb = { fg = palette.white, bg = palette.white }, -- Popup menu: Thumb of the scrollbar.
 		Question = { fg = palette.purple, bg = palette.none }, -- |hit-enter| prompt and yes/no questions
 		QuickFixLine = {}, -- Current |quickfix| item in the quickfix window. Combined with CursorLine when the cursor is there.
 		Search = { fg = palette.black, bg = palette.green }, -- Last search pattern highlighting (see 'hlsearch').
 		-- SignColumn = { fg = palette.none, bg = palette.light_gray }, -- column where |signs| are displayed
 		SignColumn = { fg = palette.none, bg = palette.none }, -- column where |signs| are displayed
-		SpecialKey = { fg = palette.dark_gray, bg = palette.none }, -- Unprintable characters: text displayed differently from what it really is.
+		SpecialKey = { fg = palette.gray, bg = palette.none }, -- Unprintable characters: text displayed differently from what it really is.
 		SpellBad = {}, -- Word that is not recognized by the spellchecker. |spell|
 		SpellCap = {}, -- Word that should start with a capital. |spell|
 		SpellLocal = {}, -- Word that is recognized by the spellchecker as one that is used in another region.
 		SpellRare = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.
-		StatusLine = { fg = palette.light_gray, bg = palette.white }, -- status line of current window
-		StatusLineNC = { fg = palette.light_gray, bg = palette.gray }, -- status lines of not-current windows
+		StatusLine = { fg = palette.dark_gray, bg = palette.white }, -- status line of current window
+		StatusLineNC = { fg = palette.dark_gray, bg = palette.light_gray }, -- status lines of not-current windows
 		Substitute = {}, -- |:substitute| replacement text highlighting
-		TabLine = { fg = palette.gray, bg = palette.yeet }, -- tab pages line, not active tab page label
-		TabLineFill = { fg = palette.light_gray, bg = palette.none }, -- tab pages line, where there are no labels
-		TabLineSel = { fg = palette.white, bg = palette.dark_gray }, -- tab pages line, active tab page label
+		TabLine = { fg = palette.light_gray, bg = palette.yeet }, -- tab pages line, not active tab page label
+		TabLineFill = { fg = palette.dark_gray, bg = palette.none }, -- tab pages line, where there are no labels
+		TabLineSel = { fg = palette.white, bg = palette.gray }, -- tab pages line, active tab page label
 		TermCursor = {}, -- cursor in a focused terminal
 		TermCursorNC = {}, -- cursor in an unfocused terminal
 		Title = {}, -- titles for output from ":set all", ":autocmd" etc.
 		-- VertSplit = { fg = palette.light_black, bg = palette.dark_gray }, -- the column separating vertically split windows
 		VertSplit = { fg = palette.black, bg = palette.yeet }, -- the column separating vertically split windows
 		Visual = { fg = palette.none, bg = palette.yeet }, -- Visual mode selection
-		VisualNOS = { fg = palette.none, bg = palette.light_gray }, -- Visual mode selection when vim is "Not Owning the Selection".
+		VisualNOS = { fg = palette.none, bg = palette.dark_gray }, -- Visual mode selection when vim is "Not Owning the Selection".
 		WarningMsg = { fg = palette.yellow, bg = palette.none }, -- warning messages
 		Whitespace = { fg = palette.red, bg = palette.none }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
-		WildMenu = { fg = palette.white, bg = palette.dark_gray }, -- current match in 'wildmenu' completion
+		WildMenu = { fg = palette.white, bg = palette.gray }, -- current match in 'wildmenu' completion
 	}
 
 	local syntax_highlight_groups = {
 		Boolean = { fg = palette.purple, bg = palette.none }, -- a boolean constant: TRUE, false
 		Character = { fg = palette.orange, bg = palette.none }, -- a character constant: 'c', '\n'
-		Comment = { fg = palette.dark_gray, bg = palette.none }, -- any comment
+		Comment = { fg = palette.gray, bg = palette.none }, -- any comment
 		Conditional = { fg = palette.red, bg = palette.none }, -- if, then, else, endif, switch, etc.
 		Constant = { fg = palette.purple, bg = palette.none }, -- any constant
 		Debug = { fg = palette.white, bg = palette.none }, -- debugging statements
@@ -124,7 +122,7 @@ function M.colorscheme()
 		PreProc = { fg = palette.purple, bg = palette.none }, -- generic Preprocessor
 		Repeat = { fg = palette.red, bg = palette.none }, -- for, do, while, etc.
 		SpecialChar = { fg = palette.white, bg = palette.none }, -- special character in a constant
-		SpecialComment = { fg = palette.gray, bg = palette.none }, -- special things inside a comment
+		SpecialComment = { fg = palette.light_gray, bg = palette.none }, -- special things inside a comment
 		Special = { fg = palette.orange, bg = palette.none }, -- any special symbol
 		Statement = { fg = palette.orange, bg = palette.none }, -- any statement
 		StorageClass = { fg = palette.red, bg = palette.none }, -- static, register, volatile, etc.
@@ -138,10 +136,10 @@ function M.colorscheme()
 	}
 
 	local lsp_highlight_groups = {
-		LspDiagnosticsDefaultError = { fg = palette.none, bg = palette.dark_gray }, -- Used as the base highlight group.
-		LspDiagnosticsDefaultWarning = { fg = palette.none, bg = palette.dark_gray }, -- Used as the base highlight group.
-		LspDiagnosticsDefaultInformation = { fg = palette.none, bg = palette.dark_gray }, -- Used as the base highlight group.
-		LspDiagnosticsDefaultHint = { fg = palette.none, bg = palette.dark_gray }, -- Used as the base highlight group.
+		LspDiagnosticsDefaultError = { fg = palette.none, bg = palette.gray }, -- Used as the base highlight group.
+		LspDiagnosticsDefaultWarning = { fg = palette.none, bg = palette.gray }, -- Used as the base highlight group.
+		LspDiagnosticsDefaultInformation = { fg = palette.none, bg = palette.gray }, -- Used as the base highlight group.
+		LspDiagnosticsDefaultHint = { fg = palette.none, bg = palette.gray }, -- Used as the base highlight group.
 		LspDiagnosticsVirtualTextError = { fg = palette.red, bg = palette.none }, -- Used for "Error" diagnostic virtual text.
 		LspDiagnosticsVirtualTextWarning = { fg = palette.yellow, bg = palette.none }, -- Used for "Warning" diagnostic virtual text.
 		LspDiagnosticsVirtualTextInformation = { fg = palette.blue, bg = palette.none }, -- Used for "Information" diagnostic virtual text.
@@ -158,9 +156,9 @@ function M.colorscheme()
 		LspDiagnosticsSignWarning = { fg = palette.blue, bg = palette.black }, -- Used for "Warning" signs in sign column.
 		LspDiagnosticsSignInformation = { fg = palette.blue, bg = palette.black }, -- Used for "Information" signs in sign column.
 		LspDiagnosticsSignHint = { fg = palette.yellow, bg = palette.black }, -- Used for "Hint" signs in sign column.
-		LspReferenceText = { fg = palette.none, bg = palette.light_gray }, -- Used for highlighting "text" references.
-		LspReferenceRead = { fg = palette.none, bg = palette.light_gray }, -- Used for highlighting "read" references.
-		LspReferenceWrite = { fg = palette.none, bg = palette.light_gray }, -- Used for highlighting "write" references.
+		LspReferenceText = { fg = palette.none, bg = palette.dark_gray }, -- Used for highlighting "text" references.
+		LspReferenceRead = { fg = palette.none, bg = palette.dark_gray }, -- Used for highlighting "read" references.
+		LspReferenceWrite = { fg = palette.none, bg = palette.dark_gray }, -- Used for highlighting "write" references.
 	}
 
 	local treesitter_highlight_groups = {
@@ -168,7 +166,7 @@ function M.colorscheme()
 		TSAttribute = { fg = palette.white, bg = palette.none }, -- (unstable) TODO: docs
 		TSBoolean = { fg = palette.purple, bg = palette.none }, -- For booleans.
 		TSCharacter = { fg = palette.orange, bg = palette.none }, -- For characters.
-		TSComment = { fg = palette.dark_gray, bg = palette.none }, -- For comment blocks.
+		TSComment = { fg = palette.gray, bg = palette.none }, -- For comment blocks.
 		TSConditional = { fg = palette.red, bg = palette.none }, -- For keywords related to conditionnals.
 		TSConstant = { fg = palette.purple, bg = palette.none }, -- For constants
 		TSConstBuiltin = { fg = palette.purple, bg = palette.none }, -- For constant that are built in the language: `nil` in Lua.
@@ -194,9 +192,9 @@ function M.colorscheme()
 		TSParameter = { fg = palette.white, bg = palette.none }, -- For parameters of a function.
 		TSParameterReference = { fg = palette.white, bg = palette.none }, -- For references to parameters of a function.
 		TSProperty = { fg = palette.green, bg = palette.none }, -- Same as `TSField`.
-		TSPunctDelimiter = { fg = palette.gray, bg = palette.none }, -- For delimiters ie: `.`
-		TSPunctBracket = { fg = palette.gray, bg = palette.none }, -- For brackets and parens.
-		TSPunctSpecial = { fg = palette.gray, bg = palette.none }, -- For special punctutation that does not fall in the catagories before.
+		TSPunctDelimiter = { fg = palette.light_gray, bg = palette.none }, -- For delimiters ie: `.`
+		TSPunctBracket = { fg = palette.light_gray, bg = palette.none }, -- For brackets and parens.
+		TSPunctSpecial = { fg = palette.light_gray, bg = palette.none }, -- For special punctutation that does not fall in the catagories before.
 		TSRepeat = { fg = palette.red, bg = palette.none }, -- For keywords related to loops.
 		TSString = { fg = palette.yellow, bg = palette.none }, -- For strings.
 		TSStringRegex = { fg = palette.orange, bg = palette.none }, -- For regexes.
@@ -226,75 +224,48 @@ function M.colorscheme()
 	}
 
 	local plugin_highlight_groups = {
-		-- -- NvimTree
+		-- NvimTree
 		-- NvimTreeSymlink
 		NvimTreeFolderName = { fg = palette.white, bg = palette.none },
 		NvimTreeRootFolder = { fg = palette.purple, bg = palette.none },
 		NvimTreeFolderIcon = { fg = palette.blue, bg = palette.none },
-		NvimTreeEmptyFolderName = { fg = palette.gray, bg = palette.none },
+		NvimTreeEmptyFolderName = { fg = palette.light_gray, bg = palette.none },
 		NvimTreeOpenedFolderName = { fg = palette.purple, bg = palette.none },
 		-- NvimTreeExecFile
 		-- NvimTreeOpenedFile
 		-- NvimTreeSpecialFile
 		NvimTreeImageFile = { fg = palette.white, bg = palette.none },
 		-- NvimTreeMarkdownFile
-		NvimTreeIndentMarker = { fg = palette.dark_gray, bg = palette.none },
+		NvimTreeIndentMarker = { fg = palette.gray, bg = palette.none },
 
-		-- NvimTreeLicenseIcon
-		-- NvimTreeYamlIcon
-		-- NvimTreeTomlIcon
-		-- NvimTreeGitignoreIcon = { fg = palette.red, bg = palette.none },
-		-- NvimTreeJsonIcon
-
-		-- NvimTreeLuaIcon = { fg = palette.blue, bg = palette.none },
-		-- NvimTreePythonIcon = { fg = palette.blue, bg = palette.none },
-		-- NvimTreeShellIcon = { fg = palette.blue, bg = palette.none },
-		-- NvimTreeJavascriptIcon = { fg = palette.yellow, bg = palette.none },
-		-- NvimTreeCIcon = { fg = palette.blue, bg = palette.none },
-		-- NvimTreeReactIcon = { fg = palette.blue, bg = palette.none },
-		-- NvimTreeHtmlIcon = { fg = palette.orange, bg = palette.none },
-		-- NvimTreeRustIcon = { fg = palette.blue, bg = palette.none },
-		-- NvimTreeVimIcon = { fg = palette.green, bg = palette.none },
-		-- NvimTreeTypescriptIcon = { fg = palette.blue, bg = palette.none },
-
-		-- NvimTreeGitDirty
-		-- NvimTreeGitStaged
-		-- NvimTreeGitMerge
-		-- NvimTreeGitRenamed
-		-- NvimTreeGitNew
-		-- NvimTreeGitDeleted
-
-		-- NvimTreeFileDirty
-		-- NvimTreeFileStaged
-		-- NvimTreeFileMerge
-		-- NvimTreeFileRenamed
-		-- NvimTreeFileNew
-		-- NvimTreeFileDeleted
-
-		-- NvimTreeNormal = { fg = palette.none, bg = palette.light_black },
-		-- NvimTreeEndOfBuffer
-		-- NvimTreeCursorLine
-		-- NvimTreeVertSplit
-		-- NvimTreeCursorColumn
-
-		-- -- Indent-Blankline
-		IndentBlanklineChar = { fg = palette.dark_gray, bg = palette.none }, -- Highlight of indent character.
+		-- Indent-Blankline
+		IndentBlanklineChar = { fg = palette.gray, bg = palette.none }, -- Highlight of indent character.
 		-- IndentBlanklineSpaceChar = {}, -- Highlight of space character.
 		-- IndentBlanklineSpaceCharBlankline = {}, -- Highlight of space character on blank lines.
-		IndentBlanklineContextChar = { fg = palette.gray, bg = palette.none }, -- Highlight of indent character when base of current context.
+		IndentBlanklineContextChar = { fg = palette.light_gray, bg = palette.none }, -- Highlight of indent character when base of current context.
 
 		-- -- GitSigns
 		GitSignsAdd = { fg = palette.green, bg = palette.black }, -- diff mode: Added line |diff.txt|
 		GitSignsChange = { fg = palette.blue, bg = palette.black }, -- diff mode: Added line |diff.txt|
 		GitSignsDelete = { fg = palette.red, bg = palette.black }, -- diff mode: Added line |diff.txt|
 
-		-- -- Hop
-		HopNextKey = { fg = palette.red, bg = palette.none },
-		HopNextKey1 = { fg = palette.blue, bg = palette.none },
-		HopNextKey2 = { fg = palette.orange, bg = palette.none },
-		HopUnmatched = { fg = palette.dark_gray, bg = palette.none },
+		-- Hop
+		HopNextKey = { fg = palette.purple, bg = palette.black },
+		HopNextKey1 = { fg = palette.black, bg = palette.blue },
+		HopNextKey2 = { fg = palette.black, bg = palette.red },
+		HopUnmatched = { fg = palette.gray, bg = palette.black },
 
-		InlineHints = { fg = palette.dark_gray, bg = palette.none }
+		-- Lightspeed
+		LightspeedLabel = { fg = palette.black, bg = palette.red },
+		LightspeedLabelDistant = { fg = palette.black, bg = palette.purple },
+		LightspeedMaskedChar = { fg = palette.black, bg = palette.blue },
+		LightspeedShortcut = { fg = palette.black, bg = palette.red },
+		LightspeedGreyWash = { fg = palette.gray, bg = palette.none },
+		LightspeedUnlabeledMatch = { fg = palette.purple, bg = palette.black },
+		LightspeedOneCharMatch = { fg = palette.black, bg = palette.purple },
+		LightspeedCursor = { fg = palette.black, bg = palette.green },
+
+		InlineHints = { fg = palette.gray, bg = palette.none }
 	}
 
 	for group, colors in pairs(builtin_highlight_groups) do
@@ -304,9 +275,6 @@ function M.colorscheme()
 	for group, colors in pairs(syntax_highlight_groups) do
 		highlight(group, colors)
 	end
-
-	-- vim.defer_fn(function()
-	-- end, 0)
 
 	for group, colors in pairs(lsp_highlight_groups) do
 		highlight(group, colors)
@@ -328,7 +296,7 @@ function M.colorscheme()
 	vim.g.terminal_color_5 = palette.purple
 	vim.g.terminal_color_6 = palette.cyan
 	vim.g.terminal_color_7 = palette.white
-	vim.g.terminal_color_8 = palette.gray
+	vim.g.terminal_color_8 = palette.light_gray
 	vim.g.terminal_color_9 = palette.red
 	vim.g.terminal_color_10 = palette.green
 	vim.g.terminal_color_11 = palette.yellow
