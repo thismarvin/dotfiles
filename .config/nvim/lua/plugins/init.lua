@@ -1,3 +1,10 @@
+-- The following is taken from: https://github.com/mjlbach/defaults.nvim/blob/eeb58ffd6852a062d98cd950e17e0009089a0d85/init.lua#L1
+local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  vim.fn.execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
+end
+
 require("packer").startup(function()
   use { "wbthomason/packer.nvim" }
 
