@@ -2,7 +2,7 @@ local set = require("utils").set
 
 set("nobackup")
 set("nowritebackup")
-set("updatetime=300")
+set("updatetime=250")
 set("shortmess+=c")
 set("signcolumn=yes")
 

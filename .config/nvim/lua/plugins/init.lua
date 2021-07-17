@@ -20,20 +20,15 @@ require("packer").startup(function()
 		end
 	}
 
-  -- Support for LSP.
-  use {
+	-- Support for LSP.
+	use {
 		"neovim/nvim-lspconfig",
 		requires = { "nvim-lua/lsp_extensions.nvim" },
 		config = function()
 			require("plugins.lsp.settings")
 			require("plugins.lsp.mappings")
 
-			require "plugins.lsp.servers.ccls"
-			require "plugins.lsp.servers.pyright"
-			require "plugins.lsp.servers.rust_analyzer"
-			require "plugins.lsp.servers.sumneko_lua"
-			require "plugins.lsp.servers.tsserver"
-			require "plugins.lsp.servers.omnisharp"
+			require("plugins.lsp.servers")
 		end
 	}
   use {

@@ -1,10 +1,8 @@
 local execute = require("utils").execute
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 require("lspconfig").rust_analyzer.setup {
-  capabilities = capabilities,
+	on_attach = require("plugins.lsp").on_attach,
+	capabilities = require("plugins.lsp").capabilities,
 }
 
 execute([[

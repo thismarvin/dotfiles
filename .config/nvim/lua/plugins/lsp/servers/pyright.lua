@@ -1,1 +1,4 @@
-require("lspconfig").pyright.setup{}
+require("lspconfig").pyright.setup({
+	on_attach = require("plugins.lsp").on_attach,
+	capabilities = require("plugins.lsp").capabilities,
+})
