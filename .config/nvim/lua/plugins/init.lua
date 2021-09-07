@@ -163,13 +163,6 @@ require("packer").startup(function()
 		end
 	}
 
-	-- use {
-	-- 	"camspiers/snap",
-	-- 	config = function()
-	-- 		require("plugins.snap.mappings")
-	-- 	end
-	-- }
-
 	-- Interface
 	use {
 		"kyazdani42/nvim-tree.lua",
