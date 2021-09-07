@@ -54,6 +54,7 @@ require("packer").startup(function()
 	-- FZF integration.
 	use {
 		"junegunn/fzf.vim",
+		cmd = { "Colors", "FZF", "Files" },
 		requires = { "junegunn/fzf" },
 	}
 
@@ -73,7 +74,10 @@ require("packer").startup(function()
 	}
 
 	-- QOL
-	use { "mbbill/undotree" }
+	use {
+		"mbbill/undotree",
+		cmd = "UndotreeToggle"
+	}
 	use {
 		"b3nj5m1n/kommentary",
 		config = function()
@@ -84,8 +88,15 @@ require("packer").startup(function()
 	use { "tpope/vim-fugitive" }
 	use { "editorconfig/editorconfig-vim" }
 	use { "ii14/exrc.vim" }
-	use { "norcalli/nvim-colorizer.lua" }
-	use { "rafcamlet/nvim-luapad" }
+	use {
+		"norcalli/nvim-colorizer.lua",
+		ft = "css",
+		cmd = "ColorizerToggle"
+	}
+	use {
+		"rafcamlet/nvim-luapad",
+		cmd = "Luapad"
+	}
 	use {
 		"numtostr/FTerm.nvim",
 		config = function()
@@ -121,12 +132,13 @@ require("packer").startup(function()
 	-- use { "tversteeg/registers.nvim" }
 	use {
 		"mattn/emmet-vim",
-		ft = { "html" },
+		ft = { "html", "svelte" },
 		config = function() end
 	}
 	use {
 		"michaelb/sniprun",
 		run = "bash ./install.sh",
+		cmd = "SnipRun",
 		config = function ()
 			require("plugins.sniprun.mappings")
 		end
