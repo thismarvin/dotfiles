@@ -26,8 +26,6 @@ require("packer").startup(function()
 		requires = { "nvim-lua/lsp_extensions.nvim" },
 		config = function()
 			require("plugins.lsp.settings")
-			require("plugins.lsp.mappings")
-
 			require("plugins.lsp.servers")
 		end
 	}
@@ -41,13 +39,18 @@ require("packer").startup(function()
 
 	-- Support for autocompletion and snippets.
 	use {
-		"hrsh7th/nvim-compe",
+		"hrsh7th/nvim-cmp",
 		requires = {
-			{ "hrsh7th/vim-vsnip" },
+			"hrsh7th/vim-vsnip",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-vsnip",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"f3fora/cmp-spell"
 		},
 		config = function()
-			require("plugins.nvim-compe.settings")
-			require("plugins.nvim-compe.mappings")
+			require("plugins.nvim-cmp.settings")
+			require("plugins.vsnip.mappings")
 		end
 	}
 
