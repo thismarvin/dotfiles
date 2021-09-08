@@ -1,0 +1,21 @@
+{
+    "layer": "top",
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "modules-center": ["clock"],
+    "modules-right": [],
+    "sway/window": {
+        "max-length": 100
+    },
+    "sway/workspaces": {
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+     },
+    "clock": {
+        "format": "{:%R}"
+    },
+}
