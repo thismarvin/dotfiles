@@ -9,7 +9,7 @@ I use [stow](https://www.gnu.org/software/stow/) to manage my dotfiles.
 ```bash
 git clone https://github.com/thismarvin/dotfiles.git
 cd dotfiles
-stow -t $HOME nvim
+stow -R -t $HOME nvim
 ```
 
 ## Must Have Programs
