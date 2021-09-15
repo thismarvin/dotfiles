@@ -468,7 +468,6 @@ awful.keyboard.append_global_keybindings({
 
 	awful.key({ modkey, "Control", "Mod1" }, "h", function()
 		awful.spawn("kitty --session /home/marvin/Misc/kitty/sessions/www")
-		awful.spawn("firefox --new-window localhost:3000")
 	end,
 	{ description = "open www session", group = "sessions" }),
 })
