@@ -6,8 +6,8 @@ set("completeopt=menu,menuone,noselect")
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
-		end,
+			require("luasnip").lsp_expand(args.body)
+		end
 	},
 	documentation = {
 		-- border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
@@ -26,7 +26,7 @@ cmp.setup({
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "vsnip" },
+		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "spell" },
