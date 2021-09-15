@@ -200,7 +200,7 @@ function M.colorscheme()
 		TSStringRegex = { fg = palette.orange, bg = palette.none }, -- For regexes.
 		TSStringEscape = { fg = palette.purple, bg = palette.none }, -- For escape characters within a string.
 		TSSymbol = { fg = palette.white, bg = palette.none }, -- For identifiers referring to symbols or atoms.
-		TSTag = { fg = palette.white, bg = palette.none }, -- Tags like html tag names.
+		TSTag = { fg = palette.red, bg = palette.none }, -- Tags like html tag names.
 		TSTagDelimiter = { fg = palette.blue, bg = palette.none }, -- Tag delimiter like `<` `>` `/`
 		TSText = { fg = palette.white, bg = palette.none }, -- For strings considered text in a markup language.
 		TSStrong = { fg = palette.white, bg = palette.none }, -- For text to be represented in bold.
@@ -268,7 +268,7 @@ function M.colorscheme()
 		-- CmpDocumentation = {  fg = palette.white, bg = palette.black },
 		-- CmpDocumentationBorder = { fg = palette.yeet, bg = palette.black },
 
-		InlayHints = { fg = palette.blue, bg = palette.red }
+		InlayHints = { fg = palette.gray, bg = palette.none }
 	}
 
 	for group, colors in pairs(builtin_highlight_groups) do
