@@ -162,6 +162,13 @@ require("packer").startup(function()
 			require("plugins.indent-blankline.settings")
 		end
 	}
+	use {
+		"rmagatti/goto-preview",
+		config = function ()
+			require("plugins.goto-preview.settings")
+			require("plugins.goto-preview.mappings")
+		end
+	}
 
 	-- Interface
 	use {
