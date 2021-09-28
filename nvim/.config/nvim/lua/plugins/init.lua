@@ -93,7 +93,7 @@ require("packer").startup(function()
 	use { "ii14/exrc.vim" }
 	use {
 		"norcalli/nvim-colorizer.lua",
-		ft = "css",
+		ft = { "css", "scss", "svelte" },
 		cmd = "ColorizerToggle"
 	}
 	use {
