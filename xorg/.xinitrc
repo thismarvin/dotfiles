@@ -1,0 +1,2 @@
+exec pipewire &
+exec awesome
