@@ -87,6 +87,12 @@ require("packer").startup(function()
 			require("plugins.kommentary.settings")
 		end
 	}
+	use {
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("plugins.indent-blankline.settings")
+		end
+	}
 	use { "tpope/vim-dispatch" }
 	use { "tpope/vim-fugitive" }
 	use { "editorconfig/editorconfig-vim" }
@@ -154,12 +160,6 @@ require("packer").startup(function()
 		config = function()
 			require("plugins.gesture.settings")
 			require("plugins.gesture.mappings")
-		end
-	}
-	use {
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("plugins.indent-blankline.settings")
 		end
 	}
 	use {
