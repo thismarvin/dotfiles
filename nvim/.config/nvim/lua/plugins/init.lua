@@ -50,7 +50,6 @@ require("packer").startup(function()
 		},
 		config = function()
 			require("plugins.nvim-cmp.settings")
-			require("plugins.luasnip.mappings")
 		end
 	}
 
