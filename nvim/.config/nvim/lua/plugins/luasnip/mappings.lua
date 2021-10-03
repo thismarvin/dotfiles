@@ -1,31 +1,36 @@
 local map = require("utils").map
+local luasnip = require("luasnip")
 
-local function prequire(...)
-	local status, lib = pcall(require, ...)
-	if (status) then return lib end
-		return nil
+local has_words_before = function()
+  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+    return false
+  end
+
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local luasnip = prequire("luasnip")
-
-local t = function(str)
-	return vim.api.nvim_replace_termcodes(str, true, true, true)
+local t = function(key)
+	return vim.api.nvim_replace_termcodes(key, true, true, true)
 end
 
 _G.tab_complete = function()
 	if vim.fn.pumvisible() == 1 then
 		return t("<C-n>")
-	elseif luasnip and luasnip.expand_or_jumpable() then
+	elseif luasnip.expand_or_jumpable() then
 		return t("<Plug>luasnip-expand-or-jump")
+	elseif has_words_before() then
+		return t("<Plug>cmp-complete")
 	else
 		return t("<Tab>")
 	end
 end
 
-_G.s_tab_complete = function()
+_G.shift_tab_complete = function()
 	if vim.fn.pumvisible() == 1 then
 		return t("<C-p>")
-	elseif luasnip and luasnip.jumpable(-1) then
+	elseif luasnip.jumpable(-1) then
 		return t("<Plug>luasnip-jump-prev")
 	else
 		return t("<S-Tab>")
