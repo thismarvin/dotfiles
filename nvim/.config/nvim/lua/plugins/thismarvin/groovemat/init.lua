@@ -135,32 +135,6 @@ function M.colorscheme()
 		Underlined = { fg = palette.white, bg = palette.none }, -- text that stands out, HTML links
 	}
 
-	local lsp_highlight_groups = {
-		LspDiagnosticsDefaultError = { fg = palette.none, bg = palette.gray }, -- Used as the base highlight group.
-		LspDiagnosticsDefaultWarning = { fg = palette.none, bg = palette.gray }, -- Used as the base highlight group.
-		LspDiagnosticsDefaultInformation = { fg = palette.none, bg = palette.gray }, -- Used as the base highlight group.
-		LspDiagnosticsDefaultHint = { fg = palette.none, bg = palette.gray }, -- Used as the base highlight group.
-		LspDiagnosticsVirtualTextError = { fg = palette.red, bg = palette.none }, -- Used for "Error" diagnostic virtual text.
-		LspDiagnosticsVirtualTextWarning = { fg = palette.yellow, bg = palette.none }, -- Used for "Warning" diagnostic virtual text.
-		LspDiagnosticsVirtualTextInformation = { fg = palette.blue, bg = palette.none }, -- Used for "Information" diagnostic virtual text.
-		LspDiagnosticsVirtualTextHint = { fg = palette.blue, bg = palette.none }, -- Used for "Hint" diagnostic virtual text.
-		LspDiagnosticsUnderlineError = { fg = palette.none, bg = palette.none }, -- Used to underline "Error" diagnostics.
-		LspDiagnosticsUnderlineWarning = { fg = palette.none, bg = palette.none }, -- Used to underline "Warning" diagnostics.
-		LspDiagnosticsUnderlineInformation = { fg = palette.none, bg = palette.none }, -- Used to underline "Information" diagnostics.
-		LspDiagnosticsUnderlineHint = { fg = palette.none, bg = palette.none }, -- Used to underline "Hint" diagnostics.
-		LspDiagnosticsFloatingError = { fg = palette.white, bg = palette.yeet }, -- Used to color "Error" diagnostic messages in diagnostics float.
-		LspDiagnosticsFloatingWarning = { fg = palette.white, bg = palette.yeet }, -- Used to color "Warning" diagnostic messages in diagnostics float.
-		LspDiagnosticsFloatingInformation = { fg = palette.white, bg = palette.yeet }, -- Used to color "Information" diagnostic messages in diagnostics float.
-		LspDiagnosticsFloatingHint = { fg = palette.white, bg = palette.yeet }, -- Used to color "Hint" diagnostic messages in diagnostics float.
-		LspDiagnosticsSignError = { fg = palette.red, bg = palette.black }, -- Used for "Error" signs in sign column.
-		LspDiagnosticsSignWarning = { fg = palette.blue, bg = palette.black }, -- Used for "Warning" signs in sign column.
-		LspDiagnosticsSignInformation = { fg = palette.blue, bg = palette.black }, -- Used for "Information" signs in sign column.
-		LspDiagnosticsSignHint = { fg = palette.yellow, bg = palette.black }, -- Used for "Hint" signs in sign column.
-		LspReferenceText = { fg = palette.none, bg = palette.dark_gray }, -- Used for highlighting "text" references.
-		LspReferenceRead = { fg = palette.none, bg = palette.dark_gray }, -- Used for highlighting "read" references.
-		LspReferenceWrite = { fg = palette.none, bg = palette.dark_gray }, -- Used for highlighting "write" references.
-	}
-
 	local treesitter_highlight_groups = {
 		TSAnnotation = { fg = palette.red, bg = palette.none }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
 		TSAttribute = { fg = palette.white, bg = palette.none }, -- (unstable) TODO: docs
@@ -279,10 +253,6 @@ function M.colorscheme()
 		highlight(group, colors)
 	end
 
-	for group, colors in pairs(lsp_highlight_groups) do
-		highlight(group, colors)
-	end
-
 	for group, colors in pairs(treesitter_highlight_groups) do
 		highlight(group, colors)
 	end
@@ -307,6 +277,21 @@ function M.colorscheme()
 	vim.g.terminal_color_13 = palette.purple
 	vim.g.terminal_color_14 = palette.cyan
 	vim.g.terminal_color_15 = palette.white
+
+	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticError", "1", palette.red))
+	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticWarn", "3", palette.yellow))
+	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticInfo", "4", palette.blue))
+	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticHint", "7", palette.blue))
+
+	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticSignError", "1", palette.red))
+	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticSignWarn", "3", palette.yellow))
+	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticSignInfo", "4", palette.blue))
+	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticSignHint", "7", palette.blue))
+
+	vim.cmd(string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineError", palette.red))
+	vim.cmd(string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineWarn", palette.yellow))
+	vim.cmd(string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineInfo", palette.blue))
+	vim.cmd(string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineHint", palette.blue))
 end
 
 return M
