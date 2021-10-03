@@ -208,20 +208,20 @@ function M.colorscheme()
 		-- NvimTreeExecFile
 		-- NvimTreeOpenedFile
 		-- NvimTreeSpecialFile
-		NvimTreeImageFile = { fg = palette.white, bg = palette.none },
+		-- NvimTreeImageFile
 		-- NvimTreeMarkdownFile
-		NvimTreeIndentMarker = { fg = palette.gray, bg = palette.none },
+		NvimTreeIndentMarker = { fg = palette.yeet, bg = palette.none },
 
 		-- Indent-Blankline
-		IndentBlanklineChar = { fg = palette.gray, bg = palette.none }, -- Highlight of indent character.
+		IndentBlanklineChar = { fg = palette.yeet, bg = palette.none }, -- Highlight of indent character.
 		-- IndentBlanklineSpaceChar = {}, -- Highlight of space character.
 		-- IndentBlanklineSpaceCharBlankline = {}, -- Highlight of space character on blank lines.
-		IndentBlanklineContextChar = { fg = palette.light_gray, bg = palette.none }, -- Highlight of indent character when base of current context.
+		IndentBlanklineContextChar = { fg = palette.gray, bg = palette.none }, -- Highlight of indent character when base of current context.
 
 		-- -- GitSigns
-		GitSignsAdd = { fg = palette.green, bg = palette.black }, -- diff mode: Added line |diff.txt|
-		GitSignsChange = { fg = palette.blue, bg = palette.black }, -- diff mode: Added line |diff.txt|
-		GitSignsDelete = { fg = palette.red, bg = palette.black }, -- diff mode: Added line |diff.txt|
+		GitSignsAdd = { fg = palette.green, bg = palette.none }, -- diff mode: Added line |diff.txt|
+		GitSignsChange = { fg = palette.blue, bg = palette.none }, -- diff mode: Added line |diff.txt|
+		GitSignsDelete = { fg = palette.red, bg = palette.none }, -- diff mode: Added line |diff.txt|
 
 		-- Hop
 		HopNextKey = { fg = palette.purple, bg = palette.black },
@@ -242,7 +242,7 @@ function M.colorscheme()
 		-- CmpDocumentation = {  fg = palette.white, bg = palette.black },
 		-- CmpDocumentationBorder = { fg = palette.yeet, bg = palette.black },
 
-		InlayHints = { fg = palette.gray, bg = palette.none }
+		InlayHints = { fg = palette.yeet, bg = palette.none }
 	}
 
 	for group, colors in pairs(builtin_highlight_groups) do
