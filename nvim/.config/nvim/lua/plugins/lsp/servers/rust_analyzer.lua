@@ -1,9 +1,9 @@
 local execute = require("utils").execute
 
-require("lspconfig").rust_analyzer.setup {
+require("lspconfig").rust_analyzer.setup({
 	on_attach = require("plugins.lsp").on_attach,
 	capabilities = require("plugins.lsp").capabilities,
-}
+})
 
 execute([[
 augroup lsp

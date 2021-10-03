@@ -1,3 +1,3 @@
-require("hop").setup {
-	keys = "ashgyoiqdrwbjfup;zxmcvkltn"
-}
+require("hop").setup({
+	keys = "ashgyoiqdrwbjfup;zxmcvkltn",
+})

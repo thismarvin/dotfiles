@@ -1,5 +1,5 @@
-require "settings"
-require "mappings"
-require "plugins"
-require "styling"
-require "misc"
+require("settings")
+require("mappings")
+require("plugins")
+require("styling")
+require("misc")

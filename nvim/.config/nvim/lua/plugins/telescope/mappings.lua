@@ -18,11 +18,13 @@ M.project_files = function()
 	-- I use fuzzy finding a lot; it makes sense to cache whether or not
 	-- the current working directory is a valid git repository.
 	if cache[working_directory] == nil then
-		local _, code = Job:new({
-			command = "git",
-			args = { "rev-parse", "--show-toplevel" },
-			cwd = working_directory
-		}):sync()
+		local _, code = Job
+			:new({
+				command = "git",
+				args = { "rev-parse", "--show-toplevel" },
+				cwd = working_directory,
+			})
+			:sync()
 
 		-- Assuming the command above works, set the current entry of the
 		-- cache to true if we are in a git repository.

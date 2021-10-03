@@ -1,2 +1,2 @@
-require "styling.theme"
-require "styling.statusline"
+require("styling.theme")
+require("styling.statusline")

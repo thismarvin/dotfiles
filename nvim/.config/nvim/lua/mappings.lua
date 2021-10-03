@@ -15,5 +15,7 @@ map("n", "N", "Nzz", { noremap = true })
 map("n", "<C-i>", "<C-i>zz", { noremap = true })
 map("n", "<C-o>", "<C-o>zz", { noremap = true })
 map("n", "Y", "y$", { noremap = true })
-map("n", "<Leader>cd", "<Cmd>cd %:p:h<CR><Cmd>echo 'Set working directory to:' expand('%:p:h')<CR>", { noremap = true })
+map("n", "<Leader>cd", "<Cmd>cd %:p:h<CR><Cmd>echo 'Set working directory to:' expand('%:p:h')<CR>", {
+	noremap = true,
+})
 map("n", "<F12>", ":setlocal spell!<CR>", { noremap = true, silent = true })

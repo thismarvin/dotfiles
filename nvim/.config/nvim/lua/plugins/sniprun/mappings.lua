@@ -1,3 +1,3 @@
-local map = require("utils").map;
+local map = require("utils").map
 
-map("v", "f", "<Plug>SnipRun", { silent = true });
+map("v", "f", "<Plug>SnipRun", { silent = true })

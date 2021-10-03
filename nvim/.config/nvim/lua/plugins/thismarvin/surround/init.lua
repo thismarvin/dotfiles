@@ -11,8 +11,8 @@ endfunction
 ]])
 
 function M.parse_delimeter(delimeter)
-	local opening = delimeter;
-	local closing = delimeter;
+	local opening = delimeter
+	local closing = delimeter
 
 	-- TODO: Have closing initially be opening in reverse and then swap some characters!
 
@@ -54,21 +54,21 @@ end
 
 -- Yoinked from: https://github.com/blackCauldron7/surround.nvim/blob/43c85b5515c5ef597a0c527f68faa5b5908e9858/lua/surround/utils.lua#L110
 function M.get_operator_pos()
-  local start = vim.api.nvim_buf_get_mark(0, "[")
-  local start_line = start[1]
-  local start_col = start[2] + 1
-  local _end = vim.api.nvim_buf_get_mark(0, "]")
-  local end_line = _end[1]
-  local end_col = _end[2] + 2
+	local start = vim.api.nvim_buf_get_mark(0, "[")
+	local start_line = start[1]
+	local start_col = start[2] + 1
+	local _end = vim.api.nvim_buf_get_mark(0, "]")
+	local end_line = _end[1]
+	local end_col = _end[2] + 2
 
-  return start_line, start_col, end_line, end_col
+	return start_line, start_col, end_line, end_col
 end
 
 function M.surround_operator()
 	-- Prompt the user to enter a character to surround the line with.
-  vim.fn.inputsave()
-  local ok, value = pcall(vim.fn.input, "Surround with: ")
-  vim.fn.inputrestore()
+	vim.fn.inputsave()
+	local ok, value = pcall(vim.fn.input, "Surround with: ")
+	vim.fn.inputrestore()
 
 	if not ok then
 		vim.cmd([[echohl Error | echo "Could not read input."]])
@@ -94,9 +94,9 @@ end
 
 function M.surround_line()
 	-- Prompt the user to enter a character to surround the line with.
-  vim.fn.inputsave()
-  local ok, value = pcall(vim.fn.input, "Surround with: ")
-  vim.fn.inputrestore()
+	vim.fn.inputsave()
+	local ok, value = pcall(vim.fn.input, "Surround with: ")
+	vim.fn.inputrestore()
 
 	if not ok then
 		vim.cmd([[echohl Error | echo "Could not read input."]])

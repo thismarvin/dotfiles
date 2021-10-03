@@ -1,10 +1,10 @@
 local treesitter = require("nvim-treesitter.configs")
 
-treesitter.setup {
-  ensure_installed = "maintained",
-  highlight = {
-    enable = true,
-  },
+treesitter.setup({
+	ensure_installed = "maintained",
+	highlight = {
+		enable = true,
+	},
 	textobjects = {
 		select = {
 			enable = true,
@@ -17,7 +17,7 @@ treesitter.setup {
 	textsubjects = {
 		enable = true,
 		keymaps = {
-			['.'] = 'textsubjects-smart',
-		}
+			["."] = "textsubjects-smart",
+		},
 	},
-}
+})

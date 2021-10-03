@@ -11,8 +11,8 @@ local function highlight(group, colors)
 end
 
 function M.colorscheme()
-  vim.cmd("highlight clear")
-	 if vim.fn.exists("syntax_on") then
+	vim.cmd("highlight clear")
+	if vim.fn.exists("syntax_on") then
 		vim.cmd("syntax reset")
 	end
 
@@ -242,7 +242,7 @@ function M.colorscheme()
 		-- CmpDocumentation = {  fg = palette.white, bg = palette.black },
 		-- CmpDocumentationBorder = { fg = palette.yeet, bg = palette.black },
 
-		InlayHints = { fg = palette.yeet, bg = palette.none }
+		InlayHints = { fg = palette.yeet, bg = palette.none },
 	}
 
 	for group, colors in pairs(builtin_highlight_groups) do
@@ -288,10 +288,18 @@ function M.colorscheme()
 	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticSignInfo", "4", palette.blue))
 	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticSignHint", "7", palette.blue))
 
-	vim.cmd(string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineError", palette.red))
-	vim.cmd(string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineWarn", palette.yellow))
-	vim.cmd(string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineInfo", palette.blue))
-	vim.cmd(string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineHint", palette.blue))
+	vim.cmd(
+		string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineError", palette.red)
+	)
+	vim.cmd(
+		string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineWarn", palette.yellow)
+	)
+	vim.cmd(
+		string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineInfo", palette.blue)
+	)
+	vim.cmd(
+		string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineHint", palette.blue)
+	)
 end
 
 return M

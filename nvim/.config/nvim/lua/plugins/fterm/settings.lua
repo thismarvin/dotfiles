@@ -1,9 +1,9 @@
 require("FTerm").setup({
-	dimensions  = {
+	dimensions = {
 		height = 1,
 		width = 0.5,
 		x = 1,
-		y = 0
+		y = 0,
 	},
-	border = "double"
+	border = "double",
 })
