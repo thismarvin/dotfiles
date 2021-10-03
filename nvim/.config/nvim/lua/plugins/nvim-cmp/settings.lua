@@ -14,6 +14,22 @@ cmp.setup({
 		-- border = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },
 		-- winhighlight = 'NormalFloat:CmpDocumentation,FloatBorder:CmpDocumentationBorder',
 	},
+
+	formatting = {
+		format = function(entry, vim_item)
+			-- Explicitly show the source of an entry.
+			vim_item.menu = ({
+				nvim_lsp = "(LSP)",
+				luasnip = "(LuaSnip)",
+				buffer = "(Buffer)",
+				path = "(Path)",
+				spell = "(Spell)",
+			})[entry.source.name]
+
+			return vim_item
+		end,
+	},
+
 	mapping = {
 		['<C-u>'] = cmp.mapping.scroll_docs(-4),
 		['<C-d>'] = cmp.mapping.scroll_docs(4),
