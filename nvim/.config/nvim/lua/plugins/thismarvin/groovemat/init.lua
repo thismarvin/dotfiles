@@ -47,7 +47,7 @@ function M.colorscheme()
 		DiffAdd = { fg = palette.black, bg = palette.green }, -- diff mode: Added line |diff.txt|
 		DiffChange = { fg = palette.black, bg = palette.blue }, -- diff mode: Changed line |diff.txt|
 		DiffDelete = { fg = palette.black, bg = palette.red }, -- diff mode: Deleted line |diff.txt|
-		DiffText = {}, -- diff mode: Changed text within a changed line |diff.txt|
+		DiffText = { fg = palette.black, bg = palette.white }, -- diff mode: Changed text within a changed line |diff.txt|
 		Directory = { fg = palette.purple, bg = palette.none }, -- directory names (and other special names in listings)
 		EndOfBuffer = { fg = palette.light_black, bg = palette.none }, -- filler lines (~) after the end of the buffer.
 		ErrorMsg = { fg = palette.red, bg = palette.none }, -- error messages on the command line
@@ -59,11 +59,11 @@ function M.colorscheme()
 		MatchParen = { fg = palette.white, bg = palette.yeet }, -- The character under the cursor or just before it, if it is a paired bracket, and its match.
 		ModeMsg = {}, -- 'showmode' message (e.g., "-- INSERT --")
 		MoreMsg = { fg = palette.yellow, bg = palette.none }, -- |more-prompt|
-		MsgArea = {}, -- Area for messages and cmdline
-		MsgSeparator = {}, -- Separator for scrolled messages, `msgsep` flag of 'display'
+		MsgArea = { fg = palette.white, bg = palette.none }, -- Area for messages and cmdline
+		MsgSeparator = { fg = palette.white, bg = palette.none }, -- Separator for scrolled messages, `msgsep` flag of 'display'
 		NonText = { fg = palette.gray, bg = palette.none }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text.
 		Normal = { fg = palette.white, bg = palette.none }, -- normal text
-		NormalFloat = { fg = palette.white, bg = palette.yeet }, -- Normal text in floating windows.
+		NormalFloat = { fg = palette.white, bg = palette.none }, -- Normal text in floating windows.
 		NormalNC = { fg = palette.white, bg = palette.none }, -- normal text in non-current windows.
 		Pmenu = { fg = palette.white, bg = palette.gray }, -- Popup menu: normal item.
 		PmenuSbar = { fg = palette.white, bg = palette.gray }, -- Popup menu: scrollbar.
@@ -72,7 +72,6 @@ function M.colorscheme()
 		Question = { fg = palette.purple, bg = palette.none }, -- |hit-enter| prompt and yes/no questions
 		QuickFixLine = {}, -- Current |quickfix| item in the quickfix window. Combined with CursorLine when the cursor is there.
 		Search = { fg = palette.black, bg = palette.green }, -- Last search pattern highlighting (see 'hlsearch').
-		-- SignColumn = { fg = palette.none, bg = palette.light_gray }, -- column where |signs| are displayed
 		SignColumn = { fg = palette.none, bg = palette.none }, -- column where |signs| are displayed
 		SpecialKey = { fg = palette.gray, bg = palette.none }, -- Unprintable characters: text displayed differently from what it really is.
 		SpellBad = {}, -- Word that is not recognized by the spellchecker. |spell|
@@ -88,7 +87,6 @@ function M.colorscheme()
 		TermCursor = {}, -- cursor in a focused terminal
 		TermCursorNC = {}, -- cursor in an unfocused terminal
 		Title = {}, -- titles for output from ":set all", ":autocmd" etc.
-		-- VertSplit = { fg = palette.light_black, bg = palette.dark_gray }, -- the column separating vertically split windows
 		VertSplit = { fg = palette.black, bg = palette.yeet }, -- the column separating vertically split windows
 		Visual = { fg = palette.none, bg = palette.yeet }, -- Visual mode selection
 		VisualNOS = { fg = palette.none, bg = palette.dark_gray }, -- Visual mode selection when vim is "Not Owning the Selection".
@@ -100,7 +98,7 @@ function M.colorscheme()
 	local syntax_highlight_groups = {
 		Boolean = { fg = palette.purple, bg = palette.none }, -- a boolean constant: TRUE, false
 		Character = { fg = palette.orange, bg = palette.none }, -- a character constant: 'c', '\n'
-		Comment = { fg = palette.gray, bg = palette.none }, -- any comment
+		Comment = { fg = palette.light_gray, bg = palette.none }, -- any comment (nvim-cmp uses this)
 		Conditional = { fg = palette.red, bg = palette.none }, -- if, then, else, endif, switch, etc.
 		Constant = { fg = palette.purple, bg = palette.none }, -- any constant
 		Debug = { fg = palette.white, bg = palette.none }, -- debugging statements
@@ -122,8 +120,8 @@ function M.colorscheme()
 		PreProc = { fg = palette.purple, bg = palette.none }, -- generic Preprocessor
 		Repeat = { fg = palette.red, bg = palette.none }, -- for, do, while, etc.
 		SpecialChar = { fg = palette.white, bg = palette.none }, -- special character in a constant
-		SpecialComment = { fg = palette.light_gray, bg = palette.none }, -- special things inside a comment
-		Special = { fg = palette.orange, bg = palette.none }, -- any special symbol
+		SpecialComment = { fg = palette.white, bg = palette.none }, -- special things inside a comment (nvim-cmp uses this)
+		Special = { fg = palette.light_gray, bg = palette.none }, -- any special symbol (nvim-cmp uses this)
 		Statement = { fg = palette.orange, bg = palette.none }, -- any statement
 		StorageClass = { fg = palette.red, bg = palette.none }, -- static, register, volatile, etc.
 		String = { fg = palette.yellow, bg = palette.none }, -- a string constant: "this is a string"
@@ -239,8 +237,8 @@ function M.colorscheme()
 		LightspeedOneCharMatch = { fg = palette.black, bg = palette.purple },
 		LightspeedCursor = { fg = palette.black, bg = palette.green },
 
-		-- CmpDocumentation = {  fg = palette.white, bg = palette.black },
-		-- CmpDocumentationBorder = { fg = palette.yeet, bg = palette.black },
+		CmpDocumentation = { fg = palette.white, bg = palette.none },
+		CmpDocumentationBorder = { fg = palette.white, bg = palette.none },
 
 		InlayHints = { fg = palette.yeet, bg = palette.none },
 	}

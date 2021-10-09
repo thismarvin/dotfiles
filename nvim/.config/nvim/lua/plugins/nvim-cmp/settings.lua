@@ -10,10 +10,6 @@ local has_words_before = function()
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local feedkey = function(key)
-	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "n", true)
-end
-
 set("completeopt=menu,menuone,noselect")
 
 cmp.setup({
@@ -24,9 +20,9 @@ cmp.setup({
 	},
 
 	documentation = {
-		-- border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+		border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
 		-- border = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },
-		-- winhighlight = 'NormalFloat:CmpDocumentation,FloatBorder:CmpDocumentationBorder',
+		winhighlight = "NormalFloat:CmpDocumentation,FloatBorder:CmpDocumentationBorder",
 	},
 
 	formatting = {
@@ -50,8 +46,8 @@ cmp.setup({
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.close(),
 		["<Tab>"] = cmp.mapping(function(fallback)
-			if vim.fn.pumvisible() == 1 then
-				feedkey("<C-n>")
+			if cmp.visible() then
+				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
 			elseif has_words_before() then
@@ -64,8 +60,8 @@ cmp.setup({
 			"s",
 		}),
 		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if vim.fn.pumvisible() == 1 then
-				feedkey("<C-p>")
+			if cmp.visible() then
+				cmp.select_prev_item()
 			elseif luasnip.jumpable(-1) then
 				luasnip.jump(-1)
 			else
