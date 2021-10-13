@@ -1,5 +1,9 @@
 local servers = {
 	"ccls",
+	"cssls",
+	"eslint",
+	"html",
+	"jsonls",
 	"omnisharp",
 	"pyright",
 	"rust_analyzer",
