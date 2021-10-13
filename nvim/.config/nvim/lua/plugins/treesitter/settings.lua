@@ -20,4 +20,7 @@ treesitter.setup({
 			["."] = "textsubjects-smart",
 		},
 	},
+	context_commentstring = {
+		enable = true,
+	},
 })

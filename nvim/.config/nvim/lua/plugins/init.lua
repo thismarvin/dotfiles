@@ -14,6 +14,7 @@ require("packer").startup(function()
 		requires = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"RRethy/nvim-treesitter-textsubjects",
+			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
 		config = function()
 			require("plugins.treesitter.settings")
@@ -81,9 +82,9 @@ require("packer").startup(function()
 		cmd = "UndotreeToggle",
 	})
 	use({
-		"b3nj5m1n/kommentary",
+		"numToStr/Comment.nvim",
 		config = function()
-			require("plugins.kommentary.settings")
+			require("plugins.comment.settings")
 		end,
 	})
 	use({
