@@ -147,8 +147,8 @@ require("packer").startup(function()
 	use({
 		"michaelb/sniprun",
 		run = "bash ./install.sh",
-		cmd = "SnipRun",
 		config = function()
+			require("plugins.sniprun.settings")
 			require("plugins.sniprun.mappings")
 		end,
 	})
