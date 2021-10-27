@@ -1,12 +1,20 @@
-local gl = require("galaxyline")
-local gls = gl.section
-local vcs = require("galaxyline.provider_vcs")
+local lsp_utils = require("feline.providers.lsp")
 
 local colors = {
-	bg = "#282828",
-	fg = "#d4be98",
+	fg = "#1a1b26",
+	bg = "#00a3cc",
+	-- bg = "#a9b665",
+
+	white = "#ffffff",
+	black = "#1a1b26",
 }
 
+local components = {
+	active = { {}, {} },
+	inactive = { {} },
+}
+
+-- :h mode()
 local mode_map = {
 	n = "N",
 	i = "I",
@@ -14,130 +22,225 @@ local mode_map = {
 	v = "V",
 	V = "VL",
 	[""] = "VB",
-	["r?"] = ":CONFIRM",
-	rm = "--MORE",
+	["r?"] = "CONFIRM",
+	rm = "MORE",
 	R = "R",
-	Rv = "V",
+	Rv = "Rv",
 	s = "S",
-	S = "S",
+	S = "SL",
 	["r"] = "HIT-ENTER",
 	[""] = "S",
 	t = "T",
 	["!"] = "SHELL",
 }
 
-local mode_color = {
-	n = "#9d8f7c",
-	i = "#7daea3",
-	v = "#e78a4e",
-	V = "#e78a4e",
-	[""] = "#e78a4e",
-	c = "#a9b665",
-	t = "#d3869b",
+local separator_right_arrow = {
+	str = "",
+	hl = {
+		fg = "black",
+	},
 }
 
-local valid_buffer = function()
-	return vim.fn.empty(vim.fn.expand("%:t")) ~= 1 and vim.fn.winwidth(0) >= 70
-end
+local separator_line = {
+	str = "|",
+	hl = {
+		fg = "black",
+		style = "bold",
+	},
+}
 
-local get_vim_mode = function()
+local function vi_mode()
 	local mode = mode_map[vim.fn.mode()]
 
-	if mode == nil then
-		return "?"
-	end
-
-	local color = mode_color[vim.fn.mode()]
-	if color == nil then
-		color = mode_color[1]
-	end
-	vim.api.nvim_command(string.format("hi GalaxyMode guibg=%s", color))
-	return string.format("  %s ", mode)
+	return string.format(" %s ", mode)
 end
 
-local get_git_branch = function()
-	local branch = vcs.get_git_branch()
+local function get_git_diff(type)
+	local gsd = vim.b.gitsigns_status_dict
+
+	if gsd and gsd[type] then
+		return gsd[type]
+	end
+
+	return nil
+end
+
+local function git()
+	local branch = vim.b.gitsigns_head or vim.g.gitsigns_head or nil
+
 	if branch == nil then
 		return ""
 	end
-	return string.format("   %s ", branch)
+
+	return string.format("  %s", branch)
 end
 
-local get_filename = function()
-	local filename = vim.fn.expand("%:t")
-	local modified = ""
-	if vim.bo.modifiable and vim.bo.modified then
-		modified = " +"
+local function git_diff()
+	local added = get_git_diff("added")
+	local changed = get_git_diff("changed")
+	local removed = get_git_diff("removed")
+
+	if added == nil or changed == nil or removed == nil then
+		return " "
 	end
-	return string.format("  %s%s", filename, modified)
+
+	return string.format(" +%s ~%s -%s ", added, changed, removed)
 end
 
-local get_file_icon = function()
-	if string.len(vim.bo.filetype) > 0 then
-		-- local icon = vim.call("WebDevIconsGetFileTypeSymbol")
-		return string.format("  %s ", vim.bo.filetype)
-	else
+local function lsp()
+	local clients = lsp_utils.lsp_client_names()
+
+	if clients == "" then
 		return ""
 	end
+
+	return string.format(" %s", clients)
 end
 
-local get_diagnostics = function()
-	local errors = vim.lsp.diagnostic.get_count(0, "Error")
-	local warnings = vim.lsp.diagnostic.get_count(0, "Warning")
-	if errors + warnings == 0 then
-		return "  "
+local function lsp_diagnostics()
+	local clients = lsp_utils.lsp_client_names()
+
+	if clients == "" then
+		return ""
 	end
-	return string.format(" %s  %s ", errors, warnings)
+
+	local errors = lsp_utils.get_diagnostics_count("Error")
+	local warnings = lsp_utils.get_diagnostics_count("Warning")
+	local hints = lsp_utils.get_diagnostics_count("Hint")
+	local info = lsp_utils.get_diagnostics_count("Information")
+
+	return string.format(" E-%s W-%s H-%s I-%s ", errors, warnings, hints, info)
 end
 
--- Left.
-gls.left[1] = {
-	Mode = {
-		provider = get_vim_mode,
-		condition = valid_buffer,
-		highlight = { colors.bg },
-	},
-}
+local function line_percentage()
+	local curr_line = vim.api.nvim_win_get_cursor(0)[1]
+	local lines = vim.api.nvim_buf_line_count(0)
 
-gls.left[2] = {
-	Filler = {
-		provider = function()
-			return ""
-		end,
-		condition = valid_buffer,
-		highlight = { "#9D8F7C", colors.bg },
-	},
-}
+	return string.format(" %d%%%% ", math.floor(curr_line / lines * 100))
+end
 
-gls.left[3] = {
-	GitBranch = {
-		provider = get_git_branch,
-		condition = valid_buffer,
-		highlight = { colors.fg, "#504945" },
-	},
-}
+local function position()
+	return string.format(" %d:%d ", unpack(vim.api.nvim_win_get_cursor(0)))
+end
 
-gls.left[4] = {
-	FileName = {
-		provider = get_filename,
-		condition = valid_buffer,
-		highlight = { colors.fg, colors.bg },
+-- Active Left
+table.insert(components.active[1], {
+	provider = vi_mode,
+	hl = {
+		style = "bold",
 	},
-}
+	left_sep = "",
+	right_sep = separator_line,
+	icon = "",
+})
 
--- Right.
-gls.right[1] = {
-	Diagnostics = {
-		provider = get_diagnostics,
-		condition = valid_buffer,
-		highlight = { colors.fg, colors.bg },
+table.insert(components.active[1], {
+	provider = {
+		name = "file_info",
+		opts = {
+			type = "relative",
+			file_readonly_icon = "[RO] ",
+			file_modified_icon = "+",
+		},
 	},
-}
+	hl = {
+		style = "bold",
+	},
+	left_sep = "",
+	right_sep = separator_right_arrow,
+	icon = "",
+})
 
-gls.right[2] = {
-	FileIcon = {
-		provider = get_file_icon,
-		condition = valid_buffer,
-		highlight = { colors.fg, "#504945" },
+table.insert(components.active[1], {
+	provider = git,
+	hl = {
+		style = "bold",
 	},
-}
+	left_sep = "",
+	right_sep = "",
+	icon = "",
+})
+
+table.insert(components.active[1], {
+	provider = git_diff,
+	hl = {},
+	left_sep = "",
+	right_sep = separator_right_arrow,
+	icon = "",
+})
+
+table.insert(components.active[1], {
+	provider = lsp,
+	hl = {
+		style = "bold",
+	},
+	left_sep = "",
+	right_sep = "",
+	icon = "",
+})
+
+table.insert(components.active[1], {
+	provider = lsp_diagnostics,
+	hl = {},
+	left_sep = "",
+	right_sep = separator_right_arrow,
+	icon = "",
+})
+
+table.insert(components.active[1], {
+	provider = " ",
+	left_sep = "",
+	right_sep = "",
+	icon = "",
+})
+
+-- Active Right
+table.insert(components.active[2], {
+	provider = position,
+	hl = {},
+	left_sep = "",
+	right_sep = "",
+	icon = "",
+})
+
+table.insert(components.active[2], {
+	provider = line_percentage,
+	hl = {},
+	left_sep = separator_line,
+	right_sep = "",
+	icon = "",
+})
+
+-- Inactive Left
+table.insert(components.inactive[1], {
+	provider = {
+		name = "file_info",
+		opts = {
+			type = "relative",
+			file_readonly_icon = "[RO] ",
+			file_modified_icon = "+",
+		},
+	},
+	hl = {
+		fg = "#545c7e",
+		bg = "#242635",
+	},
+	left_sep = "",
+	right_sep = "",
+	icon = "",
+})
+
+table.insert(components.inactive[1], {
+	provider = "",
+	hl = {
+		bg = "#242635",
+	},
+	left_sep = "",
+	right_sep = "",
+	icon = "",
+})
+
+require("feline").setup({
+	colors = colors,
+	components = components,
+})

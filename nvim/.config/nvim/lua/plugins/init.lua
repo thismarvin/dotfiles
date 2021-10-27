@@ -180,9 +180,9 @@ require("packer").startup(function()
 		end,
 	})
 	use({
-		"glepnir/galaxyline.nvim",
-		branch = "main",
-		requires = { "kyazdani42/nvim-web-devicons" },
+	use({
+		"famiu/feline.nvim",
+	})
 	})
 
 	-- Color Schemes
