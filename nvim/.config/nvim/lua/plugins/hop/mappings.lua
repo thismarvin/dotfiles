@@ -1,7 +1,7 @@
 local map = require("utils").map
 
-map("n", "<leader><Up>", ":HopLine<CR>", { noremap = true, silent = true })
-map("n", "<leader><Down>", ":HopLine<CR>", { noremap = true, silent = true })
-map("n", "<leader>/", ":HopPattern<CR>", { noremap = true, silent = true })
-map("v", "<leader><Up>", "<cmd>HopLine<CR>", { noremap = true, silent = true })
-map("v", "<leader><Down>", "<cmd>HopLine<CR>", { noremap = true, silent = true })
+map("n", "<Leader><Up>", ":HopLine<CR>", { noremap = true, silent = true })
+map("n", "<Leader><Down>", ":HopLine<CR>", { noremap = true, silent = true })
+map("n", "<Leader>/", ":HopPattern<CR>", { noremap = true, silent = true })
+map("v", "<Leader><Up>", "<Cmd>HopLine<CR>", { noremap = true, silent = true })
+map("v", "<Leader><Down>", "<Cmd>HopLine<CR>", { noremap = true, silent = true })

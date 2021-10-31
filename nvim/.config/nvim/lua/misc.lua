@@ -13,7 +13,7 @@ map("n", "gs", "<Cmd>set operatorfunc=SurroundOperatorCustom<CR>g@", { noremap =
 
 map(
 	"n",
-	"<leader>md",
+	"<Leader>md",
 	"<Cmd>sp | e ~/scratchpad.md | setlocal spell | setlocal wrap<CR>",
 	{ noremap = true, silent = true }
 )

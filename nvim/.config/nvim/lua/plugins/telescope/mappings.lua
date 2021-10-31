@@ -1,12 +1,12 @@
 local map = require("utils").map
 local Job = require("plenary.job")
 
-map("n", "<leader>p", "<cmd>lua require('plugins.telescope.mappings').project_files()<cr>", { noremap = true })
-map("n", "<leader>P", "<cmd>lua require('telescope.builtin').find_files()<cr>", { noremap = true })
-map("n", "<leader>f", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", { noremap = true })
-map("n", "<leader>F", "<cmd>lua require('telescope.builtin').live_grep()<cr>", { noremap = true })
-map("n", "<leader>ss", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>", { noremap = true })
-map("n", "<leader>sr", "<cmd>lua require('telescope.builtin').lsp_references()<cr>", { noremap = true })
+map("n", "<Leader>p", "<Cmd>lua require('plugins.telescope.mappings').project_files()<CR>", { noremap = true })
+map("n", "<Leader>P", "<Cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true })
+map("n", "<Leader>f", "<Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", { noremap = true })
+map("n", "<Leader>F", "<Cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
+map("n", "<Leader>ss", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>", { noremap = true })
+map("n", "<Leader>sr", "<Cmd>lua require('telescope.builtin').lsp_references()<CR>", { noremap = true })
 
 local M = {}
 local cache = {}
