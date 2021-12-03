@@ -53,7 +53,7 @@ function M.colorscheme()
 		ErrorMsg = { fg = palette.red, bg = palette.none }, -- error messages on the command line
 		FoldColumn = { fg = palette.gray, bg = palette.none }, -- 'foldcolumn'
 		Folded = { fg = palette.gray, bg = palette.dark_gray }, -- line used for closed folds
-		IncSearch = {}, -- 'incsearch' highlighting; also used for the text replaced with "s///c"
+		IncSearch = { fg = palette.black, bg = palette.red }, -- 'incsearch' highlighting; also used for the text replaced with "s///c"
 		lCursor = {}, -- the character under the cursor when |language-mapping| is used.
 		LineNr = { fg = palette.gray, bg = palette.none }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 		MatchParen = { fg = palette.white, bg = palette.yeet }, -- The character under the cursor or just before it, if it is a paired bracket, and its match.
@@ -80,10 +80,10 @@ function M.colorscheme()
 		SpellRare = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.
 		StatusLine = { fg = palette.dark_gray, bg = palette.white }, -- status line of current window
 		StatusLineNC = { fg = palette.dark_gray, bg = palette.light_gray }, -- status lines of not-current windows
-		Substitute = {}, -- |:substitute| replacement text highlighting
 		TabLine = { fg = palette.light_gray, bg = palette.yeet }, -- tab pages line, not active tab page label
 		TabLineFill = { fg = palette.dark_gray, bg = palette.none }, -- tab pages line, where there are no labels
 		TabLineSel = { fg = palette.white, bg = palette.gray }, -- tab pages line, active tab page label
+		Substitute = { fg = palette.black, bg = palette.red }, -- |:substitute| replacement text highlighting
 		TermCursor = {}, -- cursor in a focused terminal
 		TermCursorNC = {}, -- cursor in an unfocused terminal
 		Title = {}, -- titles for output from ":set all", ":autocmd" etc.
