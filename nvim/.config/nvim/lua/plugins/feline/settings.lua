@@ -1,5 +1,3 @@
-local lsp_utils = require("feline.providers.lsp")
-
 local colors = {
 	fg = "#1a1b26",
 	bg = "#00a3cc",
@@ -87,8 +85,18 @@ local function git_diff()
 	return string.format(" +%s ~%s -%s ", added, changed, removed)
 end
 
+local function get_lsp_client_names()
+	local clients = {}
+
+	for _, client in pairs(vim.lsp.buf_get_clients(0)) do
+		clients[#clients + 1] = client.name
+	end
+
+	return table.concat(clients, " ")
+end
+
 local function lsp()
-	local clients = lsp_utils.lsp_client_names()
+	local clients = get_lsp_client_names()
 
 	if clients == "" then
 		return ""
@@ -97,17 +105,23 @@ local function lsp()
 	return string.format(" %s", clients)
 end
 
+local function get_diagnostics(severity)
+	local count = vim.tbl_count(vim.diagnostic.get(0, { severity = severity }))
+
+	return tostring(count)
+end
+
 local function lsp_diagnostics()
-	local clients = lsp_utils.lsp_client_names()
+	local clients = get_lsp_client_names()
 
 	if clients == "" then
 		return ""
 	end
 
-	local errors = lsp_utils.get_diagnostics_count("Error")
-	local warnings = lsp_utils.get_diagnostics_count("Warning")
-	local hints = lsp_utils.get_diagnostics_count("Hint")
-	local info = lsp_utils.get_diagnostics_count("Information")
+	local errors = get_diagnostics(vim.diagnostic.severity.ERROR)
+	local warnings = get_diagnostics(vim.diagnostic.severity.WARN)
+	local hints = get_diagnostics(vim.diagnostic.severity.HINT)
+	local info = get_diagnostics(vim.diagnostic.severity.INFO)
 
 	return string.format(" E-%s W-%s H-%s I-%s ", errors, warnings, hints, info)
 end

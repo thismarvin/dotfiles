@@ -8,9 +8,9 @@ function M.on_attach(_, bufnr)
 	local map = vim.api.nvim_buf_set_keymap
 	local options = { noremap = true, silent = true }
 
-	map(bufnr, "n", "]d", "<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>zz", options)
-	map(bufnr, "n", "[d", "<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>zz", options)
-	map(bufnr, "n", "<Leader>d", "<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", options)
+	map(bufnr, "n", "]d", "<Cmd>lua vim.diagnostic.goto_next()<CR>zz", options)
+	map(bufnr, "n", "[d", "<Cmd>lua vim.diagnostic.goto_prev()<CR>zz", options)
+	map(bufnr, "n", "<Leader>d", "<Cmd>lua vim.diagnostic.open_float()<CR>", options)
 	map(bufnr, "n", "J", "<Cmd>lua vim.lsp.buf.hover()<CR>", options)
 	map(bufnr, "n", "K", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", options)
 	map(bufnr, "n", "<Leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>", options)
