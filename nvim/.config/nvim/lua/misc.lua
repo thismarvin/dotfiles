@@ -21,6 +21,8 @@ map(
 execute([[
 augroup misc
   autocmd!
-	autocmd FileType gitcommit setlocal spell | set cc=74
+	autocmd FileType gitcommit setlocal spell | setlocal cc=74
+	autocmd FileType markdown setlocal spell | setlocal wrap
+	autocmd FileType rust setlocal cc=100
 augroup end
 ]])
