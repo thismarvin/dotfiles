@@ -454,22 +454,6 @@ awful.keyboard.append_global_keybindings({
 	awful.key({ modkey }, "semicolon", function () awful.spawn("rofimoji") end, { description = "open emoji picker", group = "launcher" }),
 	awful.key({ modkey }, "e", function () awful.spawn("thunar") end, { description = "open file explorer", group = "launcher" }),
 	awful.key({ modkey }, "c", function () awful.spawn("qalculate-gtk") end, { description = "open calculator", group = "launcher" }),
-
-	awful.key({ modkey, "Control", "Mod1" }, "a", function()
-		awful.spawn("kitty --session /home/marvin/Misc/kitty/sessions/chess")
-	end,
-	{ description = "open chess session", group = "sessions" }),
-
-	awful.key({ modkey, "Control", "Mod1" }, "s", function()
-		awful.spawn("kitty --session /home/marvin/Misc/kitty/sessions/susurrus")
-		awful.spawn("firefox --new-window localhost:8080")
-	end,
-	{ description = "open susurrus session", group = "sessions" }),
-
-	awful.key({ modkey, "Control", "Mod1" }, "h", function()
-		awful.spawn("kitty --session /home/marvin/Misc/kitty/sessions/www")
-	end,
-	{ description = "open www session", group = "sessions" }),
 })
 
 -- General Awesome keys
