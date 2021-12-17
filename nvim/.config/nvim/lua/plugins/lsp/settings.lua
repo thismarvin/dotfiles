@@ -10,7 +10,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	virtual_text = false,
 })
 
-vim.fn.sign_define("LspDiagnosticsSignError", { text = ">>" })
-vim.fn.sign_define("LspDiagnosticsSignWarning", { text = "--" })
-vim.fn.sign_define("LspDiagnosticsSignInformation", { text = "--" })
-vim.fn.sign_define("LspDiagnosticsSignHint", { text = "--" })
+-- vim.fn.sign_define("DiagnosticSignError", { text = ">>" })
+-- vim.fn.sign_define("DiagnosticSignWarn", { text = "--" })
+-- vim.fn.sign_define("DiagnosticSignInfo", { text = "--" })
+-- vim.fn.sign_define("DiagnosticSignHint", { text = "--" })
