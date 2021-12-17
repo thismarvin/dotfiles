@@ -30,13 +30,6 @@ require("packer").startup(function()
 			require("plugins.lsp.servers")
 		end,
 	})
-	use({
-		"folke/lsp-trouble.nvim",
-		config = function()
-			require("plugins.lsp-trouble.settings")
-			require("plugins.lsp-trouble.mappings")
-		end,
-	})
 
 	-- Support for autocompletion and snippets.
 	use({
@@ -54,13 +47,6 @@ require("packer").startup(function()
 		end,
 	})
 
-	-- FZF integration.
-	use({
-		"junegunn/fzf.vim",
-		cmd = { "Colors", "FZF", "Files" },
-		requires = { "junegunn/fzf" },
-	})
-
 	-- "Gaze deeply into unknown regions using the power of the moon."
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -76,51 +62,7 @@ require("packer").startup(function()
 		end,
 	})
 
-	-- QOL
-	use({
-		"mbbill/undotree",
-		cmd = "UndotreeToggle",
-	})
-	use({
-		"numToStr/Comment.nvim",
-		config = function()
-			require("plugins.comment.settings")
-		end,
-	})
-	use({
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("plugins.indent-blankline.settings")
-		end,
-	})
-	use({ "tpope/vim-dispatch" })
-	use({ "tpope/vim-fugitive" })
-	use({ "editorconfig/editorconfig-vim" })
-	use({ "ii14/exrc.vim" })
-	use({
-		"norcalli/nvim-colorizer.lua",
-		ft = { "css", "scss", "svelte" },
-		cmd = "ColorizerToggle",
-	})
-	use({
-		"rafcamlet/nvim-luapad",
-		cmd = "Luapad",
-	})
-	use({
-		"numtostr/FTerm.nvim",
-		config = function()
-			require("plugins.fterm.settings")
-			require("plugins.fterm.mappings")
-		end,
-	})
-	use({
-		"lewis6991/gitsigns.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("plugins.gitsigns.settings")
-			require("plugins.gitsigns.mappings")
-		end,
-	})
+	-- Motion
 	use({
 		"phaazon/hop.nvim",
 		config = function()
@@ -131,6 +73,17 @@ require("packer").startup(function()
 	use({
 		"ggandor/lightspeed.nvim",
 	})
+
+	-- QOL
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("plugins.comment.settings")
+		end,
+	})
+	use({ "tpope/vim-dispatch" })
+	use({ "editorconfig/editorconfig-vim" })
+	use({ "ii14/exrc.vim" })
 	use({
 		"karb94/neoscroll.nvim",
 		config = function()
@@ -138,35 +91,12 @@ require("packer").startup(function()
 			require("plugins.neoscroll.mappings")
 		end,
 	})
-	-- use { "tversteeg/registers.nvim" }
-	use({
-		"mattn/emmet-vim",
-		ft = { "html", "svelte" },
-		config = function() end,
-	})
 	use({
 		"michaelb/sniprun",
 		run = "bash ./install.sh",
 		config = function()
 			require("plugins.sniprun.settings")
 			require("plugins.sniprun.mappings")
-		end,
-	})
-
-	-- Tryout
-	use({ "windwp/nvim-spectre" })
-	use({
-		"notomo/gesture.nvim",
-		config = function()
-			require("plugins.gesture.settings")
-			require("plugins.gesture.mappings")
-		end,
-	})
-	use({
-		"rmagatti/goto-preview",
-		config = function()
-			require("plugins.goto-preview.settings")
-			require("plugins.goto-preview.mappings")
 		end,
 	})
 
@@ -180,9 +110,80 @@ require("packer").startup(function()
 		end,
 	})
 	use({
+		"mbbill/undotree",
+		cmd = "UndotreeToggle",
+	})
+	use({
+		"lewis6991/gitsigns.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("plugins.gitsigns.settings")
+			require("plugins.gitsigns.mappings")
+		end,
+	})
+	use({
+		"folke/lsp-trouble.nvim",
+		config = function()
+			require("plugins.lsp-trouble.settings")
+			require("plugins.lsp-trouble.mappings")
+		end,
+	})
+	use({
+		"numtostr/FTerm.nvim",
+		config = function()
+			require("plugins.fterm.settings")
+			require("plugins.fterm.mappings")
+		end,
+	})
+	use({
+		"rmagatti/goto-preview",
+		config = function()
+			require("plugins.goto-preview.settings")
+			require("plugins.goto-preview.mappings")
+		end,
+	})
+	-- use({"tversteeg/registers.nvim"})
+	-- use({ "tpope/vim-fugitive" })
+	use({
+		"norcalli/nvim-colorizer.lua",
+		ft = { "css", "html", "scss", "svelte" },
+		cmd = "ColorizerToggle",
+	})
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("plugins.indent-blankline.settings")
+		end,
+	})
+	use({
+		"lukas-reineke/virt-column.nvim",
+		config = function()
+			require("plugins.virt-column.settings")
+		end,
+	})
+	use({
+		"rafcamlet/nvim-luapad",
+		cmd = "Luapad",
+	})
+
+	-- Statusline
 	use({
 		"famiu/feline.nvim",
 	})
+
+	-- Bufferline
+	use({
+		"nanozuki/tabby.nvim",
+		config = function()
+			require("plugins.tabby.settings")
+		end,
+	})
+
+	-- Filetypes
+	use({
+		"mattn/emmet-vim",
+		ft = { "html", "svelte" },
+		config = function() end,
 	})
 
 	-- Color Schemes
@@ -203,6 +204,28 @@ require("packer").startup(function()
 	use({
 		"ishan9299/nvim-solarized-lua",
 	})
+
+	-- Tryout
+	use({ "windwp/nvim-spectre" })
+	use({
+		"luukvbaal/stabilize.nvim",
+		config = function()
+			require("stabilize").setup()
+		end,
+	})
+	-- use({
+	-- 	"chentau/marks.nvim",
+	-- 	config = function()
+	-- 		require("plugins.marks.settings")
+	-- 	end,
+	-- })
+	-- use({
+	-- 	"code-biscuits/nvim-biscuits",
+	-- 	config = function()
+	-- 		require("plugins.nvim-biscuits.settings")
+	-- 		require("plugins.nvim-biscuits.mappings")
+	-- 	end,
+	-- })
 end)
 
 require("plugins.netrw.settings")
