@@ -168,7 +168,7 @@ require("packer").startup(function()
 
 	-- Statusline
 	use({
-		"famiu/feline.nvim",
+		"feline-nvim/feline.nvim",
 	})
 
 	-- Bufferline

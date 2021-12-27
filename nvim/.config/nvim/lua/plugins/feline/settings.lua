@@ -1,10 +1,11 @@
-local colors = {
-	fg = "#1a1b26",
-	bg = "#00a3cc",
-	-- bg = "#a9b665",
-
+local theme = {
 	white = "#ffffff",
 	black = "#1a1b26",
+	blue = "#00a3cc",
+	green = "#a9b665",
+
+	fg = "black",
+	bg = "blue",
 }
 
 local components = {
@@ -35,14 +36,14 @@ local mode_map = {
 local separator_right_arrow = {
 	str = "",
 	hl = {
-		fg = "black",
+		fg = "fg",
 	},
 }
 
 local separator_line = {
 	str = "|",
 	hl = {
-		fg = "black",
+		fg = "fg",
 		style = "bold",
 	},
 }
@@ -161,7 +162,12 @@ table.insert(components.active[1], {
 		style = "bold",
 	},
 	left_sep = "",
-	right_sep = separator_right_arrow,
+	right_sep = {
+		str = " ",
+		hl = {
+			fg = "black",
+		},
+	},
 	icon = "",
 })
 
@@ -255,6 +261,6 @@ table.insert(components.inactive[1], {
 })
 
 require("feline").setup({
-	colors = colors,
+	theme = theme,
 	components = components,
 })
