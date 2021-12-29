@@ -205,10 +205,10 @@ function M.colorscheme()
 		NvimTreeOpenedFolderName = { fg = palette.purple, bg = palette.none },
 		-- NvimTreeExecFile
 		-- NvimTreeOpenedFile
-		-- NvimTreeSpecialFile
+		NvimTreeSpecialFile = { fg = palette.purple, bg = palette.none },
 		-- NvimTreeImageFile
 		-- NvimTreeMarkdownFile
-		NvimTreeIndentMarker = { fg = palette.yeet, bg = palette.none },
+		NvimTreeIndentMarker = { fg = palette.gray, bg = palette.none },
 
 		-- Indent-Blankline
 		IndentBlanklineChar = { fg = palette.yeet, bg = palette.none }, -- Highlight of indent character.
@@ -216,7 +216,10 @@ function M.colorscheme()
 		-- IndentBlanklineSpaceCharBlankline = {}, -- Highlight of space character on blank lines.
 		IndentBlanklineContextChar = { fg = palette.gray, bg = palette.none }, -- Highlight of indent character when base of current context.
 
-		-- -- GitSigns
+		-- Vert-Column
+		VirtColumn = { fg = palette.dark_blue_gray, bg = palette.none },
+
+		-- GitSigns
 		GitSignsAdd = { fg = palette.green, bg = palette.none }, -- diff mode: Added line |diff.txt|
 		GitSignsChange = { fg = palette.blue, bg = palette.none }, -- diff mode: Added line |diff.txt|
 		GitSignsDelete = { fg = palette.red, bg = palette.none }, -- diff mode: Added line |diff.txt|
