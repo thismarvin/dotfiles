@@ -2,6 +2,7 @@ require("lspconfig").sumneko_lua.setup({
 	on_attach = require("plugins.lsp").on_attach,
 	capabilities = require("plugins.lsp").capabilities,
 	cmd = { "lua-language-server", "-E", "/usr/share/lua-language-server/main.lua" },
+	handlers = require("plugins.lsp").handlers,
 	settings = {
 		Lua = {
 			runtime = {

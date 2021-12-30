@@ -8,9 +8,9 @@ function M.on_attach(_, bufnr)
 	local map = vim.api.nvim_buf_set_keymap
 	local options = { noremap = true, silent = true }
 
-	map(bufnr, "n", "]d", "<Cmd>lua vim.diagnostic.goto_next()<CR>zz", options)
-	map(bufnr, "n", "[d", "<Cmd>lua vim.diagnostic.goto_prev()<CR>zz", options)
-	map(bufnr, "n", "<Leader>d", "<Cmd>lua vim.diagnostic.open_float()<CR>", options)
+	map(bufnr, "n", "]d", "<Cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded' }})<CR>zz", options)
+	map(bufnr, "n", "[d", "<Cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' }})<CR>zz", options)
+	map(bufnr, "n", "<Leader>d", "<Cmd>lua vim.diagnostic.open_float(nil, { border = 'rounded' })<CR>", options)
 	map(bufnr, "n", "J", "<Cmd>lua vim.lsp.buf.hover()<CR>", options)
 	map(bufnr, "n", "K", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", options)
 	map(bufnr, "n", "<Leader>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>", options)
@@ -39,5 +39,14 @@ M.capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 M.capabilities = require("cmp_nvim_lsp").update_capabilities(M.capabilities)
+
+M.handlers = {
+	["textDocument/publishDiagnostics"] = vim.lsp.with(
+		vim.lsp.diagnostic.on_publish_diagnostics,
+		{ virtual_text = false }
+	),
+	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+}
 
 return M
