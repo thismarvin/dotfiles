@@ -47,7 +47,10 @@ function M.colorscheme()
 		DiffAdd = { fg = palette.black, bg = palette.green }, -- diff mode: Added line |diff.txt|
 		DiffChange = { fg = palette.black, bg = palette.blue }, -- diff mode: Changed line |diff.txt|
 		DiffDelete = { fg = palette.black, bg = palette.red }, -- diff mode: Deleted line |diff.txt|
-		DiffText = { fg = palette.black, bg = palette.white }, -- diff mode: Changed text within a changed line |diff.txt|
+		DiffText = { fg = palette.black, bg = palette.yellow }, -- diff mode: Changed text within a changed line |diff.txt|
+		diffAdded = { fg = palette.green, bg = palette.none },
+		diffChanged = { fg = palette.blue, bg = palette.none },
+		diffRemoved = { fg = palette.red, bg = palette.none },
 		Directory = { fg = palette.purple, bg = palette.none }, -- directory names (and other special names in listings)
 		EndOfBuffer = { fg = palette.light_black, bg = palette.none }, -- filler lines (~) after the end of the buffer.
 		ErrorMsg = { fg = palette.red, bg = palette.none }, -- error messages on the command line
