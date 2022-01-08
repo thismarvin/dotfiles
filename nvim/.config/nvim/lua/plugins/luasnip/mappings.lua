@@ -1,4 +1,3 @@
-local map = require("utils").map
 local luasnip = require("luasnip")
 
 local has_words_before = function()
@@ -37,9 +36,6 @@ _G.shift_tab_complete = function()
 	end
 end
 
-map("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
-map("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
-map("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-map("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-map("i", "<C-E>", "<Plug>luasnip-next-choice", {})
-map("s", "<C-E>", "<Plug>luasnip-next-choice", {})
+-- vim.keymap.set({"i", "s"}, "<Tab>", "v:lua.tab_complete()", { expr = true })
+-- vim.keymap.set({"i", "s"}, "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+-- vim.keymap.set({"i", "s"}, "<C-E>", "<Plug>luasnip-next-choice")

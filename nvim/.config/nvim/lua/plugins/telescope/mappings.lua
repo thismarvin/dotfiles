@@ -1,12 +1,11 @@
-local map = require("utils").map
 local Job = require("plenary.job")
 
-map("n", "<Leader>p", "<Cmd>lua require('plugins.telescope.mappings').project_files()<CR>", { noremap = true })
-map("n", "<Leader>P", "<Cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true })
-map("n", "<Leader>f", "<Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", { noremap = true })
-map("n", "<Leader>F", "<Cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
-map("n", "<Leader>ss", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>", { noremap = true })
-map("n", "<Leader>sr", "<Cmd>lua require('telescope.builtin').lsp_references()<CR>", { noremap = true })
+vim.keymap.set("n", "<Leader>p", "<Cmd>lua require('plugins.telescope.mappings').project_files()<CR>")
+vim.keymap.set("n", "<Leader>P", "<Cmd>lua require('telescope.builtin').find_files()<CR>")
+vim.keymap.set("n", "<Leader>f", "<Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>")
+vim.keymap.set("n", "<Leader>F", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
+vim.keymap.set("n", "<Leader>ss", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
+vim.keymap.set("n", "<Leader>sr", "<Cmd>lua require('telescope.builtin').lsp_references()<CR>")
 
 local M = {}
 local cache = {}

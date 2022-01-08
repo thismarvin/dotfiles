@@ -1,7 +1,14 @@
-local map = require("utils").map
+vim.keymap.set({ "n", "x" }, "<Leader><Up>", "<Cmd>HopLine<CR>")
+vim.keymap.set({ "n", "x" }, "<Leader><Down>", "<Cmd>HopLine<CR>")
+vim.keymap.set({ "n", "x" }, "s", "<Cmd>HopPattern<CR>")
 
-map("n", "<Leader><Up>", ":HopLine<CR>", { noremap = true, silent = true })
-map("n", "<Leader><Down>", ":HopLine<CR>", { noremap = true, silent = true })
-map("n", "<Leader>/", ":HopPattern<CR>", { noremap = true, silent = true })
-map("v", "<Leader><Up>", "<Cmd>HopLine<CR>", { noremap = true, silent = true })
-map("v", "<Leader><Down>", "<Cmd>HopLine<CR>", { noremap = true, silent = true })
+-- vim.keymap.set(
+-- 	"n",
+-- 	"f",
+-- 	"<Cmd>lua require('hop').hint_char1({ direction = require('hop.hint').HintDirection.AFTER_CURSOR, current_line_only = true })<CR>"
+-- )
+-- vim.keymap.set(
+-- 	"n",
+-- 	"F",
+-- 	"<Cmd>lua require('hop').hint_char1({ direction = require('hop.hint').HintDirection.BEFORE_CURSOR, current_line_only = true })<CR>"
+-- )

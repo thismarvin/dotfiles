@@ -2,8 +2,6 @@ local Utils = {}
 
 local command = vim.api.nvim_command
 
-Utils.map = vim.api.nvim_set_keymap
-
 function Utils.execute(expression)
 	vim.api.nvim_exec(expression, true)
 end

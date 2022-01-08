@@ -1,22 +1,17 @@
-local map = require("utils").map
-
 vim.g.mapleader = " "
-map("n", "<Leader>", "<Nop>", { noremap = true })
 
-map("n", ";", ":", { noremap = true })
-map("v", ";", ":", { noremap = true })
-map("n", "U", "<C-r>", { noremap = true })
-map("n", "<Leader>w", "<C-w>", { noremap = true })
-map("v", "<", "<gv", { noremap = true })
-map("v", ">", ">gv", { noremap = true })
-map("v", "<C-Down>", ":move '>+1<CR>gv=gvzz", { noremap = true, silent = true })
-map("v", "<C-Up>", ":move '<-2<CR>gv=gvzz", { noremap = true, silent = true })
-map("n", "<Esc>", "<Cmd>noh<CR><Esc>", { noremap = true, silent = true })
-map("n", "n", "nzz", { noremap = true })
-map("n", "N", "Nzz", { noremap = true })
-map("n", "<C-i>", "<C-i>zz", { noremap = true })
-map("n", "<C-o>", "<C-o>zz", { noremap = true })
-map("n", "<Leader>cd", "<Cmd>cd %:p:h<CR><Cmd>echo 'Set working directory to:' expand('%:p:h')<CR>", {
-	noremap = true,
-})
-map("n", "<F12>", ":setlocal spell!<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>", "<Nop>")
+vim.keymap.set({ "n", "v" }, ";", ":")
+vim.keymap.set("n", "U", "<C-r>")
+vim.keymap.set("n", "<Leader>w", "<C-w>")
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set({ "n", "v" }, "<C-Down>", ":move '>+1<CR>gv=gvzz", { silent = true })
+vim.keymap.set({ "n", "v" }, "<C-Up>", ":move '<-2<CR>gv=gvzz", { silent = true })
+vim.keymap.set("n", "<Esc>", "<Cmd>noh<CR><Esc>", { silent = true })
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
+vim.keymap.set("n", "<C-i>", "<C-i>zz")
+vim.keymap.set("n", "<C-o>", "<C-o>zz")
+vim.keymap.set("n", "<Leader>cd", "<Cmd>cd %:p:h<CR><Cmd>echo 'Set working directory to:' expand('%:p:h')<CR>")
+vim.keymap.set("n", "<F12>", ":setlocal spell!<CR>", { silent = true })

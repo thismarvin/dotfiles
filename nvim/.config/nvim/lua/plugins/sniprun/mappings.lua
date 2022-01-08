@@ -1,3 +1,1 @@
-local map = require("utils").map
-
-map("v", "f", "<Plug>SnipRun", { silent = true })
+vim.keymap.set("v", "f", "<Plug>SnipRun")
