@@ -6,7 +6,7 @@ all:
 	@echo -e "(◕‿◕✿)"
 
 .PHONY: update
-update: update_system update_flatpak update_cargo update_npm
+update: update_system update_flatpak update_rustup update_cargo update_npm
 
 .PHONY: update_system
 update_system:
@@ -20,6 +20,12 @@ update_flatpak:
 	flatpak update
 	@echo ""
 	flatpak list --app
+	@echo ""
+
+.PHONY: update_rustup
+update_rustup:
+	@echo -e "$(TERM_YELLOW)Updating Rust Toolchains and rustup...$(TERM_NC)"
+	rustup update
 	@echo ""
 
 .PHONY: update_cargo
