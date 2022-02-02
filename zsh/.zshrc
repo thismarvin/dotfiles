@@ -48,6 +48,9 @@ alias lla="exa -la --icons"
 alias n="n -Reo"
 alias ssh="kitty +kitten ssh"
 
+# Keymaps
+bindkey "^R" history-incremental-search-backward
+
 # Misc.
 
 # Enable nnn's cd on quit.
