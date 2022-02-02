@@ -7,7 +7,9 @@ local function highlight(group, colors)
 	if colors.bg == nil then
 		colors.bg = "NONE"
 	end
-	vim.cmd(string.format("highlight %s guifg=%s guibg=%s", group, colors.fg, colors.bg))
+
+	vim.api.nvim_set_hl(0, group, colors)
+
 end
 
 function M.colorscheme()
@@ -23,6 +25,7 @@ function M.colorscheme()
 		white = "#d4be99",
 		black = "#1a1b26",
 		light_black = "#1d2021",
+		dark_blue_gray = "#242635",
 		dark_gray = "#282828",
 		yeet = "#373336",
 		gray = "#504945",
@@ -34,6 +37,8 @@ function M.colorscheme()
 		cyan = "#89b482",
 		purple = "#d3869b",
 		orange = "#e78a4e",
+		awesome_blue = "#00a3cc",
+		awesome_gray = "#545c7e",
 	}
 
 	local builtin_highlight_groups = {
@@ -81,16 +86,16 @@ function M.colorscheme()
 		SpellCap = {}, -- Word that should start with a capital. |spell|
 		SpellLocal = {}, -- Word that is recognized by the spellchecker as one that is used in another region.
 		SpellRare = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.
-		StatusLine = { fg = palette.dark_gray, bg = palette.white }, -- status line of current window
-		StatusLineNC = { fg = palette.dark_gray, bg = palette.light_gray }, -- status lines of not-current windows
-		TabLine = { fg = palette.light_gray, bg = palette.yeet }, -- tab pages line, not active tab page label
-		TabLineFill = { fg = palette.dark_gray, bg = palette.none }, -- tab pages line, where there are no labels
-		TabLineSel = { fg = palette.white, bg = palette.gray }, -- tab pages line, active tab page label
+		StatusLine = { fg = palette.dark_blue_gray, bg = palette.dark_blue_gray }, -- status line of current window
+		StatusLineNC = { fg = palette.dark_blue_gray, bg = palette.dark_blue_gray }, -- status lines of not-current windows
 		Substitute = { fg = palette.black, bg = palette.red }, -- |:substitute| replacement text highlighting
+		TabLine = { fg = palette.black, bg = palette.awesome_gray }, -- tab pages line, not active tab page label
+		TabLineFill = { fg = palette.dark_blue_gray, bg = palette.dark_blue_gray }, -- tab pages line, where there are no labels
+		TabLineSel = { fg = palette.awesome_gray, bg = palette.dark_blue_gray }, -- tab pages line, active tab page label
 		TermCursor = {}, -- cursor in a focused terminal
 		TermCursorNC = {}, -- cursor in an unfocused terminal
 		Title = {}, -- titles for output from ":set all", ":autocmd" etc.
-		VertSplit = { fg = palette.black, bg = palette.yeet }, -- the column separating vertically split windows
+		VertSplit = { fg = palette.black, bg = palette.dark_blue_gray }, -- the column separating vertically split windows
 		Visual = { fg = palette.none, bg = palette.yeet }, -- Visual mode selection
 		VisualNOS = { fg = palette.none, bg = palette.dark_gray }, -- Visual mode selection when vim is "Not Owning the Selection".
 		WarningMsg = { fg = palette.yellow, bg = palette.none }, -- warning messages
@@ -134,6 +139,21 @@ function M.colorscheme()
 		Typedef = { fg = palette.red, bg = palette.none }, -- A typedef
 		Type = { fg = palette.cyan, bg = palette.none }, -- int, long, char, etc.
 		Underlined = { fg = palette.white, bg = palette.none }, -- text that stands out, HTML links
+	}
+
+	local diagnostic_highlight_groups = {
+		DiagnosticError = { fg = palette.red },
+		DiagnosticWarn = { fg = palette.yellow },
+		DiagnosticInfo = { fg = palette.blue },
+		DiagnosticHint = { fg = palette.blue },
+		DiagnosticSignError = { fg = palette.red },
+		DiagnosticSignWarn = { fg = palette.yellow },
+		DiagnosticSignInfo = { fg = palette.blue },
+		DiagnosticSignHint = { fg = palette.blue },
+		DiagnosticUnderlineError = { sp = "#ff0000", underline = true },
+		DiagnosticUnderlineWarn = { sp = palette.yellow, underline = true },
+		DiagnosticUnderlineInfo = { sp = palette.blue, underline = true },
+		DiagnosticUnderlineHint = { sp = palette.blue, underline = true },
 	}
 
 	local treesitter_highlight_groups = {
@@ -234,18 +254,23 @@ function M.colorscheme()
 		HopUnmatched = { fg = palette.gray, bg = palette.black },
 
 		-- Lightspeed
-		LightspeedLabel = { fg = palette.black, bg = palette.red },
-		LightspeedLabelDistant = { fg = palette.black, bg = palette.purple },
-		LightspeedMaskedChar = { fg = palette.black, bg = palette.blue },
-		LightspeedShortcut = { fg = palette.black, bg = palette.red },
-		LightspeedGreyWash = { fg = palette.gray, bg = palette.none },
-		LightspeedUnlabeledMatch = { fg = palette.purple, bg = palette.black },
-		LightspeedOneCharMatch = { fg = palette.black, bg = palette.purple },
-		LightspeedCursor = { fg = palette.black, bg = palette.green },
+		-- LightspeedLabel = { fg = palette.black, bg = palette.red },
+		-- LightspeedLabelOverlapped = { fg = palette.black, bg = palette.red },
+		-- LightspeedLabelDistant = { fg = palette.black, bg = palette.purple },
+		-- LightspeedLabelDistantOverlapped = { fg = palette.black, bg = palette.purple },
+		-- LightspeedMaskedChar = { fg = palette.black, bg = palette.blue },
+		-- LightspeedShortcut = { fg = palette.black, bg = palette.red },
+		-- LightspeedGreyWash = { fg = palette.gray, bg = palette.none },
+		-- LightspeedUnlabeledMatch = { fg = palette.black, bg = palette.purple },
+		-- LightspeedOneCharMatch = { fg = palette.black, bg = palette.purple },
+		-- LightspeedCursor = { fg = palette.black, bg = palette.green },
 
+		-- Cmp
 		CmpDocumentation = { fg = palette.white, bg = palette.none },
 		CmpDocumentationBorder = { fg = palette.white, bg = palette.none },
 
+		-- Misc
+		FloatBorder = { fg = palette.white, bg = palette.black },
 		InlayHints = { fg = palette.yeet, bg = palette.none },
 	}
 
@@ -254,6 +279,10 @@ function M.colorscheme()
 	end
 
 	for group, colors in pairs(syntax_highlight_groups) do
+		highlight(group, colors)
+	end
+
+	for group, colors in pairs(diagnostic_highlight_groups) do
 		highlight(group, colors)
 	end
 
@@ -281,29 +310,6 @@ function M.colorscheme()
 	vim.g.terminal_color_13 = palette.purple
 	vim.g.terminal_color_14 = palette.cyan
 	vim.g.terminal_color_15 = palette.white
-
-	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticError", "1", palette.red))
-	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticWarn", "3", palette.yellow))
-	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticInfo", "4", palette.blue))
-	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticHint", "7", palette.blue))
-
-	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticSignError", "1", palette.red))
-	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticSignWarn", "3", palette.yellow))
-	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticSignInfo", "4", palette.blue))
-	vim.cmd(string.format("highlight %s ctermfg=%s guifg=%s", "DiagnosticSignHint", "7", palette.blue))
-
-	vim.cmd(
-		string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineError", palette.red)
-	)
-	vim.cmd(
-		string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineWarn", palette.yellow)
-	)
-	vim.cmd(
-		string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineInfo", palette.blue)
-	)
-	vim.cmd(
-		string.format("highlight %s cterm=underline gui=underline guisp=%s", "DiagnosticUnderlineHint", palette.blue)
-	)
 end
 
 return M
