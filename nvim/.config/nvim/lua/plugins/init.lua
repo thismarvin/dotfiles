@@ -70,9 +70,9 @@ require("packer").startup(function()
 			require("plugins.hop.mappings")
 		end,
 	})
-	use({
-		"ggandor/lightspeed.nvim",
-	})
+	-- use({
+	-- 	"ggandor/lightspeed.nvim",
+	-- })
 
 	-- QOL
 	use({
@@ -204,15 +204,16 @@ require("packer").startup(function()
 	use({
 		"ishan9299/nvim-solarized-lua",
 	})
+	use({ "rebelot/kanagawa.nvim" })
 
 	-- Tryout
 	use({ "windwp/nvim-spectre" })
-	use({
-		"luukvbaal/stabilize.nvim",
-		config = function()
-			require("stabilize").setup()
-		end,
-	})
+	-- use({
+	-- 	"luukvbaal/stabilize.nvim",
+	-- 	config = function()
+	-- 		require("stabilize").setup()
+	-- 	end,
+	-- })
 	-- use({
 	-- 	"chentau/marks.nvim",
 	-- 	config = function()
