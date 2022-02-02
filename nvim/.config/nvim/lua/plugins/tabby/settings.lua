@@ -35,7 +35,7 @@ local tabline = {
 	top_win = {
 		label = function(winid)
 			return {
-				" > "
+				" [x] "
 					.. vim.api.nvim_win_get_buf(winid)
 					.. ": "
 					.. filename.unique(winid)
@@ -51,7 +51,7 @@ local tabline = {
 	win = {
 		label = function(winid)
 			return {
-				" - "
+				" [ ] "
 					.. vim.api.nvim_win_get_buf(winid)
 					.. ": "
 					.. filename.unique(winid)
