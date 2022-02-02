@@ -1,6 +1,7 @@
 vim.keymap.set({ "n", "x" }, "<Leader><Up>", "<Cmd>HopLine<CR>")
 vim.keymap.set({ "n", "x" }, "<Leader><Down>", "<Cmd>HopLine<CR>")
 vim.keymap.set({ "n", "x" }, "s", "<Cmd>HopPattern<CR>")
+vim.keymap.set({ "n", "x" }, "S", "<Cmd>HopPattern<CR>")
 
 -- vim.keymap.set(
 -- 	"n",
