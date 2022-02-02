@@ -8,7 +8,7 @@ local dpi = xresources.apply_dpi
 
 local theme = {}
 
-theme.font = "Cascadia Code 12"
+theme.font = "JetBrains Mono Bold 12"
 theme.wallpaper = "~/Pictures/Wallpapers/windows_11_2.jpg"
 
 -------------------------

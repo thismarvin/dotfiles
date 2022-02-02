@@ -357,7 +357,7 @@ s.mytaglist = awful.widget.taglist {
 		{
 			{
 				format = "%R",
-				font = "Cascadia Code 10",
+				font = "JetBrains Mono Bold 10",
 				widget = wibox.widget.textclock
 			},
 			halign = "right",
@@ -366,7 +366,7 @@ s.mytaglist = awful.widget.taglist {
 		{
 			{
 				format = "%F",
-				font = "Cascadia Code 10",
+				font = "JetBrains Mono Bold 10",
 				widget = wibox.widget.textclock
 			},
 			halign = "right",
