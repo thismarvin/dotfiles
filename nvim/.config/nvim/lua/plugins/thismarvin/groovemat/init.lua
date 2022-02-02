@@ -9,7 +9,6 @@ local function highlight(group, colors)
 	end
 
 	vim.api.nvim_set_hl(0, group, colors)
-
 end
 
 function M.colorscheme()
