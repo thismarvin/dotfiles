@@ -81,10 +81,10 @@ function M.colorscheme()
 		Search = { fg = palette.black, bg = palette.green }, -- Last search pattern highlighting (see 'hlsearch').
 		SignColumn = { fg = palette.none, bg = palette.none }, -- column where |signs| are displayed
 		SpecialKey = { fg = palette.gray, bg = palette.none }, -- Unprintable characters: text displayed differently from what it really is.
-		SpellBad = {}, -- Word that is not recognized by the spellchecker. |spell|
-		SpellCap = {}, -- Word that should start with a capital. |spell|
-		SpellLocal = {}, -- Word that is recognized by the spellchecker as one that is used in another region.
-		SpellRare = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.
+		SpellBad = { sp = "#ff0000", undercurl = true }, -- Word that is not recognized by the spellchecker. |spell|
+		SpellCap = { sp = palette.blue, undercurl = true }, -- Word that should start with a capital. |spell|
+		SpellLocal = { sp = palette.yellow, undercurl = true }, -- Word that is recognized by the spellchecker as one that is used in another region.
+		SpellRare = { sp = palette.yellow, undercurl = true }, -- Word that is recognized by the spellchecker as one that is hardly ever used.
 		StatusLine = { fg = palette.dark_blue_gray, bg = palette.dark_blue_gray }, -- status line of current window
 		StatusLineNC = { fg = palette.dark_blue_gray, bg = palette.dark_blue_gray }, -- status lines of not-current windows
 		Substitute = { fg = palette.black, bg = palette.red }, -- |:substitute| replacement text highlighting
