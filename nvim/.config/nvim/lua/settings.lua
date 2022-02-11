@@ -19,6 +19,7 @@ set("clipboard=unnamedplus")
 set("mouse=a")
 set("spelllang=en_us")
 set("tabstop=2")
+set("softtabstop=2")
 set("shiftwidth=2")
 set("scrolloff=4")
 
