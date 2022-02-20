@@ -161,7 +161,7 @@ table.insert(components.active[1], {
 	hl = {
 		style = "bold",
 	},
-	left_sep = "",
+	left_sep = " ",
 	right_sep = {
 		str = " ",
 		hl = {
@@ -232,6 +232,16 @@ table.insert(components.active[2], {
 })
 
 -- Inactive Left
+table.insert(components.inactive[1], {
+	provider = " ",
+	hl = {
+		bg = "#242635",
+	},
+	left_sep = "",
+	right_sep = "",
+	icon = "",
+})
+
 table.insert(components.inactive[1], {
 	provider = {
 		name = "file_info",
