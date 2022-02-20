@@ -1,5 +1,5 @@
-TERM_YELLOW := \033[0;33m
-TERM_NC := \033[0m
+TERM_YELLOW := $(shell tput setaf 3)
+TERM_NC := $(shell tput setaf 7)
 
 .PHONY: all
 all:
