@@ -45,8 +45,9 @@ alias ls="exa --icons"
 alias ll="exa -l --icons"
 alias lt="exa -T --icons"
 alias lla="exa -la --icons"
-alias n="n -Reo"
+alias n="n -deo"
 alias ssh="kitty +kitten ssh"
+alias d="kitty +kitten diff"
 
 # Keymaps
 bindkey "^R" history-incremental-search-backward
