@@ -1,41 +1,37 @@
 local luasnip = require("luasnip")
 
-local has_words_before = function()
-	if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+local t = function(str)
+	return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local check_back_space = function()
+	local col = vim.fn.col(".") - 1
+	if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+		return true
+	else
 		return false
 	end
-
-	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-
-	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local t = function(key)
-	return vim.api.nvim_replace_termcodes(key, true, true, true)
-end
-
-_G.tab_complete = function()
-	if vim.fn.pumvisible() == 1 then
-		return t("<C-n>")
-	elseif luasnip.expand_or_jumpable() then
+_G.forward = function()
+	if luasnip and luasnip.expand_or_jumpable() then
 		return t("<Plug>luasnip-expand-or-jump")
-	elseif has_words_before() then
-		return t("<Plug>cmp-complete")
-	else
-		return t("<Tab>")
+	elseif check_back_space() then
+		return t("<C-n>")
 	end
+	return ""
 end
 
-_G.shift_tab_complete = function()
-	if vim.fn.pumvisible() == 1 then
-		return t("<C-p>")
-	elseif luasnip.jumpable(-1) then
+_G.backward = function()
+	if luasnip and luasnip.jumpable(-1) then
 		return t("<Plug>luasnip-jump-prev")
 	else
-		return t("<S-Tab>")
+		return t("<C-e>")
 	end
+	return ""
 end
 
--- vim.keymap.set({"i", "s"}, "<Tab>", "v:lua.tab_complete()", { expr = true })
--- vim.keymap.set({"i", "s"}, "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
--- vim.keymap.set({"i", "s"}, "<C-E>", "<Plug>luasnip-next-choice")
+vim.api.nvim_set_keymap("i", "<C-e>", "v:lua.forward()", { expr = true })
+vim.api.nvim_set_keymap("s", "<C-e>", "v:lua.forward()", { expr = true })
+vim.api.nvim_set_keymap("i", "<C-n>", "v:lua.backward()", { expr = true })
+vim.api.nvim_set_keymap("s", "<C-n>", "v:lua.backward()", { expr = true })
