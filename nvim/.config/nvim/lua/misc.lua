@@ -2,8 +2,8 @@ local execute = require("utils").execute
 
 require("plugins.thismarvin.surround")
 
-vim.keymap.set("n", "gss", "<Cmd>lua require('plugins.thismarvin.surround').surround_line()<CR>", { silent = true })
-vim.keymap.set("n", "gs", "<Cmd>set operatorfunc=SurroundOperatorCustom<CR>g@", { silent = true })
+vim.keymap.set("n", "mss", "<Cmd>lua require('plugins.thismarvin.surround').surround_line()<CR>", { silent = true })
+vim.keymap.set("n", "ms", "<Cmd>set operatorfunc=SurroundOperatorCustom<CR>g@", { silent = true })
 
 execute([[
 augroup misc
