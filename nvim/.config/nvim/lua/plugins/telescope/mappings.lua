@@ -1,9 +1,13 @@
 local Job = require("plenary.job")
 
 vim.keymap.set("n", "<Leader>p", "<Cmd>lua require('plugins.telescope.mappings').project_files()<CR>")
-vim.keymap.set("n", "<Leader>P", "<Cmd>lua require('telescope.builtin').find_files()<CR>")
-vim.keymap.set("n", "<Leader>f", "<Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>")
-vim.keymap.set("n", "<Leader>F", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
+vim.keymap.set(
+	"n",
+	"<Leader>P",
+	"<Cmd>lua require('telescope.builtin').find_files({ hidden = true, no_ignore = true })<CR>"
+)
+vim.keymap.set("n", "<Leader>/", "<Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>")
+vim.keymap.set("n", "<Leader>f", "<Cmd>lua require('telescope.builtin').live_grep()<CR>")
 vim.keymap.set("n", "<Leader>ss", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
 vim.keymap.set("n", "<Leader>sr", "<Cmd>lua require('telescope.builtin').lsp_references()<CR>")
 
