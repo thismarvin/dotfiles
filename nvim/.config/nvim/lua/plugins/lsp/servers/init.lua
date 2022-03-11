@@ -4,6 +4,7 @@ local servers = {
 	"eslint",
 	"html",
 	"jsonls",
+	"ols",
 	"omnisharp",
 	"pyright",
 	"rust_analyzer",
@@ -11,6 +12,7 @@ local servers = {
 	"svelte",
 	-- "denols",
 	"tsserver",
+	"zls",
 }
 
 for _, lsp in ipairs(servers) do
