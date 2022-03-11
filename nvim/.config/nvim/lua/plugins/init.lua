@@ -65,16 +65,16 @@ require("packer").startup(function()
 	})
 
 	-- Motion
-	use({
-		"phaazon/hop.nvim",
-		config = function()
-			require("plugins.hop.settings")
-			require("plugins.hop.mappings")
-		end,
-	})
 	-- use({
-	-- 	"ggandor/lightspeed.nvim",
+	-- 	"phaazon/hop.nvim",
+	-- 	config = function()
+	-- 		require("plugins.hop.settings")
+	-- 		require("plugins.hop.mappings")
+	-- 	end,
 	-- })
+	use({
+		"ggandor/lightspeed.nvim",
+	})
 
 	-- QOL
 	use({
@@ -166,6 +166,9 @@ require("packer").startup(function()
 	use({
 		"rafcamlet/nvim-luapad",
 		cmd = "Luapad",
+	})
+	use({
+		"kevinhwang91/nvim-bqf",
 	})
 
 	-- Statusline
