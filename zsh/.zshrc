@@ -74,7 +74,5 @@ function n ()
 	fi
 }
 
-source /home/marvin/.config/broot/launcher/bash/br
-
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
