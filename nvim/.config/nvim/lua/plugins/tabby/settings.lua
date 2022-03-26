@@ -1,5 +1,4 @@
 -- Yoinked from https://github.com/nanozuki/tabby.nvim/discussions/24#discussion-3625937
-require("tabby").setup()
 local filename = require("tabby.filename")
 local util = require("tabby.util")
 
