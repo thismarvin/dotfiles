@@ -84,7 +84,7 @@ require("packer").startup(function()
 		end,
 	})
 	use({ "tpope/vim-dispatch" })
-	use({ "editorconfig/editorconfig-vim" })
+	use({ "gpanders/editorconfig.nvim" })
 	use({ "ii14/exrc.vim" })
 	use({
 		"karb94/neoscroll.nvim",
