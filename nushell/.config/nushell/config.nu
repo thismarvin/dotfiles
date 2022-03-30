@@ -263,6 +263,10 @@ let-env LC_ALL = "en_US.UTF-8"
 let-env TERMINAL = "kitty"
 let-env EDITOR = "nvim"
 let-env MANPAGER = "nvim +Man!"
+let-env PATH = (
+	$env.PATH
+	| append $"($env.HOME)/.local/bin"
+)
 
 alias .. = cd ..
 alias v = nvim
