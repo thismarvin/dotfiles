@@ -18,8 +18,7 @@ def create_right_prompt [] {
 let-env PROMPT_COMMAND = { create_left_prompt }
 let-env PROMPT_COMMAND_RIGHT = { create_right_prompt }
 
-# The prompt indicators are environmental variables that represent
-# the state of the prompt
+# The prompt indicators are environmental variables that represent the state of the prompt
 let-env PROMPT_INDICATOR = " => "
 let-env PROMPT_INDICATOR_VI_INSERT = ": "
 let-env PROMPT_INDICATOR_VI_NORMAL = "〉"
@@ -259,17 +258,18 @@ let $config = {
   ]
 }
 
-let-env LC_ALL = "en_US.UTF-8"
-let-env TERMINAL = "kitty"
-let-env EDITOR = "nvim"
-let-env MANPAGER = "nvim +Man!"
 let-env PATH = (
 	$env.PATH
 	| append $"($env.HOME)/.local/bin"
 )
 
+let-env LC_ALL = 'en_US.UTF-8'
+let-env TERMINAL = 'kitty'
+let-env EDITOR = 'nvim'
+let-env MANPAGER = 'nvim +Man! -c "colorscheme default"'
+
 alias .. = cd ..
-alias v = nvim
-alias n = nnn -deo
-alias d = kitty +kitten diff
-alias ssh = kitty +kitten ssh
+alias v = ^nvim
+alias n = ^nnn -deo
+alias d = ^kitty +kitten diff
+alias ssh = ^kitty +kitten ssh
