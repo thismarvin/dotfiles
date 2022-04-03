@@ -11,28 +11,7 @@ setopt hist_verify
 autoload -Uz compinit
 compinit -d ~/.cache/zcompdump
 zstyle ':completion:*:*:*:*:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive tab completion
-
-# Enable vi mode.
-bindkey -v
-export KEYTIMEOUT=1
-
-# (The following it taken from: https://github.com/LukeSmithxyz/voidrice/blob/87c295003995ffdb071551ce0fe56307aadfdda8/.config/zsh/.zshrc#L38)
-# Change cursor shape for different vi modes.
-function zle-keymap-select () {
-	case $KEYMAP in
-		vicmd) echo -ne '\e[1 q';;      # block
-		viins|main) echo -ne '\e[5 q';; # beam
-	esac
-}
-zle -N zle-keymap-select
-zle-line-init() {
-	zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-	echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # Case insensitive tab completion
 
 # Aliases
 alias edit_zshrc="nvim ~/.zshrc"
