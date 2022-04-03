@@ -65,15 +65,11 @@ require("packer").startup(function()
 	})
 
 	-- Motion
-	-- use({
-	-- 	"phaazon/hop.nvim",
-	-- 	config = function()
-	-- 		require("plugins.hop.settings")
-	-- 		require("plugins.hop.mappings")
-	-- 	end,
-	-- })
 	use({
-		"ggandor/lightspeed.nvim",
+		"ggandor/leap.nvim",
+		config = function()
+			require("plugins.leap.mappings")
+		end,
 	})
 
 	-- QOL
