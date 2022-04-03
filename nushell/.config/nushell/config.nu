@@ -202,14 +202,14 @@ let $config = {
     col_padding: 2
     text_style: green
     selected_text_style: green_reverse
-    marker: "| "
+    marker: " |= "
   }
   history_config: {
     page_size: 10
     selector: "!"
     text_style: green
     selected_text_style: green_reverse
-    marker: "? "
+    marker: " ?= "
   }
   keybindings: [
     {
