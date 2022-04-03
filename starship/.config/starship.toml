@@ -1,36 +1,39 @@
 add_newline = false
 
 format="""\
-	$time\
 	$directory\
-	$git_branch\
 	$git_status\
 	$character\
-	"""
+"""
 
-[time]
-disabled = false
-format = "\\[[$time]($style)\\]"
-style = "yellow"
-time_format = "%T"
+right_format="""\
+	$cmd_duration\
+	$time\
+"""
 
 [directory]
-format = "\\[[$path]($style)\\]"
-style = "green"
-
-[git_branch]
-format = " [$symbol$branch]($style)"
-# style = "#ecf0c1"
-style = "bright-white"
+truncation_length = 5
+truncation_symbol = ".../"
+truncate_to_repo = false
+format = "[$path]($style)"
+style = "cyan"
 
 [git_status]
 format = "( [\\[$all_status$ahead_behind\\]]($style))"
-ahead = "⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+style = "cyan"
 
 [character]
 format = " $symbol "
-success_symbol = "[=>](green)"
+success_symbol = "[=>](cyan)"
 error_symbol = "[=>](red)"
 vicmd_symbol = "[<-](yellow)"
+
+[cmd_duration]
+format = "[\\($duration\\)]($style) "
+style = "cyan"
+
+[time]
+disabled = false
+time_format = "%F %R"
+format = "[$time]($style)"
+style = "cyan"
