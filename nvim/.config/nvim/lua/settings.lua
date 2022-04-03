@@ -3,6 +3,7 @@ local set = require("utils").set
 
 set("number")
 set("nowrap")
+set("relativenumber")
 set("noshowmode")
 set("confirm")
 set("noswapfile")
