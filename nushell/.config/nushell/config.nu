@@ -273,3 +273,6 @@ alias v = ^nvim
 alias n = ^nnn -deo
 alias d = ^kitty +kitten diff
 alias ssh = ^kitty +kitten ssh
+
+# starship init nu | save ~/.cache/starship/init.nu
+# source ~/.cache/starship/init.nu
