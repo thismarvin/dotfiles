@@ -43,3 +43,9 @@ update_npm:
 	@echo ""
 	npm list -g
 	@echo ""
+
+.PHONY: update_neovim
+update_neovim:
+	@echo -e "$(TERM_YELLOW)Updating Neovim...$(TERM_NC)"
+	paru -S neovim-nightly-bin
+	nvim -c PackerSync
