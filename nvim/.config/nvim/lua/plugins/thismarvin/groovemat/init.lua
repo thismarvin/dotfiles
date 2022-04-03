@@ -246,24 +246,6 @@ function M.colorscheme()
 		GitSignsChange = { fg = palette.blue, bg = palette.none }, -- diff mode: Added line |diff.txt|
 		GitSignsDelete = { fg = palette.red, bg = palette.none }, -- diff mode: Added line |diff.txt|
 
-		-- Hop
-		HopNextKey = { fg = palette.purple, bg = palette.black },
-		HopNextKey1 = { fg = palette.black, bg = palette.blue },
-		HopNextKey2 = { fg = palette.black, bg = palette.red },
-		HopUnmatched = { fg = palette.gray, bg = palette.black },
-
-		-- Lightspeed
-		-- LightspeedLabel = { fg = palette.black, bg = palette.red },
-		-- LightspeedLabelOverlapped = { fg = palette.black, bg = palette.red },
-		-- LightspeedLabelDistant = { fg = palette.black, bg = palette.purple },
-		-- LightspeedLabelDistantOverlapped = { fg = palette.black, bg = palette.purple },
-		-- LightspeedMaskedChar = { fg = palette.black, bg = palette.blue },
-		-- LightspeedShortcut = { fg = palette.black, bg = palette.red },
-		-- LightspeedGreyWash = { fg = palette.gray, bg = palette.none },
-		-- LightspeedUnlabeledMatch = { fg = palette.black, bg = palette.purple },
-		-- LightspeedOneCharMatch = { fg = palette.black, bg = palette.purple },
-		-- LightspeedCursor = { fg = palette.black, bg = palette.green },
-
 		-- Cmp
 		CmpDocumentation = { fg = palette.white, bg = palette.none },
 		CmpDocumentationBorder = { fg = palette.white, bg = palette.none },
