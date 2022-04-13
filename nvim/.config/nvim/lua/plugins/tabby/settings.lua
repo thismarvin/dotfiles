@@ -39,9 +39,7 @@ local tabline = {
 					.. ": "
 					.. filename.unique(winid)
 					.. " "
-					.. (
-						vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(winid), "modified") and "[+]" or ""
-					),
+					.. (vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(winid), "modified") and "[+]" or ""),
 				hl = { fg = hl_tabline.fg, bg = hl_tabline.bg, style = "bold" },
 			}
 		end,
@@ -55,9 +53,7 @@ local tabline = {
 					.. ": "
 					.. filename.unique(winid)
 					.. " "
-					.. (
-						vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(winid), "modified") and "[+]" or ""
-					),
+					.. (vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(winid), "modified") and "[+]" or ""),
 				hl = { fg = hl_tabline_sel.fg, bg = hl_tabline_sel.bg },
 			}
 		end,
