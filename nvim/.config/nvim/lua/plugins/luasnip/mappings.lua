@@ -17,7 +17,7 @@ _G.forward = function()
 	if luasnip and luasnip.expand_or_jumpable() then
 		return t("<Plug>luasnip-expand-or-jump")
 	elseif check_back_space() then
-		return t("<C-n>")
+		return t("<C-e>")
 	end
 	return ""
 end
@@ -26,7 +26,7 @@ _G.backward = function()
 	if luasnip and luasnip.jumpable(-1) then
 		return t("<Plug>luasnip-jump-prev")
 	else
-		return t("<C-e>")
+		return t("<C-n>")
 	end
 	return ""
 end
