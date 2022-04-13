@@ -15,9 +15,9 @@ cmp.setup({
 		end,
 	},
 
-	documentation = {
-		border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-		winhighlight = "NormalFloat:CmpDocumentation,FloatBorder:CmpDocumentationBorder",
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
 
 	formatting = {
@@ -28,6 +28,7 @@ cmp.setup({
 				luasnip = "(LuaSnip)",
 				nvim_lsp_signature_help = "(Params)",
 				buffer = "(Buffer)",
+				cmdline = "(Command)",
 				path = "(Path)",
 				spell = "(Spell)",
 			})[entry.source.name]
@@ -36,10 +37,14 @@ cmp.setup({
 		end,
 	},
 
-	mapping = {
+	mapping = cmp.mapping.preset.insert({
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.abort(),
+		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		["<Down>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { "i" }),
+		["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { "i" }),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -62,10 +67,7 @@ cmp.setup({
 			"i",
 			"s",
 		}),
-		["<CR>"] = cmp.mapping.confirm({
-			select = true,
-		}),
-	},
+	}),
 
 	sources = {
 		{ name = "nvim_lsp" },
@@ -75,4 +77,16 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "spell" },
 	},
+
+	-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+	cmp.setup.cmdline("/", {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = { { name = "buffer" } },
+	}),
+
+	-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+	cmp.setup.cmdline(":", {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+	}),
 })
