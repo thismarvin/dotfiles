@@ -69,7 +69,7 @@ function M.colorscheme()
 		MsgArea = { fg = palette.white, bg = palette.none }, -- Area for messages and cmdline
 		MsgSeparator = { fg = palette.white, bg = palette.none }, -- Separator for scrolled messages, `msgsep` flag of 'display'
 		NonText = { fg = palette.gray, bg = palette.none }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text.
-		Normal = { fg = palette.white, bg = palette.none }, -- normal text
+		Normal = { fg = palette.white, bg = palette.black }, -- normal text
 		NormalFloat = { fg = palette.white, bg = palette.none }, -- Normal text in floating windows.
 		NormalNC = { fg = palette.white, bg = palette.none }, -- normal text in non-current windows.
 		Pmenu = { fg = palette.white, bg = palette.gray }, -- Popup menu: normal item.
