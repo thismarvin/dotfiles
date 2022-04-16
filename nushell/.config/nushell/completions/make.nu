@@ -24,7 +24,7 @@ export extern "make" [
 	--debug(-d)                                       # Print various types of debugging information.
 	--environment-overrides(-e)                       # Environment variables override makefiles.
 	--eval(-E): string                                # Evaluate STRING as a makefile statement.
-	--file(-f)                                        # Read FILE as a makefile.
+	--file(-f): string@"nu-complete make files"       # Read FILE as a makefile.
 	--help(-h)                                        # Print this message and exit.
 	--ignore-errors(-i)                               # Ignore errors from recipes.
 	--include-dir(-I): string@"nu-complete make dirs" # Search DIRECTORY for included makefiles.
