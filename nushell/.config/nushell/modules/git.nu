@@ -5,7 +5,7 @@ export def is-repository [] {
 }
 
 export def checkout-empty-tree [] {
-	if not is-repository {
+	if not (is-repository) {
 		error make {
 			msg: $"The current directory is not a git repository."
 		}
