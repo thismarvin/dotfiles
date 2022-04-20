@@ -2,7 +2,7 @@
 
 alias .. = cd ..
 alias v = ^nvim
-alias n = ^nnn -deo
+alias nnn = ^nnn -deo
 alias d = ^kitty +kitten diff
 alias ssh = ^kitty +kitten ssh
 
