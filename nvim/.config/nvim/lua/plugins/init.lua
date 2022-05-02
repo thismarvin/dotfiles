@@ -78,6 +78,7 @@ require("packer").startup(function()
 		"numToStr/Comment.nvim",
 		config = function()
 			require("plugins.comment.settings")
+			require("plugins.comment.mappings")
 		end,
 	})
 	use({ "tpope/vim-dispatch" })
