@@ -6,3 +6,4 @@ vim.keymap.set("n", "<Leader>hu", "<Cmd>lua require('gitsigns').undo_stage_hunk(
 vim.keymap.set("n", "<Leader>hr", "<Cmd>lua require('gitsigns').reset_hunk()<CR>")
 vim.keymap.set("n", "<Leader>hR", "<Cmd>lua require('gitsigns').reset_buffer()<CR>")
 vim.keymap.set("n", "<Leader>hp", "<Cmd>lua require('gitsigns').preview_hunk()<CR>")
+vim.keymap.set("n", "<Leader>sh", "<Cmd>lua require('gitsigns').setqflist()<CR>")
