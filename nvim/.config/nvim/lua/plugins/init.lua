@@ -16,6 +16,7 @@ require("packer").startup(function(use)
 			"RRethy/nvim-treesitter-textsubjects",
 			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
+		run = ":TSUpdate",
 		config = function()
 			require("plugins.treesitter.settings")
 		end,
