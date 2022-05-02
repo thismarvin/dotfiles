@@ -13,6 +13,7 @@ for_window [class="^Steam$" title="^Friends List$"] floating enable
 for_window [class="^Steam$" title="Steam - News"] floating enable
 for_window [class="^Pop$"] floating enable, sticky enable
 
+assign [class="^btm$"] "3"
 assign [class="^firefox$"] "2"
 assign [class="^Element$"] "4"
 assign [class="^Jitsi Meet$"] "4"
@@ -139,3 +140,5 @@ client.background       #ffffff
 exec --no-startup-id hsetroot -solid "#000000"
 exec --no-startup-id picom
 exec --no-startup-id $terminal
+exec --no-startup-id $terminal --class=btm -e btm -ab
+exec --no-startup-id sleep 1; $terminal --class=btm -e btm
