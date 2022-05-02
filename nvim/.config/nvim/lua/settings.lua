@@ -1,36 +1,42 @@
-local execute = require("utils").execute
-local set = require("utils").set
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.confirm = true
+vim.o.showmode = false
+vim.o.swapfile = false
+vim.o.undofile = true
+vim.o.smartindent = true
+vim.o.breakindent = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.spell = true
+vim.o.spelllang = "en_us"
+vim.o.list = true
+vim.o.listchars = "tab:╎ ,trail:·,eol:"
+vim.o.cc = "101"
+vim.o.mouse = "a"
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.scrolloff = 2
+vim.o.laststatus = 3
 
-set("number")
-set("nowrap")
-set("relativenumber")
-set("noshowmode")
-set("confirm")
-set("noswapfile")
-set("undofile")
-set("smartindent")
-set("ignorecase")
-set("smartcase")
-set("splitbelow")
-set("splitright")
-set("list")
-set("listchars=tab:┊\\ ,trail:·")
-set("clipboard=unnamedplus")
-set("mouse=a")
-set("spelllang=en_us")
-set("tabstop=2")
-set("softtabstop=2")
-set("shiftwidth=2")
-set("scrolloff=4")
+local config_augroup = vim.api.nvim_create_augroup("config", { clear = true })
 
-execute([[
-augroup vimrc
-  autocmd!
-  " Only show the cursor line when in insert mode.
-  autocmd InsertEnter * set cursorline
-  autocmd InsertLeave * set nocursorline
+vim.api.nvim_create_autocmd("InsertEnter", {
+	command = "set cursorline",
+	group = config_augroup,
+})
+vim.api.nvim_create_autocmd("InsertLeave", {
+	command = "set nocursorline",
+	group = config_augroup,
+})
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank({ higroup = "Visual", timeout = 200 })
+	end,
+	group = config_augroup,
+})
 
-  " After yanking a selection, highlight the selection for a bit.
-  autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup='Visual', timeout=200 }
-augroup end
-]])
+vim.api.nvim_create_user_command("W", "write", {})
