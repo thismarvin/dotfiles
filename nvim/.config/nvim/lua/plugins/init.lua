@@ -24,7 +24,6 @@ require("packer").startup(function()
 	-- Support for LSP.
 	use({
 		"neovim/nvim-lspconfig",
-		requires = { "nvim-lua/lsp_extensions.nvim" },
 		config = function()
 			require("plugins.lsp.settings")
 			require("plugins.lsp.servers")
@@ -182,6 +181,13 @@ require("packer").startup(function()
 	})
 
 	-- Filetypes
+	use({
+		"simrat39/rust-tools.nvim",
+		ft = { "rust" },
+		config = function()
+			require("plugins.rust-tools.settings")
+		end,
+	})
 	use({
 		"mattn/emmet-vim",
 		ft = { "html", "svelte" },
