@@ -43,6 +43,7 @@ let-env PATH = (
 	| append $"($env.HOME)/.local/bin"
 )
 
+let-env LANG = 'en_US.UTF-8'
 let-env LC_ALL = 'en_US.UTF-8'
 let-env TERMINAL = 'kitty'
 let-env EDITOR = 'nvim'
