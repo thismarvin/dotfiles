@@ -1,6 +1,6 @@
 require("indent_blankline").setup({
-	char = "┊", -- "│"
+	-- │ ╎ ┆ ┊
+	-- ┃ ╏ ┇ ┋
+	char_list = { "│", "╎" },
 	show_trailing_blankline_indent = false,
-	buftype_exclude = { "nofile", "terminal" },
-	filetype_exclude = { "help", "packer", "man" },
 })
