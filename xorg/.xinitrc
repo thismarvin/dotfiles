@@ -30,12 +30,15 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 	unset f
 fi
 
-## Test for an existing bus daemon, just to be safe.
+# Test for an existing bus daemon, just to be safe.
 if test -z "$DBUS_SESSION_BUS_ADDRESS" ; then
-	## If not found, launch a new one.
+	# If not found, launch a new one.
 	eval `dbus-launch --sh-syntax`
 	echo "D-Bus per-session daemon address is: $DBUS_SESSION_BUS_ADDRESS"
 fi
 
-exec pipewire &
+# Make sure XDG_DATA_DIRS is setup correctly.
+source /etc/profile.d/flatpak.sh
+
+pipewire &
 exec awesome
