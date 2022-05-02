@@ -1,1 +1,1 @@
-require("plugins.feline.settings")
+require("plugins.heirline.settings")

@@ -169,7 +169,7 @@ require("packer").startup(function()
 
 	-- Statusline
 	use({
-		"feline-nvim/feline.nvim",
+		"rebelot/heirline.nvim",
 	})
 
 	-- Bufferline

@@ -10,7 +10,7 @@ local theme = {
 
 local components = {
 	active = { {}, {} },
-	inactive = { {} },
+	-- inactive = { {} },
 }
 
 -- :h mode()
@@ -54,16 +54,6 @@ local function vi_mode()
 	return string.format(" %s ", mode)
 end
 
-local function get_git_diff(type)
-	local gsd = vim.b.gitsigns_status_dict
-
-	if gsd and gsd[type] then
-		return gsd[type]
-	end
-
-	return nil
-end
-
 local function git()
 	local branch = vim.b.gitsigns_head or vim.g.gitsigns_head or nil
 
@@ -72,6 +62,16 @@ local function git()
 	end
 
 	return string.format("  %s", branch)
+end
+
+local function get_git_diff(type)
+	local gsd = vim.b.gitsigns_status_dict
+
+	if gsd and gsd[type] then
+		return gsd[type]
+	end
+
+	return nil
 end
 
 local function git_diff()
@@ -232,43 +232,43 @@ table.insert(components.active[2], {
 })
 
 -- Inactive Left
-table.insert(components.inactive[1], {
-	provider = " ",
-	hl = {
-		bg = "#242635",
-	},
-	left_sep = "",
-	right_sep = "",
-	icon = "",
-})
-
-table.insert(components.inactive[1], {
-	provider = {
-		name = "file_info",
-		opts = {
-			type = "relative",
-			file_readonly_icon = "[RO] ",
-			file_modified_icon = "+",
-		},
-	},
-	hl = {
-		fg = "#545c7e",
-		bg = "#242635",
-	},
-	left_sep = "",
-	right_sep = "",
-	icon = "",
-})
-
-table.insert(components.inactive[1], {
-	provider = "",
-	hl = {
-		bg = "#242635",
-	},
-	left_sep = "",
-	right_sep = "",
-	icon = "",
-})
+-- table.insert(components.inactive[1], {
+-- 	provider = " ",
+-- 	hl = {
+-- 		bg = "#242635",
+-- 	},
+-- 	left_sep = "",
+-- 	right_sep = "",
+-- 	icon = "",
+-- })
+--
+-- table.insert(components.inactive[1], {
+-- 	provider = {
+-- 		name = "file_info",
+-- 		opts = {
+-- 			type = "relative",
+-- 			file_readonly_icon = "[RO] ",
+-- 			file_modified_icon = "+",
+-- 		},
+-- 	},
+-- 	hl = {
+-- 		fg = "#545c7e",
+-- 		bg = "#242635",
+-- 	},
+-- 	left_sep = "",
+-- 	right_sep = "",
+-- 	icon = "",
+-- })
+--
+-- table.insert(components.inactive[1], {
+-- 	provider = " ",
+-- 	-- hl = {
+-- 	-- 	bg = "#242635",
+-- 	-- },
+-- 	left_sep = "",
+-- 	right_sep = "",
+-- 	icon = "",
+-- })
 
 require("feline").setup({
 	theme = theme,
