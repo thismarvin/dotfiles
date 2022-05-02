@@ -83,7 +83,6 @@ require("packer").startup(function(use)
 	})
 	use({ "tpope/vim-dispatch" })
 	use({ "gpanders/editorconfig.nvim" })
-	use({ "ii14/exrc.vim" })
 	use({
 		"karb94/neoscroll.nvim",
 		config = function()
@@ -98,14 +97,33 @@ require("packer").startup(function(use)
 			require("plugins.sniprun.mappings")
 		end,
 	})
+	use({
+		"lewis6991/spellsitter.nvim",
+		requires = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("spellsitter").setup({})
+		end,
+	})
+	use({
+		"lewis6991/spaceless.nvim",
+		config = function()
+			require("spaceless").setup()
+		end,
+	})
 
 	-- Interface
 	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = { "kyazdani42/nvim-web-devicons" },
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			"kyazdani42/nvim-web-devicons",
+		},
 		config = function()
-			require("plugins.nvim-tree.settings")
-			require("plugins.nvim-tree.mappings")
+			vim.keymap.set("n", "<Leader>e", "<Cmd>NeoTreeShowToggle<CR>")
 		end,
 	})
 	use({
@@ -128,21 +146,12 @@ require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"numtostr/FTerm.nvim",
-		config = function()
-			require("plugins.fterm.settings")
-			require("plugins.fterm.mappings")
-		end,
-	})
-	use({
 		"rmagatti/goto-preview",
 		config = function()
 			require("plugins.goto-preview.settings")
 			require("plugins.goto-preview.mappings")
 		end,
 	})
-	-- use({"tversteeg/registers.nvim"})
-	-- use({ "tpope/vim-fugitive" })
 	use({
 		"norcalli/nvim-colorizer.lua",
 		ft = { "css", "html", "scss", "svelte" },
@@ -166,6 +175,15 @@ require("packer").startup(function(use)
 	})
 	use({
 		"kevinhwang91/nvim-bqf",
+	})
+	use({
+		"lewis6991/nvim-treesitter-context",
+		requires = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("treesitter-context").setup({})
+		end,
 	})
 
 	-- Statusline
@@ -196,7 +214,9 @@ require("packer").startup(function(use)
 	})
 
 	-- Color Schemes
-	use({ "sainnhe/gruvbox-material" })
+	use({
+		"sainnhe/gruvbox-material",
+	})
 	use({
 		"folke/tokyonight.nvim",
 		config = function()
@@ -213,29 +233,11 @@ require("packer").startup(function(use)
 	use({
 		"ishan9299/nvim-solarized-lua",
 	})
-	use({ "rebelot/kanagawa.nvim" })
+	use({
+		"rebelot/kanagawa.nvim",
+	})
 
 	-- Tryout
-	use({ "windwp/nvim-spectre" })
-	-- use({
-	-- 	"luukvbaal/stabilize.nvim",
-	-- 	config = function()
-	-- 		require("stabilize").setup()
-	-- 	end,
-	-- })
-	-- use({
-	-- 	"chentau/marks.nvim",
-	-- 	config = function()
-	-- 		require("plugins.marks.settings")
-	-- 	end,
-	-- })
-	-- use({
-	-- 	"code-biscuits/nvim-biscuits",
-	-- 	config = function()
-	-- 		require("plugins.nvim-biscuits.settings")
-	-- 		require("plugins.nvim-biscuits.mappings")
-	-- 	end,
-	-- })
 end)
 
 require("plugins.netrw.settings")
