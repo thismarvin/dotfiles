@@ -54,10 +54,10 @@ require("packer").startup(function(use)
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
-			{ "nvim-lua/popup.nvim" },
-			{ "nvim-lua/plenary.nvim" },
-			{ "kyazdani42/nvim-web-devicons" },
-			{ "nvim-telescope/telescope-fzy-native.nvim" },
+			"nvim-lua/popup.nvim",
+			"nvim-lua/plenary.nvim",
+			"kyazdani42/nvim-web-devicons",
+			"nvim-telescope/telescope-fzy-native.nvim",
 		},
 		config = function()
 			require("plugins.telescope.settings")
