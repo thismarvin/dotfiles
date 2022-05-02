@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-vim.keymap.set("n", "<Leader>", "<Nop>")
-vim.keymap.set({ "n", "v" }, ";", ":")
+vim.keymap.set({ "n", "v" }, "<Leader>", "<Nop>")
 vim.keymap.set("n", "U", "<C-r>")
 vim.keymap.set("n", "<Leader>w", "<C-w>")
 vim.keymap.set("v", "<", "<gv")
@@ -17,5 +17,6 @@ vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "Nzz")
 vim.keymap.set("n", "<C-i>", "<C-i>zz")
 vim.keymap.set("n", "<C-o>", "<C-o>zz")
+vim.keymap.set("n", "<Leader>nt", "gt")
 vim.keymap.set("n", "<Leader>cd", "<Cmd>cd %:p:h<CR><Cmd>echo 'Set working directory to:' expand('%:p:h')<CR>")
 vim.keymap.set("n", "<F12>", "<Cmd>setlocal spell!<CR>")
