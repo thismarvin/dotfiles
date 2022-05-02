@@ -95,7 +95,6 @@ require("packer").startup(function()
 		"michaelb/sniprun",
 		run = "bash ./install.sh",
 		config = function()
-			require("plugins.sniprun.settings")
 			require("plugins.sniprun.mappings")
 		end,
 	})
