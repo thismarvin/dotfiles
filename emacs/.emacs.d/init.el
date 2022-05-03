@@ -33,6 +33,9 @@
 (global-display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
 
+(global-display-fill-column-indicator-mode 1)
+(setq display-fill-column-indicator-column 100)
+
 (load-theme 'dichromacy t)
 
 (set-frame-font "JetBrains Mono Bold 13" nil t)
