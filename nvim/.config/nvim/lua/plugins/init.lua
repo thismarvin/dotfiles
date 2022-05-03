@@ -36,6 +36,7 @@ require("packer").startup(function(use)
 		"hrsh7th/nvim-cmp",
 		requires = {
 			"L3MON4D3/LuaSnip",
+			"rafamadriz/friendly-snippets",
 			"hrsh7th/cmp-nvim-lsp",
 			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
@@ -46,6 +47,7 @@ require("packer").startup(function(use)
 		},
 		config = function()
 			require("plugins.nvim-cmp.settings")
+			require("luasnip.loaders.from_vscode").lazy_load()
 			require("plugins.luasnip.mappings")
 		end,
 	})
