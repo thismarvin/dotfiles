@@ -100,15 +100,6 @@ require("packer").startup(function(use)
 		end,
 	})
 	use({
-		"lewis6991/spellsitter.nvim",
-		requires = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-		config = function()
-			require("spellsitter").setup({})
-		end,
-	})
-	use({
 		"lewis6991/spaceless.nvim",
 		config = function()
 			require("spaceless").setup()

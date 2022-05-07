@@ -10,7 +10,6 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.o.spell = true
 vim.o.spelllang = "en_us"
 vim.o.list = true
 vim.o.listchars = "tab:╎ ,trail:·,eol:"
