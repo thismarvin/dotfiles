@@ -89,7 +89,6 @@ require("packer").startup(function(use)
 		"karb94/neoscroll.nvim",
 		config = function()
 			require("plugins.neoscroll.settings")
-			require("plugins.neoscroll.mappings")
 		end,
 	})
 	use({
