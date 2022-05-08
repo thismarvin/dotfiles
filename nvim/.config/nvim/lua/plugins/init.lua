@@ -174,7 +174,7 @@ require("packer").startup(function(use)
 			"nvim-treesitter/nvim-treesitter",
 		},
 		config = function()
-			require("treesitter-context").setup({})
+			require("treesitter-context").setup()
 		end,
 	})
 
