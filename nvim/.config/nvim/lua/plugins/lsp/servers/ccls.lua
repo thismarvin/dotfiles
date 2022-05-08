@@ -6,10 +6,6 @@ require("lspconfig").ccls.setup({
 	handlers = require("plugins.lsp").handlers,
 	root_dir = util.root_pattern("compile_commands.json", "compile_flags.txt", ".git", ".ccls"),
 	init_options = {
-		compilationDatabaseDirectory = "build",
-		index = {
-			threads = 0,
-		},
 		clang = {
 			excludeArgs = { "-frounding-math" },
 		},

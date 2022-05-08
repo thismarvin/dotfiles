@@ -1,3 +1,5 @@
+local cmp_lsp = require("cmp_nvim_lsp")
+
 local M = {}
 
 function M.on_attach(_, bufnr)
@@ -14,8 +16,7 @@ function M.on_attach(_, bufnr)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, options)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+M.capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 M.handlers = {
 	["textDocument/publishDiagnostics"] = vim.lsp.with(
