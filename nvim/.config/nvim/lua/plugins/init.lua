@@ -78,6 +78,10 @@ require("packer").startup(function(use)
 	-- QOL
 	use({
 		"numToStr/Comment.nvim",
+		requires = {
+			"nvim-treesitter/nvim-treesitter",
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
 		config = function()
 			require("plugins.comment.settings")
 			require("plugins.comment.mappings")
@@ -124,7 +128,9 @@ require("packer").startup(function(use)
 	})
 	use({
 		"lewis6991/gitsigns.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
 		config = function()
 			require("plugins.gitsigns.settings")
 			require("plugins.gitsigns.mappings")
