@@ -1,25 +1,25 @@
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.confirm = true
-vim.o.showmode = false
-vim.o.swapfile = false
-vim.o.undofile = true
-vim.o.smartindent = true
-vim.o.breakindent = true
-vim.o.ignorecase = true
-vim.o.smartcase = true
-vim.o.splitbelow = true
-vim.o.splitright = true
-vim.o.spelllang = "en_us"
-vim.o.list = true
-vim.o.listchars = "tab:╎ ,trail:·,eol:"
-vim.o.cc = "101"
-vim.o.mouse = "a"
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
-vim.o.scrolloff = 2
-vim.o.laststatus = 3
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.confirm = true
+vim.opt.showmode = false
+vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.smartindent = true
+vim.opt.breakindent = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.spelllang = "en_us"
+vim.opt.list = true
+vim.opt.listchars = "tab:╎ ,trail:·,eol:"
+vim.opt.cc = "101"
+vim.opt.mouse = "a"
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.scrolloff = 2
+vim.opt.laststatus = 3
 
 local config_augroup = vim.api.nvim_create_augroup("config", { clear = true })
 
