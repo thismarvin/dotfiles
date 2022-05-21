@@ -5,6 +5,11 @@ alias v = ^nvim
 alias nnn = ^nnn -deo
 alias d = ^kitty +kitten diff
 alias ssh = ^kitty +kitten ssh
+alias gd = ^git diff
+alias gs = ^git status
+alias gai = ^git add -i
+alias gdc = ^git diff --cached
+alias gc = ^git commit
 
 use ~/.config/nushell/completions/git.nu *
 use ~/.config/nushell/completions/make.nu *
