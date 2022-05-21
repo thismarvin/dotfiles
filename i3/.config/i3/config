@@ -147,6 +147,7 @@ client.background       #ffffff
 
 # Execute on startup.
 exec --no-startup-id hsetroot -solid "#000000"
+exec --no-startup-id pipewire
 exec --no-startup-id picom
 exec --no-startup-id $terminal
 exec --no-startup-id $terminal --class=btm -e btm -ab
