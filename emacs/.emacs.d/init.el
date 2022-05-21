@@ -36,6 +36,8 @@
 (global-display-fill-column-indicator-mode 1)
 (setq display-fill-column-indicator-column 100)
 
+(setq colmun-number-mode t)
+
 (load-theme 'modus-vivendi t)
 
 (set-frame-font "JetBrains Mono Bold 13" nil t)
