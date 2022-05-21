@@ -81,6 +81,7 @@ theme.notification_border_color = "#ffffff"
 -- theme.notification_height
 theme.notification_spacing = dpi(16)
 
+-- System Tray.
 theme.systray_icon_spacing = dpi(2)
 
 -- mstab.

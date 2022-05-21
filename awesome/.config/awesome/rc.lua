@@ -475,7 +475,7 @@ ruled.client.connect_signal("request::rules", function()
 			class = {
 				"Element",
 				"Jitsi Meet",
-			}
+			},
 		},
 		properties = {
 			tag = screen[1].tags[4],
