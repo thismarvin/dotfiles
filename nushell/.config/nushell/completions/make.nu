@@ -1,8 +1,10 @@
 def "nu-complete make" [] {
-	open ./Makefile
+	open Makefile
 	| lines
-	| find -r '^\w+:$'
-	| each { |it| $it | str replace ':' '' }
+	| find -r '^.+:(\s+.+)*$'
+	| find -pv { |it| $it | str starts-with '.' }
+	| find -pv { |it| $it | str starts-with '$' }
+	| str replace '^(.+):(?:\s+.+)*$' '$1'
 }
 
 def "nu-complete make jobs" [] {
@@ -10,11 +12,15 @@ def "nu-complete make jobs" [] {
 }
 
 def "nu-complete make files" [] {
-	ls **/* | where type == file | get name
+	ls **/*
+	| where type == file
+	| get name
 }
 
 def "nu-complete make dirs" [] {
-	ls **/* | where type == dir | get name
+	ls **/*
+	| where type == dir
+	| get name
 }
 
 export extern "make" [
