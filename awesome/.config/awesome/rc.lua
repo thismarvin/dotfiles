@@ -265,15 +265,15 @@ awful.keyboard.append_global_keybindings({
 	end, { description = "restore minimized", group = "client" }),
 })
 
--- -- Layout related keybindings.
--- awful.keyboard.append_global_keybindings({
--- 	awful.key({ modkey }, "space", function()
--- 		awful.layout.inc(1)
--- 	end, { description = "select next", group = "layout" }),
--- 	awful.key({ modkey, "Shift" }, "space", function()
--- 		awful.layout.inc(-1)
--- 	end, { description = "select previous", group = "layout" }),
--- })
+-- Layout related keybindings.
+awful.keyboard.append_global_keybindings({
+	awful.key({ modkey }, "space", function()
+		awful.layout.inc(1)
+	end, { description = "select next", group = "layout" }),
+	awful.key({ modkey, "Shift" }, "space", function()
+		awful.layout.inc(-1)
+	end, { description = "select previous", group = "layout" }),
+})
 
 awful.keyboard.append_global_keybindings({
 	awful.key({
