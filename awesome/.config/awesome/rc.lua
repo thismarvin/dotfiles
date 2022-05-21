@@ -151,8 +151,13 @@ screen.connect_signal("request::desktop_decoration", function(s)
 	})
 
 	s.my_text_clock = wibox.widget({
-		format = " %F::%R",
-		widget = wibox.widget.textclock,
+		{
+			format = "%F::%R",
+			widget = wibox.widget.textclock,
+		},
+		left = 8,
+		right = 8,
+		widget = wibox.container.margin,
 	})
 
 	-- Create the wibox.
@@ -164,15 +169,13 @@ screen.connect_signal("request::desktop_decoration", function(s)
 	-- Add widgets to the wibox.
 	s.my_wibox.widget = {
 		s.my_tag_list,
-		{ widget = wibox.container.background },
 		{
-			{
-				wibox.widget.systray(),
-				s.my_text_clock,
-				layout = wibox.layout.fixed.horizontal,
-			},
-			right = 8,
-			widget = wibox.container.margin,
+			widget = wibox.container.background,
+		},
+		{
+			wibox.widget.systray(),
+			s.my_text_clock,
+			layout = wibox.layout.fixed.horizontal,
 		},
 		layout = wibox.layout.align.horizontal,
 	}
