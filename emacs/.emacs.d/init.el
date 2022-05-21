@@ -40,7 +40,7 @@
 
 (load-theme 'modus-vivendi t)
 
-(set-frame-font "JetBrains Mono Bold 13" nil t)
+(add-to-list 'default-frame-alist '(font . "JetBrains Mono Bold 13"))
 
 ;; MELPA
 (require 'package)
