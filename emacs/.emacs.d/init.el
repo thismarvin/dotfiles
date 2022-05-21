@@ -36,7 +36,7 @@
 (global-display-fill-column-indicator-mode 1)
 (setq display-fill-column-indicator-column 100)
 
-(load-theme 'dichromacy t)
+(load-theme 'modus-vivendi t)
 
 (set-frame-font "JetBrains Mono Bold 13" nil t)
 
@@ -55,13 +55,16 @@
  '(custom-safe-themes
    '("deddb3d85a1d464eeb3e1990039a508d5374a38be16c85498279977383ba40a8" "6c4c97a17fc7b6c8127df77252b2d694b74e917bab167e7d3b53c769a6abb6d6" "753f94728bb9d1e50ec142acd6f91642ade3e7c56ffa1a79da1b25bb709ccdf0" default))
  '(package-selected-packages
-   '(astyle avy flycheck flyspell-correct-ivy magit lsp-ui company ccls lsp-mode vscode-dark-plus-theme tree-sitter-langs tree-sitter editorconfig)))
+   '(tree-sitter-langs tree-sitter magit-delta rust-mode astyle avy flycheck flyspell-correct-ivy magit lsp-ui company ccls lsp-mode editorconfig)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; flyspell
+(add-hook 'text-mode-hook #'flyspell-mode)
 
 ;; tree-sitter
 (require 'tree-sitter)
@@ -72,15 +75,12 @@
 ;; editorconfig
 (editorconfig-mode 1)
 
+;; magit-delta
+(add-hook 'magit-mode-hook #'magit-delta-mode)
+
 ;; lsp-mode
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
-(require 'lsp-mode)
-(add-hook 'c-mode-hook #'lsp)
-
-;; flyspell-correct-ivy
-(require 'flyspell-correct-ivy)
-(define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
 
 ;; ivy
 (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
@@ -91,4 +91,3 @@
 ;; astyle
 (require 'astyle)
 (add-hook 'c-mode-hook #'astyle-on-save-mode)
-
