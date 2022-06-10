@@ -68,9 +68,16 @@ local Mode = {
 			t = "T", -- Terminal mode: keys go to the job
 		},
 	},
+	init = function(self)
+		-- Execute this only once, this is required if you want the ViMode component to be updated on
+		-- operator pending mode.
+		if not self.once then
+			vim.api.nvim_create_autocmd("ModeChanged", { command = "redrawstatus" })
+			self.once = true
+		end
+	end,
 	provider = function(self)
 		local mode = vim.fn.mode(1)
-
 		return string.format(" %s ", self.mode_map[mode])
 	end,
 	hl = {
@@ -78,6 +85,9 @@ local Mode = {
 		bg = colors.blue,
 		bold = true,
 	},
+	-- Re-evaluate the component only on ModeChanged event!
+	-- This is not required in any way, but it's there, and it's a small performance improvement.
+	update = "ModeChanged",
 	SeparatorLine,
 }
 
