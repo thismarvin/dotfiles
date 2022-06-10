@@ -1,10 +1,10 @@
 $(VERBOSE).SILENT:
 
-.PHONY: all
-all:
+.PHONY: @all
+@all:
 	@echo Done
 
-.PHONY: format
-format:
+.PHONY: @format
+@format:
 	stylua ./lua init.lua
 	@echo Done
