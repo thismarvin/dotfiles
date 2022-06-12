@@ -175,7 +175,7 @@ require("packer").startup(function(use)
 		"kevinhwang91/nvim-bqf",
 	})
 	use({
-		"lewis6991/nvim-treesitter-context",
+		"nvim-treesitter/nvim-treesitter-context",
 		requires = {
 			"nvim-treesitter/nvim-treesitter",
 		},
