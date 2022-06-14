@@ -8,6 +8,7 @@ alias ssh = ^kitty +kitten ssh
 alias gd = ^git diff
 alias gs = ^git status
 alias gai = ^git add -i
+alias gap = ^git add -p
 alias gdc = ^git diff --cached
 alias gc = ^git commit
 
