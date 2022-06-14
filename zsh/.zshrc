@@ -30,28 +30,3 @@ alias d="kitty +kitten diff"
 
 # Keymaps
 bindkey "^R" history-incremental-search-backward
-
-# Misc.
-
-# Enable nnn's cd on quit.
-function n ()
-{
-	# Block nesting of nnn in subshells
-	if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
-		echo "nnn is already running"
-		return
-	fi
-
-	# To cd on quit only on ^G.
-	NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-
-	nnn "$@"
-
-	if [ -f "$NNN_TMPFILE" ]; then
-		. "$NNN_TMPFILE"
-		rm -f "$NNN_TMPFILE" > /dev/null
-	fi
-}
-
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
