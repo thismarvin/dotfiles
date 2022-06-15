@@ -12,6 +12,7 @@ alias gap = ^git add -p
 alias gdc = ^git diff --cached
 alias gc = ^git commit
 
+use ~/.config/nushell/completions/nu.nu *
 use ~/.config/nushell/completions/git.nu *
 use ~/.config/nushell/completions/make.nu *
 
