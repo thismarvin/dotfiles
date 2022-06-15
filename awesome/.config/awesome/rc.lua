@@ -463,6 +463,17 @@ ruled.client.connect_signal("request::rules", function()
 	})
 
 	ruled.client.append_rule({
+		rule = { class = "dev" },
+		properties = {
+			floating = true,
+			x = display_width * 0.5,
+			y = 2,
+			width = display_width * 0.5 - 4,
+			height = display_height - 4 - 24,
+		},
+	})
+
+	ruled.client.append_rule({
 		rule = { class = "btm" },
 		properties = {
 			tag = screen[1].tags[3],

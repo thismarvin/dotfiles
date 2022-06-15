@@ -41,4 +41,11 @@ fi
 source /etc/profile.d/flatpak.sh
 
 pipewire &
+picom &
+emacs --daemon &
+kitty &
+(sleep 0.75; emacsclient -c) &
+(sleep 1; kitty --class=dev) &
+kitty --class=btm -e btm &
+(sleep 0.25; kitty --class=btm -e btm -ab) &
 exec awesome
