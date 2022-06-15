@@ -15,6 +15,7 @@ alias gc = ^git commit
 use ~/.config/nushell/completions/nu.nu *
 use ~/.config/nushell/completions/git.nu *
 use ~/.config/nushell/completions/make.nu *
+use ~/.config/nushell/completions/cargo.nu *
 
 let default_theme = {
 	# Color for nushell primitives
