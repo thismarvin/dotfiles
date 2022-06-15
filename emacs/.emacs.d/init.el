@@ -40,7 +40,8 @@
 
 (load-theme 'modus-vivendi t)
 
-(add-to-list 'default-frame-alist '(font . "JetBrains Mono Bold 13"))
+(setq default-frame-alist
+	'((width . 120) (height . 40) (menu-bar-lines . 1) (font . "JetBrains Mono Bold 13")))
 
 ;; MELPA
 (require 'package)
