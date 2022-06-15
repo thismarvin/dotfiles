@@ -16,8 +16,7 @@
 
  ;; Always redraw immediately when scrolling, more responsive and doesn't hang!
  fast-but-imprecise-scrolling nil
- jit-lock-defer-time 0
- )
+ jit-lock-defer-time 0)
 
 (delete-selection-mode 1)
 (global-auto-revert-mode 1)
@@ -41,7 +40,7 @@
 (load-theme 'modus-vivendi t)
 
 (setq default-frame-alist
-	'((width . 120) (height . 40) (menu-bar-lines . 1) (font . "JetBrains Mono Bold 13")))
+ '((width . 120) (height . 40) (menu-bar-lines . 1) (font . "JetBrains Mono Bold 13")))
 
 ;; MELPA
 (require 'package)
