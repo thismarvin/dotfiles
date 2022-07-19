@@ -1,8 +1,10 @@
+# DO NOT USE THIS
+
 set $mod Mod4
 set $terminal kitty
 set $launcher kitty --class=launcher bash "sway-launcher-desktop"
 
-output HDMI-A-2 mode 1920x1080@75Hz bg #000000 solid_color
+output HDMI-A-2 mode 1920x1080@75Hz
 output * bg #000000 solid_color
 
 font pango:JetBrains Mono 8
@@ -120,15 +122,16 @@ bindsym $mod+Shift+e exec "swaymsg exit"
 bindsym $mod+r mode "resize"
 
 mode "resize" {
-	bindsym Left resize shrink width 10 px or 10 ppt
-	bindsym Down resize grow height 10 px or 10 ppt
-	bindsym Up resize shrink height 10 px or 10 ppt
-	bindsym Right resize grow width 10 px or 10 ppt
+	bindsym Left resize grow width 10 px or 10 ppt
+	bindsym Down resize shrink height 10 px or 10 ppt
+	bindsym Up resize grow height 10 px or 10 ppt
+	bindsym Right resize shrink width 10 px or 10 ppt
 	bindsym Escape mode "default"
 }
 
 bar {
 	position bottom
+	status_command "while true; do nu -c \"date now | date format '%Y-%m-%d::%H:%M '\"; sleep 20; done"
 }
 
 titlebar_border_thickness 2
@@ -143,8 +146,10 @@ client.unfocused        #2f2f2f #222222 #888888 #777777   #2f2f2f
 # client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 # client.background       #ffffff
 
+include /etc/sway/config.d/*
+
 # Execute on startup.
-exec pipewire
+exec mako
 exec $terminal
 exec "kitty --class=btm -e btm -ab"
 exec "sleep 1; kitty --class=btm -e btm"
