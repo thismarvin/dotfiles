@@ -47,4 +47,5 @@ let-env LANG = 'en_US.UTF-8'
 let-env LC_ALL = 'en_US.UTF-8'
 let-env TERMINAL = 'kitty'
 let-env EDITOR = 'nvim'
-let-env MANPAGER = 'nvim +Man! -c "colorscheme default"'
+let-env MANPAGER = 'nvim +Man!'
+let-env MOZ_ENABLE_WAYLAND = '1';
