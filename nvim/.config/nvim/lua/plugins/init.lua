@@ -55,11 +55,11 @@ require("packer").startup(function(use)
 	-- "Gaze deeply into unknown regions using the power of the moon."
 	use({
 		"nvim-telescope/telescope.nvim",
+		branch = "0.1.x",
 		requires = {
-			"nvim-lua/popup.nvim",
 			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
 			"kyazdani42/nvim-web-devicons",
-			"nvim-telescope/telescope-fzy-native.nvim",
 		},
 		config = function()
 			require("plugins.telescope.settings")
