@@ -189,22 +189,7 @@ require("packer").startup(function(use)
 		"rebelot/heirline.nvim",
 	})
 
-	-- Bufferline
-	use({
-		"nanozuki/tabby.nvim",
-		config = function()
-			require("plugins.tabby.settings")
-		end,
-	})
-
 	-- Filetypes
-	use({
-		"simrat39/rust-tools.nvim",
-		ft = { "rust" },
-		config = function()
-			require("plugins.rust-tools.settings")
-		end,
-	})
 	use({
 		"mattn/emmet-vim",
 		ft = { "html", "svelte" },
