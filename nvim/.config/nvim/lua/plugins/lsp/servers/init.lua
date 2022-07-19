@@ -1,5 +1,6 @@
 local servers = {
 	"ccls",
+	"clojure_lsp",
 	"cssls",
 	"eslint",
 	"html",
