@@ -1,15 +1,11 @@
 # Nushell Config File
 
-alias .. = cd ..
 alias v = ^nvim
 alias nnn = ^nnn -deo
-alias d = ^kitty +kitten diff
 alias ssh = ^kitty +kitten ssh
-alias gd = ^git diff
 alias gs = ^git status
-alias gai = ^git add -i
-alias gap = ^git add -p
-alias gdc = ^git diff --cached
+alias gd = ^git diff
+alias ga = ^git add
 alias gc = ^git commit
 
 use ~/.config/nushell/completions/nu.nu *
