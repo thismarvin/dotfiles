@@ -203,22 +203,13 @@ require("packer").startup(function(use)
 	})
 	use({
 		"folke/tokyonight.nvim",
-		config = function()
-			vim.g.tokyonight_style = "night"
-			vim.g.tokyonight_dark_sidebar = true
-		end,
-	})
-	use({
-		"marko-cerovac/material.nvim",
-		config = function()
-			vim.g.material_style = "deep ocean"
-		end,
-	})
-	use({
-		"ishan9299/nvim-solarized-lua",
 	})
 	use({
 		"rebelot/kanagawa.nvim",
+	})
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
 	})
 
 	-- Tryout

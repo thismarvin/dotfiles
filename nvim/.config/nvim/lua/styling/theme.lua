@@ -6,7 +6,20 @@ if has("termguicolors") then
 	set("termguicolors")
 end
 
-execute([[colorscheme groovemat]])
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_dark_sidebar = true
+
+vim.g.catppuccin_flavour = "latte"
+
+require('kanagawa').setup({
+	-- transparent = true,
+	dimInactive = true,
+	globalStatus = true,
+})
+
+-- execute([[colorscheme tokyonight]])
+-- execute([[colorscheme kanagawa]])
+execute([[colorscheme catppuccin]])
 
 execute([[
 " Makes the background transparent.
