@@ -8,10 +8,10 @@ alias gd = ^git diff
 alias ga = ^git add
 alias gc = ^git commit
 
-use ~/.config/nushell/completions/nu.nu *
-use ~/.config/nushell/completions/git.nu *
-use ~/.config/nushell/completions/make.nu *
-use ~/.config/nushell/completions/cargo.nu *
+# use ~/.config/nushell/completions/nu.nu *
+# use ~/.config/nushell/completions/git.nu *
+# use ~/.config/nushell/completions/make.nu *
+# use ~/.config/nushell/completions/cargo.nu *
 
 let default_theme = {
 	# Color for nushell primitives
@@ -86,23 +86,23 @@ let-env config = {
 	sync_history_on_enter: true # Enable to share the history between multiple sessions, else you have to close the session to persist history to file
 	shell_integration: true # enables terminal markers and a workaround to arrow keys stop working issue
 	disable_table_indexes: false # set to true to remove the index column from tables
-	cd_with_abbreviations: true # set to true to allow you to do things like cd s/o/f and nushell expand it to cd some/other/folder
-	case_sensitive_completions: false # set to true to enable case-sensitive completions
-	enable_external_completion: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up my be very slow
+	# cd_with_abbreviations: true # set to true to allow you to do things like cd s/o/f and nushell expand it to cd some/other/folder
+	# case_sensitive_completions: false # set to true to enable case-sensitive completions
+	# enable_external_completion: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up my be very slow
 
-	hooks: {
-		pre_prompt: [{
-			$nothing # replace with source code to run before the prompt is shown
-		}]
-		pre_execution: [{
-			$nothing # replace with source code to run before the repl input is run
-		}]
-		env_change: {
-			PWD: [{|before, after|
-				$nothing # replace with source code to run if the PWD environment is different since the last repl input
-			}]
-		}
-	}
+	# hooks: {
+	# 	pre_prompt: [{
+	# 		$nothing # replace with source code to run before the prompt is shown
+	# 	}]
+	# 	pre_execution: [{
+	# 		$nothing # replace with source code to run before the repl input is run
+	# 	}]
+	# 	env_change: {
+	# 		PWD: [{|before, after|
+	# 			$nothing # replace with source code to run if the PWD environment is different since the last repl input
+	# 		}]
+	# 	}
+	# }
 	menus: [
 		# Configuration for default nushell menus
 		# Note the lack of souce parameter
