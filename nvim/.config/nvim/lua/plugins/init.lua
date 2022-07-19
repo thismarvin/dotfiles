@@ -119,7 +119,8 @@ require("packer").startup(function(use)
 			"kyazdani42/nvim-web-devicons",
 		},
 		config = function()
-			vim.keymap.set("n", "<Leader>e", "<Cmd>NeoTreeShowToggle<CR>")
+			require("plugins.neo-tree.settings")
+			require("plugins.neo-tree.mappings")
 		end,
 	})
 	use({
