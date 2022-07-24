@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<Leader>p", "<Cmd>Telescope find_files find_command=rg,--no-ignore,--hidden,--files<CR>")
+vim.keymap.set("n", "<Leader>p", "<Cmd>Telescope find_files find_command=fd,--no-ignore,--hidden<CR>")
 vim.keymap.set("n", "<Leader>/", "<Cmd>Telescope current_buffer_fuzzy_find<CR>")
 vim.keymap.set("n", "<Leader>f", "<Cmd>Telescope live_grep<CR>")
 vim.keymap.set("n", "<Leader>ss", "<Cmd>Telescope lsp_document_symbols<CR>")
